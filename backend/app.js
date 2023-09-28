@@ -7,7 +7,7 @@ const cors = require("cors");
 const path = require("path");
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://mern-stack-ecommerce-web-app-ulu4-1o8hw2m4w.vercel.app',
   credentials: true
 }));
 
