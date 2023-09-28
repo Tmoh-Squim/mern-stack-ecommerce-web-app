@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "buil":"npm i",
+    "build":"npm i",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false"
   },
   "author": "Timothy squim",
