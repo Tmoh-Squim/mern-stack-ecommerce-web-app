@@ -1,3 +1,24 @@
+//slide data
+export const slideData=[
+  {
+    id:"001",
+    img:"",
+    title:"https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.freepik.com%2Ffree-psd%2Fonline-shopping-concept-banner-template_23-2148559464.jpg&tbnid=7tlex_LxrtbtOM&vet=12ahUKEwj3rrT--s6BAxX0rycCHSjCBMMQMygCegQIARBP..i&imgrefurl=https%3A%2F%2Fwww.freepik.com%2Fpsd%2Fe-commerce-banner&docid=s4Dl_SSM6AOb8M&w=626&h=352&q=ecommerce%20banner%20image&ved=2ahUKEwj3rrT--s6BAxX0rycCHSjCBMMQMygCegQIARBP",
+    cta:"Shop now"
+  },
+  {
+    id:"002",
+    img:"https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.freepik.com%2Ffree-psd%2Fe-commerce-big-sale-banner-template_23-2149006698.jpg%3Fw%3D2000&tbnid=mqorab_OCFcHWM&vet=12ahUKEwj3rrT--s6BAxX0rycCHSjCBMMQMygHegQIARBZ..i&imgrefurl=https%3A%2F%2Fwww.freepik.com%2Ffree-psd%2Fe-commerce-big-sale-banner-template_15516719.htm&docid=VQYRFjqb45CcGM&w=2000&h=1125&q=ecommerce%20banner%20image&ved=2ahUKEwj3rrT--s6BAxX0rycCHSjCBMMQMygHegQIARBZ",
+    title:"",
+    cta:"Shop now"
+  },
+  {
+    id:"003",
+    img:"https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F3669ad_bef0af9bd2504259abcc0634a0af2ae8~mv2.png%2Fv1%2Ffill%2Fw_640%2Ch_360%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_auto%2F3669ad_bef0af9bd2504259abcc0634a0af2ae8~mv2.png&tbnid=phwedtL52zuwqM&vet=12ahUKEwi1iJ6t_M6BAxV3nCcCHQojDEUQMygJegQIARBJ..i&imgrefurl=https%3A%2F%2Fwww.mfilterit.com%2Fblog%2Fecom-banner-ads-stories&docid=wnqmtRocnbHiYM&w=640&h=360&q=ecommerce%20banner%20image&hl=en&ved=2ahUKEwi1iJ6t_M6BAxV3nCcCHQojDEUQMygJegQIARBJ",
+    title:"",
+    cta:"Shop now"
+  },
+]
 // navigation Data
 export const navItems = [
     {
