@@ -163,8 +163,7 @@ router.get(
   catchAsyncErrors(async (req, res, next) => {
     try {
       res.cookie("token",null,{
-        expires: new Date(Date.now()+1000*60*15),
-        domain:"https://squimstech.vercel.app",
+        expires: new Date(Date.now()),
         httpOnly: true,
       });
       res.status(201).json({
