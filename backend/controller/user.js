@@ -162,7 +162,7 @@ router.get(
   "/logout",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      res.cookies.set("token",'',{
+      res.cookie("token",'',{
         expires:Date(0),
         domain:"https://squimstech.vercel.app",
         maxAge:0,
