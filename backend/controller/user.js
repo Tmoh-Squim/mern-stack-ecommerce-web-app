@@ -40,7 +40,7 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
 
     const activationToken = createActivationToken(user);
 
-    const activationUrl = `https://squimstech.vercel.app/activation/${activationToken}`;
+    const activationUrl = `https://mern-stack-ecommerce-web-app-ulu4-1o8hw2m4w.vercel.app/activation/${activationToken}`;
 
     try {
       await sendMail({
@@ -162,17 +162,15 @@ router.get(
   "/logout",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      res.cookie("token",'',{
-        expires:Date(0),
+      res.clearCookie("token",null,{
+        expires: new Date(0),
         domain:"https://squimstech.vercel.app",
-        maxAge:0,
-        overwrite:true,
+        httpOnly: true,
       });
       res.status(201).json({
         success: true,
         message: "Log out successful!",
       });
-      res.end()
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
     }
