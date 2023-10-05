@@ -40,7 +40,7 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
 
     const activationToken = createActivationToken(user);
 
-    const activationUrl = `https://mern-stack-ecommerce-web-app-ulu4-1o8hw2m4w.vercel.app/activation/${activationToken}`;
+    const activationUrl = `https://squimstech.vercel.app/activation/${activationToken}`;
 
     try {
       await sendMail({
@@ -162,7 +162,7 @@ router.get(
   "/logout",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      res.cookie("token", null, {
+      res.clearCookie("token", null, {
         expires: new Date(Date.now()),
         httpOnly: true,
       });

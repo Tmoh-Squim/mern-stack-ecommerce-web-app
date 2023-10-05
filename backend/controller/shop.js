@@ -44,7 +44,7 @@ router.post("/create-shop", upload.single("file"), async (req, res, next) => {
 
     const activationToken = createActivationToken(seller);
 
-    const activationUrl = `https://mern-stack-ecommerce-web-app-ulu4-1o8hw2m4w.vercel.app/seller/${activationToken}`;
+    const activationUrl = `https://squimstech.vercel.app/seller/${activationToken}`;
 
     try {
       await sendMail({
