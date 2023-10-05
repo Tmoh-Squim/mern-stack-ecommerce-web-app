@@ -162,8 +162,8 @@ router.get(
   "/logout",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      res.clearCookie("token",null,{
-        expires: new Date(0),
+      res.cookie("token",null,{
+        expires: new Date(Date.now()+1000*60*15),
         domain:"https://squimstech.vercel.app",
         httpOnly: true,
       });
