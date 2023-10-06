@@ -22,7 +22,7 @@ const Hero = () => {
         typeSpeed={100}
         backSpeed={50}
         loop
-        className={`text-[35px] leading-[1.2] 800px:text-[60px] text-[#4b48f3] font-[600] capitalize`}
+        className={`text-[35px] leading-[1.2] 800px:text-[60px] text-[crimson] font-[600] capitalize`}
          />
         <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#000000ba]">
         Open your door to the world of grilling with the sleek Spirit II E-210 gas grill.<br/>
