@@ -18,8 +18,8 @@ import { addTocart } from "../../redux/actions/cart";
 import { toast } from "react-toastify";
 import Ratings from "./Ratings";
 import axios from "axios";
-import ReactImageMagnify from "react-image-magnify"
-
+//import ReactImageMagnify from "react-image-magnify"
+//import ReactImageZoom from "react-image-zoom"
 const ProductDetails = ({ data }) => {
   const { wishlist } = useSelector((state) => state.wishlist);
   const { cart } = useSelector((state) => state.cart);
@@ -120,27 +120,11 @@ const ProductDetails = ({ data }) => {
           <div className="w-full py-5">
             <div className="block w-full 800px:flex">
               <div className="w-full 800px:w-[50%]">
-
-                <ReactImageMagnify
-                className="w-[80%]"
-                {...{
-                  smallImage:{
-                    alt:"backend image",
-                    isFluidWidth:true,
-                    scr:`${backend_url}${data && data.images[select]}`,
-                    width:140,
-                    height:162
-                  },
-                  largeImage:{
-                    scr:`${backend_url}${data && data.images[select]}`,
-                    width:836,
-                    height:1100
-                  },
-                  //enlargedImagePosition:'over',
-                  lensStyle:{backgroundColor:`rgba(0,0,0,.6)`}
-                }}
-                 />
-                
+                  <img
+                  src={`${backend_url}${data && data.images[select]}`}
+                  alt=""
+                  className="w-[80%]"
+                />                
                 <div className="w-full flex">
                   {data &&
                     data.images.map((i, index) => (
