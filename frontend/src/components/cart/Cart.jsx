@@ -111,7 +111,7 @@ const CartSingle = ({ data, quantityChangeHandler, removeFromCartHandler }) => {
   };
 
   return (
-    <div className="border-b p-4">
+    <div className="border-b p-3">
       <div className="w-full flex items-center">
         <div>
           <div
@@ -131,7 +131,7 @@ const CartSingle = ({ data, quantityChangeHandler, removeFromCartHandler }) => {
         <img
           src={`${backend_url}${data?.images[0]}`}
           alt=""
-          className="w-[120px] h-min ml-2 mr-1 rounded-[5px]"
+          className="w-[110px] h-min ml-2 mr-1 rounded-[5px]"
         />
         <div className="pl-[5px]">
           <h1>{data.name}</h1>
