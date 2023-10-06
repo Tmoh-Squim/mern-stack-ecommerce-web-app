@@ -285,7 +285,7 @@ const Header = ({ activeHeading }) => {
                         <Link to={`/product/${Product_name}`}>
                           <div className="flex items-center">
                             <img
-                              src={i.image_Url[0].url}
+                              src={`${backend_url}${i.images[0]}`}
                               alt=""
                               className="w-[50px] mr-2"
                             />
