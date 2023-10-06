@@ -128,9 +128,13 @@ const ProductDetails = ({ data }) => {
                     alt:"backend image",
                     isFluidWidth:true,
                     scr:`${backend_url}${data && data.images[select]}`,
+                    width:140,
+                    height:162
                   },
                   largeImage:{
                     scr:`${backend_url}${data && data.images[select]}`,
+                    width:836,
+                    height:1100
                   },
                   //enlargedImagePosition:'over',
                   lensStyle:{backgroundColor:`rgba(0,0,0,.6)`}
