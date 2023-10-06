@@ -37,9 +37,10 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
       password: password,
       avatar: fileUrl,
     };
-    user = await User.create(user);
+     await User.create(user);
     res.send({
-      message:"Email registerd successfully! continue to login"
+      success:true,
+      message:"Email registerd successfully! continue to login 😇"
     })
     //const activationToken = createActivationToken(user);
 
