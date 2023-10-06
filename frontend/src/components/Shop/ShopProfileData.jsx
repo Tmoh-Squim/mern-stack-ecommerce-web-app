@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
 import ProductCard from "../Route/ProductCard/ProductCard";
 import { backend_url } from "../../server";

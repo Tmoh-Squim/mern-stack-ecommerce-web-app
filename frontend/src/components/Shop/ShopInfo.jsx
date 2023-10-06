@@ -54,7 +54,7 @@ const ShopInfo = ({ isOwner }) => {
           <img
             src={`${backend_url}${data.avatar}`}
             alt=""
-            className="w-[100px] h-[100px] object-cover rounded-full"
+            className="w-[150px] h-[150px] object-cover rounded-full"
           />
         </div>
         <h3 className="text-center py-2 text-[20px]">{data.name}</h3>
@@ -89,6 +89,13 @@ const ShopInfo = ({ isOwner }) => {
             <span className="text-white">Edit Shop</span>
           </div>
            </Link>
+           <div>
+              <Link to="/dashboard">
+                <div className={`${styles.button} !w-full !h-[42px] !rounded-[5px]`}>
+                  <span className="text-[#fff]">Go Dashboard</span>
+                </div>
+              </Link>
+            </div>
           <div className={`${styles.button} !w-full !h-[42px] !rounded-[5px]`}
           onClick={logoutHandler}
           >
@@ -97,15 +104,6 @@ const ShopInfo = ({ isOwner }) => {
         </div>
       )}
       <div>
-          {isOwner && (
-            <div>
-              <Link to="/dashboard">
-                <div className={`${styles.button} !rounded-[4px] h-[42px]`}>
-                  <span className="text-[#fff]">Go Dashboard</span>
-                </div>
-              </Link>
-            </div>
-          )}
         </div>
     </div>
     )
