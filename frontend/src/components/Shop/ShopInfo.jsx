@@ -49,7 +49,7 @@ const ShopInfo = ({ isOwner }) => {
       <Loader />
     ) : (
       <div>
-      <div className="w-full py-4 ">
+      <div className="w-full 800px:w-[100px] py-4 ">
         <div className="w-full flex item-center justify-center">
           <img
             src={`${backend_url}${data.avatar}`}
