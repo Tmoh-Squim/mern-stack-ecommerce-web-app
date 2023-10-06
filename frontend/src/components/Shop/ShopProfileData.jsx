@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
-import styles from "../../styles/styles";
 import ProductCard from "../Route/ProductCard/ProductCard";
 import { backend_url } from "../../server";
 import Ratings from "../Products/Ratings";
 import { getAllEventsShop } from "../../redux/actions/event";
 
-const ShopProfileData = ({ isOwner }) => {
+const ShopProfileData = () => {
   const { products } = useSelector((state) => state.products);
   const { events } = useSelector((state) => state.events);
   const { id } = useParams();
@@ -57,17 +56,7 @@ const ShopProfileData = ({ isOwner }) => {
             </h5>
           </div>
         </div>
-        <div>
-          {isOwner && (
-            <div>
-              <Link to="/dashboard">
-                <div className={`${styles.button} !rounded-[4px] h-[42px]`}>
-                  <span className="text-[#fff]">Go Dashboard</span>
-                </div>
-              </Link>
-            </div>
-          )}
-        </div>
+        
       </div>
 
       <br />
