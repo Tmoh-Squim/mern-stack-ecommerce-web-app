@@ -114,9 +114,9 @@ const ProductDetails = ({ data }) => {
   };
 
   const props={
-    width:400,
-                  height:500,
-                  zoomWidth:500,
+                 width:400,
+                  height:400,
+                  zoomWidth:300,
                   img:`${backend_url}${data && data.images[select]}`
   }
 
@@ -131,8 +131,8 @@ const ProductDetails = ({ data }) => {
                 {
                   ...props
                 }
-                />
-                                
+                className="mt-4 !w-[80%]"
+                />                
                 <div className="w-full flex">
                   {data &&
                     data.images.map((i, index) => (
