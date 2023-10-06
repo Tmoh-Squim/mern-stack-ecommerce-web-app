@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../../../styles/styles";
-import {slideData} from "../../../static/data"
+import Typed from "react-typed"
 const Hero = () => {
   return (
     <div
@@ -12,16 +12,23 @@ const Hero = () => {
       }}
     >
       <div className={`${styles.section} w-[90%] 800px:w-[60%]`}>
-        <h1
-          className={`text-[35px] leading-[1.2] 800px:text-[60px] text-[#3d3a3a] font-[600] capitalize`}
-        >
-          Best Collection for <br /> home Decoration
-        </h1>
+        <Typed
+        strings={[
+          "Welcome to squims ecommerce website",
+          "Home of all decorations",
+          "Look for any item you need in the store",
+          "And am glad you visited the website,Welcome Back 🙂"
+        ]}
+        typeSpeed={150}
+        backSpeed={100}
+        loop
+        className={`text-[35px] leading-[1.2] 800px:text-[60px] text-[#3d3a3a] font-[600] capitalize`}
+         />
         <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#000000ba]">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae,
-          assumenda? Quisquam itaque <br /> exercitationem labore vel, dolore
-          quidem asperiores, laudantium temporibus soluta optio consequatur{" "}
-          <br /> aliquam deserunt officia. Dolorum saepe nulla provident.
+        Open your door to the world of grilling with the sleek Spirit II E-210 gas grill.<br/>
+         This two burner grill is built to fit small spaces, <br/>
+         and packed with features such as the powerful GS4 grilling system, iGrill capability,<br/>
+          and convenient side tables for placing serving trays. Welcome to the Weber squims store.
         </p>
         <Link to="/products" className="inline-block">
             <div className={`${styles.button} mt-5`}>
