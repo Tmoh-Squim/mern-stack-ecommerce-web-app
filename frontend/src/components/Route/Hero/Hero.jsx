@@ -14,15 +14,15 @@ const Hero = () => {
       <div className={`${styles.section} w-[90%] 800px:w-[60%]`}>
         <Typed
         strings={[
-          "Welcome to squims ecommerce website",
+          "Welcome to squims ecommerce website 🛒",
           "Home of all decorations",
           "Look for any item you need in the store",
           "And am glad you visited the website,Welcome Back 🙂"
         ]}
-        typeSpeed={150}
-        backSpeed={100}
+        typeSpeed={200}
+        backSpeed={150}
         loop
-        className={`text-[35px] leading-[1.2] 800px:text-[60px] text-[#3d3a3a] font-[600] capitalize`}
+        className={`text-[35px] leading-[1.2] 800px:text-[60px] text-[crimson] font-[600] capitalize`}
          />
         <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#000000ba]">
         Open your door to the world of grilling with the sleek Spirit II E-210 gas grill.<br/>
