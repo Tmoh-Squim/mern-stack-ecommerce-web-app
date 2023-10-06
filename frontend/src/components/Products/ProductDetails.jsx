@@ -116,7 +116,7 @@ const ProductDetails = ({ data }) => {
   const props={
                  width:400,
                   height:400,
-                  zoomWidth:400,
+                  zoomWidth:500,
                   img:`${backend_url}${data && data.images[select]}`
   }
 
@@ -145,7 +145,7 @@ const ProductDetails = ({ data }) => {
                           src={`${backend_url}${i}`}
                           alt=""
                           className="h-[110px] w-[110px] overflow-hidden mr-3 mt-3"
-                          onClick={() => setSelect(index)}
+                          onMouseOver={() => setSelect(index)}
                         />
                       </div>
                     ))}
