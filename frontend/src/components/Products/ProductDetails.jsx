@@ -19,7 +19,7 @@ import { toast } from "react-toastify";
 import Ratings from "./Ratings";
 import axios from "axios";
 //import ReactImageMagnify from "react-image-magnify"
-//import ReactImageZoom from "react-image-zoom"
+import ReactImageZoom from "react-image-zoom"
 const ProductDetails = ({ data }) => {
   const { wishlist } = useSelector((state) => state.wishlist);
   const { cart } = useSelector((state) => state.cart);
@@ -113,6 +113,13 @@ const ProductDetails = ({ data }) => {
     }
   };
 
+  const props={
+    width:400,
+                  height:500,
+                  zoomWidth:500,
+                  img:`${backend_url}${data && data.images[select]}`
+  }
+
   return (
     <div className="bg-white">
       {data ? (
@@ -120,11 +127,12 @@ const ProductDetails = ({ data }) => {
           <div className="w-full py-5">
             <div className="block w-full 800px:flex">
               <div className="w-full 800px:w-[50%]">
-                  <img
-                  src={`${backend_url}${data && data.images[select]}`}
-                  alt=""
-                  className="w-[80%]"
-                />                
+                <ReactImageZoom
+                {
+                  ...props
+                }
+                />
+                                
                 <div className="w-full flex">
                   {data &&
                     data.images.map((i, index) => (
