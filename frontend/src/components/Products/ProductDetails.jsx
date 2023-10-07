@@ -18,7 +18,6 @@ import { addTocart } from "../../redux/actions/cart";
 import { toast } from "react-toastify";
 import Ratings from "./Ratings";
 import axios from "axios";
-//import ReactImageMagnify from "react-image-magnify"
 import ReactImageZoom from "react-image-zoom"
 const ProductDetails = ({ data }) => {
   const { wishlist } = useSelector((state) => state.wishlist);
@@ -208,7 +207,7 @@ const ProductDetails = ({ data }) => {
                 </div>
                 <div
                   className={`${styles.button} !mt-6 !rounded !h-11 flex items-center`}
-                  onClick={() => addToCartHandler(data._id)}
+                  onClick={() => addToCartHandler(data && data.images[select])}
                 >
                   <span className="text-white flex items-center">
                     Add to cart <AiOutlineShoppingCart className="ml-1" />
