@@ -1,9 +1,8 @@
 const multer = require("multer");
-const path = require("path");
-
+const ErrorHandler=require("./utils/ErrorHandler.js")
 const storage = multer.diskStorage({
     destination: function (req,res,cb){
-        cb(null, path.join(__dirname, './uploads'));
+        cb(null, 'uploads');
     },
     filename: function (req,file,cb) {
         const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
@@ -12,4 +11,13 @@ const storage = multer.diskStorage({
     },
 });
 
-exports.upload = multer({storage: storage});
+exports.upload = multer({storage: storage,
+    fileFilter:(req,file,cb)=>{
+        if(file.mimetype=="image/png" || file.mimetype=="image/jpg" || file.mimetype=="image/jpeg"){
+            cb(null,true);
+        }else{
+            cb(null,false);
+            return cb(new ErrorHandler("file type is not valide"))
+        }
+    }
+});
