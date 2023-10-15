@@ -1,8 +1,9 @@
 const multer = require("multer");
 const ErrorHandler=require("./utils/ErrorHandler.js")
+const path=require("path")
 const storage = multer.diskStorage({
     destination: function (req,res,cb){
-        cb(null,__dirname+"uploads");
+        cb(null,path.join(__dirname,"./uploads");
     },
     filename: function (req,file,cb) {
         const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
