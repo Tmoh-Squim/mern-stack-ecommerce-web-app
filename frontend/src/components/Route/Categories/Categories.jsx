@@ -36,16 +36,17 @@ const Categories = () => {
               };
               return (
                 <div
-                  className="w-full h-[100px] flex items-center justify-between cursor-pointer overflow-hidden"
+                  className="w-[48%] 800px:w-full h-[100px] flex flex-col 800px:flex items-center justify-between cursor-pointer overflow-hidden"
                   key={i.id}
                   onClick={() => handleSubmit(i)}
                 >
-                  <h5 className={`text-[18px] leading-[1.3]`}>{i.title}</h5>
                   <img
                     src={i.image_Url}
-                    className="w-[120px] object-cover"
+                    className="w-[70px] 800px:w-[120px] object-cover"
                     alt=""
                   />
+                  <h5 className={`text-[13px] 800px:text-[18px] leading-[1.3]`}>{i.title}</h5>
+                  
                 </div>
               );
             })}
