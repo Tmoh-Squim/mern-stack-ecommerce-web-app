@@ -36,7 +36,7 @@ const Categories = () => {
               };
               return (
                 <div
-                  className="w-[48%] 800px:w-full h-[100px] flex flex-col 800px:flex items-center justify-between cursor-pointer overflow-hidden"
+                  className="w-[48%] 800px:w-full h-[100px] flex flex-wrap 800px:flex items-center justify-between cursor-pointer overflow-hidden"
                   key={i.id}
                   onClick={() => handleSubmit(i)}
                 >
