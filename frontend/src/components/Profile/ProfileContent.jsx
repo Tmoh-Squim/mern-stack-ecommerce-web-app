@@ -74,7 +74,7 @@ const ProfileContent = ({ active }) => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full overflow-hidden">
       {/* profile */}
       {active === 1 && (
         <>
