@@ -28,7 +28,7 @@ const Categories = () => {
         className={`${styles.section} bg-white p-6 rounded-lg mb-12`}
         id="categories"
       >
-        <div className="grid grid-cols-1 gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-5 xl:gap-[30px]">
+        <div className=" flex flex-wrap 800px:grid grid-cols-1 gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-5 xl:gap-[30px]">
           {categoriesData &&
             categoriesData.map((i) => {
               const handleSubmit = (i) => {
@@ -36,7 +36,7 @@ const Categories = () => {
               };
               return (
                 <div
-                  className="w-[48%] 800px:w-full h-[100px] flex flex-wrap 800px:flex items-center justify-between cursor-pointer overflow-hidden"
+                  className="w-[48%] 800px:w-full h-[100px] 800px:flex items-center justify-between cursor-pointer overflow-hidden"
                   key={i.id}
                   onClick={() => handleSubmit(i)}
                 >

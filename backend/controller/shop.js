@@ -41,37 +41,43 @@ router.post("/create-shop", upload.single("file"), async (req, res, next) => {
       phoneNumber: req.body.phoneNumber,
       zipCode: req.body.zipCode,
     };
+    await Shop.create(seller);
+    res.send({
+      success:true,
+      message:"Shop registerd successfully! continue to login 😇"
+    })
 
-    const activationToken = createActivationToken(seller);
+    //const activationToken = createActivationToken(seller);
 
-    const activationUrl = `https://squimstech.vercel.app/seller/${activationToken}`;
+    //const activationUrl = `https://squimstech.vercel.app/seller/${activationToken}`;
 
-    try {
-      await sendMail({
-        email: seller.email,
-        subject: "Activate your Shop",
-        message: `Hello ${seller.name}, please click on the link to activate your shop: ${activationUrl}`,
-      });
-      res.status(201).json({
-        success: true,
-        message: `please check your email:- ${seller.email} to activate your shop!`,
-      });
-    } catch (error) {
-      return next(new ErrorHandler(error.message, 500));
-    }
+    //try {
+    //  await sendMail({
+    //    email: seller.email,
+    //    subject: "Activate your Shop",
+    //    message: `Hello ${seller.name}, please click on the link to activate your shop: ${activationUrl}`,
+    //  });
+    //  res.status(201).json({
+    //    success: true,
+    //    message: `please check your email:- ${seller.email} to activate your shop!`,
+    //  });
+   // } catch (error) {
+    //  return next(new ErrorHandler(error.message, 500));
+ //   }
   } catch (error) {
     return next(new ErrorHandler(error.message, 400));
   }
 });
 
 // create activation token
-const createActivationToken = (seller) => {
-  return jwt.sign(seller, process.env.ACTIVATION_SECRET, {
-    expiresIn: "5m",
-  });
-};
+//const createActivationToken = (seller) => {
+//  return jwt.sign(seller, process.env.ACTIVATION_SECRET, {
+  //  expiresIn: "5m",
+  //});
+//};
 
 // activate user
+/*
 router.post(
   "/activation",
   catchAsyncErrors(async (req, res, next) => {
@@ -111,6 +117,7 @@ router.post(
     }
   })
 );
+*/
 
 // login shop
 router.post(
