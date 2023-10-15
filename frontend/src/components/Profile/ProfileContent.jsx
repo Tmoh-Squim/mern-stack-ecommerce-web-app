@@ -74,7 +74,7 @@ const ProfileContent = ({ active }) => {
   };
 
   return (
-    <div className="w-full overflow-hidden">
+    <div className="w-full overflow-x-hidden">
       {/* profile */}
       {active === 1 && (
         <>
@@ -149,7 +149,7 @@ const ProfileContent = ({ active }) => {
                 </div>
               </div>
               <input
-                className={`w-[250px] h-[40px] border border-[#3a24db] text-center text-[#3a24db] rounded-[3px] mt-8 cursor-pointer`}
+                className={`w-[230px] h-[40px] border border-[#3a24db] text-center text-[#3a24db] rounded-[3px] mt-8 cursor-pointer`}
                 required
                 value="Update"
                 type="submit"
