@@ -69,7 +69,7 @@ const ProductCard = ({ data,isEvent }) => {
           <img
             src={`${backend_url}${data.images && data.images[0]}`}
             alt=""
-            className="w-full h-[170px] object-cover"
+            className="w-full h-[170px] object-cover 800px:object-contain"
           />
         </Link>
         <Link to={`/shop/preview/${data?.shop._id}`}>
@@ -79,8 +79,8 @@ const ProductCard = ({ data,isEvent }) => {
           <h4 className="pb-3 font-[500]">
             {data.name.length > 20 ? data.name.slice(0, 20) + "..." : data.name}
           </h4>
-          <div className="py-2 flex items-start px-2">
-            <div className="flex">
+          <div className="py-2 items-start">
+            <div className="flex items-start">
               <h5 className={`${styles.productDiscountPrice}`}>
                ksh {data.originalPrice === 0
                   ? data.originalPrice
@@ -90,12 +90,13 @@ const ProductCard = ({ data,isEvent }) => {
                 {" ksh" + data.originalPrice ? data.originalPrice  : null}
               </h4>
             </div>
-            </div>
-            <div className="flex p-2">
+            <div className="flex">
           <Ratings rating={data?.ratings} />
           </div>
-          
-          
+          <span className="font-[400] text-[13px] text-[#68d284]">
+              {data?.sold_out} sold
+            </span>
+            </div>
         </Link>
 
         {/* side options */}
