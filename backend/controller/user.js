@@ -37,16 +37,17 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
       password: password,
       avatar: fileUrl,
     };
-     await User.create(user);
+    /* await User.create(user);
     res.send({
       success:true,
       message:"Email registerd successfully! continue to login 😇"
     })
-    //const activationToken = createActivationToken(user);
+    */
+    const activationToken = createActivationToken(user);
 
-   // const activationUrl = `https://mern-stack-ecommerce-web-app-ulu4-1o8hw2m4w.vercel.app/activation/${activationToken}`;
+    const activationUrl = `https://mern-stack-ecommerce-web-app-ulu4-1o8hw2m4w.vercel.app/activation/${activationToken}`;
 
-   // try {
+    try {
       await sendMail({
         email: user.email,
         subject: "Activate your account",
@@ -56,15 +57,15 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
         success: true,
         message: `please check your email:- ${user.email} to activate your account!`,
       });
-   // } catch (error) {
-    //  return next(new ErrorHandler(error.message, 500));
-   // }
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
   } catch (error) {
     return next(new ErrorHandler(error.message, 400));
   }
   
 });
-/*
+
 // create activation token
 const createActivationToken = (user) => {
   return jwt.sign(user, process.env.ACTIVATION_SECRET, {
@@ -107,7 +108,7 @@ router.post(
     }
   })
 );
-*/
+
 
 // login user
 router.post(
