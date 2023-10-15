@@ -69,7 +69,7 @@ const ProductCard = ({ data,isEvent }) => {
           <img
             src={`${backend_url}${data.images && data.images[0]}`}
             alt=""
-            className="w-full h-[170px] object-contain"
+            className="w-full h-[170px] object-cover"
           />
         </Link>
         <Link to={`/shop/preview/${data?.shop._id}`}>
@@ -77,10 +77,10 @@ const ProductCard = ({ data,isEvent }) => {
         </Link>
         <Link to={`${isEvent === true ? `/product/${data._id}?isEvent=true` : `/product/${data._id}`}`}>
           <h4 className="pb-3 font-[500]">
-            {data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}
+            {data.name.length > 20 ? data.name.slice(0, 20) + "..." : data.name}
           </h4>
 
-          <div className="flex">
+          <div className="flex p-0">
           <Ratings rating={data?.ratings} />
           </div>
 
@@ -95,9 +95,7 @@ const ProductCard = ({ data,isEvent }) => {
                 {" ksh" + data.originalPrice ? data.originalPrice  : null}
               </h4>
             </div>
-            <span className="font-[400] text-[17px] text-[#68d284]">
-              {data?.sold_out} sold
-            </span>
+           
           </div>
         </Link>
 
