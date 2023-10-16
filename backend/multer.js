@@ -2,7 +2,7 @@ const multer = require("multer");
 const ErrorHandler=require("./utils/ErrorHandler.js")
 const storage = multer.diskStorage({
     destination: function (req,file,cb){
-        cb(null,"https://github.com/Tmoh-Squim/mern-stack-ecommerce-web-app/tree/main/backend/uploads");
+        cb(null,"https://github.com/Tmoh-Squim/mern-stack-ecommerce-web-app/tree/main/backend/uploads/");
     },
     filename: function (req,file,cb) {
         const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
