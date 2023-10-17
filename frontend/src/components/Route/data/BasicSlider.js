@@ -26,7 +26,7 @@ const BasicSlider = () => {
         shouldAutoplay:true,
         shouldDisplayButtons:true,
         autoplayDuration:1000,
-        height:"50vh"
+        height:"25vh"
     }}
     >
         <Slide 
