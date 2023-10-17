@@ -26,35 +26,31 @@ const BasicSlider = () => {
         shouldAutoplay:true,
         shouldDisplayButtons:true,
         autoplayDuration:1000,
-        height:"25vh"
+        height:"50vh"
     }}
     >
         <Slide 
         background={{
             backgroundImageSrc:img1,
-            backgroundAttachment:"fixed",
-            backgroundSize:"250px"
+            backgroundAttachment:"fixed"
         }}
         />
         <Slide 
         background={{
             backgroundImageSrc:img2,
-            backgroundAttachment:"fixed",
-            backgroundSize:"250px"
+            backgroundAttachment:"fixed"
         }}
         />
         <Slide 
         background={{
             backgroundImageSrc:img3,
-            backgroundAttachment:"fixed",
-            backgroundSize:"250px"
+            backgroundAttachment:"fixed"
         }}
         />
         <Slide 
         background={{
             backgroundImageSrc:img4,
-            backgroundAttachment:"fixed",
-            backgroundSize:"250px"
+            backgroundAttachment:"fixed"
         }}
         />
         <Nav />
