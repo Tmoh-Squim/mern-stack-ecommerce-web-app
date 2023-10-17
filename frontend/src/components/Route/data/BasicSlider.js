@@ -1,5 +1,5 @@
 import React from 'react'
-import HeroSlider,{Slide} from 'hero-slider'
+import HeroSlider,{Slide,Nav} from 'hero-slider'
 
 //images
 const img1="https://i.imgur.com/Gu5Cznz.jpg"
@@ -29,29 +29,30 @@ const BasicSlider = () => {
     }}
     >
         <Slide 
-        Background={{
-            backgroundImage:img1,
-            backgroundAttachment:"fixed"
-        }}
-        />
-        <Slide 
-        Background={{
-            backgroundImage:img2,
-            backgroundAttachment:"fixed"
-        }}
-        />
-        <Slide 
-        Background={{
-            backgroundImage:img3,
+        background={{
+            backgroundImageSrc:img1,
             backgroundAttachment:"fixed"
         }}
         />
         <Slide 
         background={{
-            backgroundImage:img4,
+            backgroundImageSrc:img2,
             backgroundAttachment:"fixed"
         }}
         />
+        <Slide 
+        background={{
+            backgroundImageSrc:img3,
+            backgroundAttachment:"fixed"
+        }}
+        />
+        <Slide 
+        background={{
+            backgroundImageSrc:img4,
+            backgroundAttachment:"fixed"
+        }}
+        />
+        <Nav />
     </HeroSlider>
     </>
   )
