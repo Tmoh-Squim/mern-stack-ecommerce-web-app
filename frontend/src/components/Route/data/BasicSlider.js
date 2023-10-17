@@ -29,19 +29,19 @@ const BasicSlider = () => {
     }}
     >
         <Slide 
-        background={{
+        Background={{
             backgroundImage:img1,
             backgroundAttachment:"fixed"
         }}
         />
         <Slide 
-        background={{
+        Background={{
             backgroundImage:img2,
             backgroundAttachment:"fixed"
         }}
         />
         <Slide 
-        background={{
+        Background={{
             backgroundImage:img3,
             backgroundAttachment:"fixed"
         }}
