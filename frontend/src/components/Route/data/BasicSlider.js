@@ -22,11 +22,11 @@ const BasicSlider = () => {
     }}
     settings={{
         slidingDuration:200,
-        slidingDelay:false,
+        slidingDelay:0,
         shouldAutoplay:true,
         shouldDisplayButtons:true,
         autoplayDuration:1000,
-        height:"-30vh"
+        height:"50vh"
     }}
     >
         <Slide 
