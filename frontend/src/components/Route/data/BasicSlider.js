@@ -13,6 +13,7 @@ const BasicSlider = () => {
     slidingAnimation="left_to_right"
     orientation="horizontal"
     initialSlide={1}
+    autoplay
     onBeforeChange={(previousSlide,nextSlide)=>console.log("onBeforeChange",previousSlide,nextSlide)}
     onChange={nextSlide=>console.log("onChange",nextSlide)}
     onAfterChange={nextSlide=>console.log("onAfterChange",nextSlide)}
@@ -22,9 +23,9 @@ const BasicSlider = () => {
     settings={{
         slidingDuration:250,
         slidingDelay:100,
-        shouldAutoPlay:true,
+        shouldAutoplay:true,
         shouldDisplayButtons:true,
-        autoplayDuration:2000,
+        autoplayDuration:1000,
         height:"50vh"
     }}
     >
