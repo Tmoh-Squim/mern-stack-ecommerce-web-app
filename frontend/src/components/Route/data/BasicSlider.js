@@ -32,25 +32,24 @@ const BasicSlider = () => {
         <Slide 
         background={{
             backgroundImageSrc:img1,
-            backgroundAttachment:"fixed"
         }}
         />
         <Slide 
         background={{
             backgroundImageSrc:img2,
-            backgroundAttachment:"fixed"
+            
         }}
         />
         <Slide 
         background={{
             backgroundImageSrc:img3,
-            backgroundAttachment:"fixed"
+            
         }}
         />
         <Slide 
         background={{
             backgroundImageSrc:img4,
-            backgroundAttachment:"fixed"
+            
         }}
         />
         <Nav />
