@@ -2,9 +2,8 @@ import React from "react";
 //import { Link } from "react-router-dom";
 import styles from "../../../styles/styles";
 //import Typed from "react-typed"
-import ImageSlider from '../data/ImageSlider';
-import ImageSliderAuto from '../data/ImageSliderAuto';
-import { ImageData } from '../data/Slider';
+import BasicSlider from "../data/BasicSlider"
+//import { ImageData } from '../data/Slider';
 const Hero = () => {
   return (
     <>
@@ -15,9 +14,7 @@ const Hero = () => {
           "url(https://themes.rslahmed.dev/rafcart/assets/images/banner-2.jpg)",
       }}
     >
-      <div className="w-full">
-          <ImageSliderAuto ImageData={ImageData} SlideInterValTime={ 2000} loop/>
-          </div>
+      <BasicSlider />
     </div>
     </>
   );
