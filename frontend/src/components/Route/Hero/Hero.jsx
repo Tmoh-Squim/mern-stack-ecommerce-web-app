@@ -16,7 +16,7 @@ const Hero = () => {
       }}
     >
        <ImageSlider ImageData={ImageData}/><br/>
-          <ImageSliderAuto ImageData={ImageData} SlideInterValTime={ 2000}/>
+          <ImageSliderAuto ImageData={ImageData} SlideInterValTime={ 2000} loop/>
     </div>
     </>
   );
