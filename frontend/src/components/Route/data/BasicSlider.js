@@ -21,8 +21,8 @@ const BasicSlider = () => {
         backgroundColor:"rgba(0,0,0,0.33)"
     }}
     settings={{
-        slidingDuration:250,
-        slidingDelay:0,
+        slidingDuration:200,
+        slidingDelay:false,
         shouldAutoplay:true,
         shouldDisplayButtons:true,
         autoplayDuration:1000,
