@@ -22,7 +22,7 @@ const BasicSlider = () => {
     settings={{
         slidingDuration:250,
         slidingDelay:100,
-        shouldAutoplay:true,
+        shouldAutoPlay:true,
         shouldDisplayButtons:true,
         autoplayDuration:2000,
         height:"50vh"
