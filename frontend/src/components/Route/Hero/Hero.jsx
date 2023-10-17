@@ -7,9 +7,9 @@ import BasicSlider from "../data/BasicSlider"
 const Hero = () => {
   return (
     <>
-    <div className="w-full h-[30vh] 800px:h-[40vh]">
+    <div className="w-full !h-[30vh] !800px:h-[40vh]">
     <div
-      className={`relative w-full bg-no-repeat ${styles.noramlFlex}`}
+      className={`relative  w-full bg-no-repeat ${styles.noramlFlex}`}
       style={{
         backgroundImage:
           "url(https://themes.rslahmed.dev/rafcart/assets/images/banner-2.jpg)",
