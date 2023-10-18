@@ -7,8 +7,9 @@ import BasicSlider from "../data/BasicSlider"
 const Hero = () => {
   return (
     <>
+    <div className="w-full h-[15vh] 800px:h-[50vh] m-3">
     <div
-      className={`relative h-[35vh] 800px:h-[35vh] w-full bg-no-repeat ${styles.noramlFlex} border rounded-md`}
+      className={`relative h-[25vh] 800px:h-[50vh] w-full bg-no-repeat ${styles.noramlFlex}`}
       style={{
         backgroundImage:
           "url(https://themes.rslahmed.dev/rafcart/assets/images/banner-2.jpg)",
@@ -18,6 +19,7 @@ const Hero = () => {
       <BasicSlider />
       </div>
       
+    </div>
     </div>
     </>
   );
