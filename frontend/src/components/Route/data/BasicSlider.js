@@ -19,7 +19,7 @@ const BasicSlider = () => {
     onChange={nextSlide=>console.log("onChange",nextSlide)}
     onAfterChange={nextSlide=>console.log("onAfterChange",nextSlide)}
     style={{
-        backgroundColor:"rgba(0,0,0,0.33)"
+        backgroundColor:"rgba(0,0,0,0.33)",height:"25vh"
     }}
     className="w-full h-[25vh] 800px:h[35vh]"
     settings={{
@@ -28,7 +28,6 @@ const BasicSlider = () => {
         shouldAutoplay:true,
         shouldDisplayButtons:true,
         autoplayDuration:1000,
-        height:"100%"
     }}
     >
         <Slide 
