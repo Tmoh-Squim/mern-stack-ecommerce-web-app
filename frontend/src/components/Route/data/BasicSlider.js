@@ -1,6 +1,6 @@
 import React from 'react'
 import HeroSlider,{Slide,Nav} from 'hero-slider'
-
+import "../../../App.css"
 //images
 const img1="https://i.imgur.com/Gu5Cznz.jpg"
 const img2="https://i.imgur.com/idjXzVQ.jpg"
@@ -21,7 +21,7 @@ const BasicSlider = () => {
     style={{
         height:"35vh"
     }}
-    className="relative w-full h-[25vh] 800px:h[35vh]"
+    className="relative bg-black w-full h-[25vh] 800px:h[35vh]"
     settings={{
         slidingDuration:200,
         slidingDelay:0,
