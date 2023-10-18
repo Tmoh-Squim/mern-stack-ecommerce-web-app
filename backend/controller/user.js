@@ -46,7 +46,7 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
 
    // const activationUrl = `https://squimstech.vercel.app/activation/${activationToken}`;
 
-   // try {
+   /* try {
       await sendMail({
         email: user.email,
         subject: "Activate your account",
@@ -58,7 +58,7 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
       });
    // } catch (error) {
     //  return next(new ErrorHandler(error.message, 500));
-   // }
+   // }*/
   } catch (error) {
     return next(new ErrorHandler(error.message, 400));
   }
