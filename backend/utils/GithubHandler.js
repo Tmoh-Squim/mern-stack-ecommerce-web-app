@@ -19,7 +19,7 @@ async function commitToGitHub(fileUrl) {
       base_tree: repo.data.default_branch,
       tree: [
         {
-          path: '/backend/uploads',
+          path: `/backend/uploads/${fileUrl}`,
           mode: '100644',
           type: 'blob',
           content,
@@ -38,7 +38,7 @@ async function commitToGitHub(fileUrl) {
     await octokit.git.updateRef({
       owner: 'Tmoh-Squim',
       repo: 'mern-stack-ecommerce-web-app',
-      ref: `heads/${repo.data.default_branch}`,
+      ref: `heads/main`,
       sha: commit.data.sha,
     });
 
