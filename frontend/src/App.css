@@ -37,6 +37,9 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+.hero-slider-wrapper.HeroSlider-module_Wrapper__TaeBr{
+  height: 120px;
+}
 .custom-hero-slider{
   height: 120px;
 }
