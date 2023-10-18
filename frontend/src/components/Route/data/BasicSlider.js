@@ -20,7 +20,6 @@ const BasicSlider = () => {
           }
           onChange={(nextSlide) => console.log("onChange", nextSlide)}
           onAfterChange={(nextSlide) => console.log("onAfterChange", nextSlide)}
-          className="relative bg-black w-full h-[25vh] 800px:h[35vh]"
           settings={{
             slidingDuration: 200,
             slidingDelay: 0,

@@ -37,6 +37,9 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+.hero-slider-wrapper{
+  height: 15vh;
+}
 
 /* Firefox */
 input[type=number] {
