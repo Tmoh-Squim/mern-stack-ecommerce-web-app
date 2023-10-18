@@ -9,6 +9,7 @@ const img4="https://i.imgur.com/8IuucQZ.jpg"
 const BasicSlider = () => {
   return (
     <>
+    <div style={{height:"35vh"}}>
     <HeroSlider
     slidingAnimation="left_to_right"
     orientation="horizontal"
@@ -59,6 +60,7 @@ const BasicSlider = () => {
         />
         <Nav />
     </HeroSlider>
+    </div>
     </>
   )
 }
