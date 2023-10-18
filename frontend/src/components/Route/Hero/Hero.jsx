@@ -14,7 +14,7 @@ const Hero = () => {
           "url(https://themes.rslahmed.dev/rafcart/assets/images/banner-2.jpg)",
       }}
     >
-      <div className="w-full h-[100%] !m-3 !mr-3 border border-gray-50 !rounded-[10px]">
+      <div className="w-full h-[100%]">
       <BasicSlider />
       </div>
       
