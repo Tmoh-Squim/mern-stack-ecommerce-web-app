@@ -9,7 +9,7 @@ const img4="https://i.imgur.com/8IuucQZ.jpg"
 const BasicSlider = () => {
   return (
     <>
-    <div style={{height:"35vh"}}>
+    <div className="h-[25vh] 800px:h-[35vh]">
     <HeroSlider
     slidingAnimation="left_to_right"
     orientation="horizontal"
