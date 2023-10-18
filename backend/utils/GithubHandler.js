@@ -1,5 +1,5 @@
 const { Octokit } = require('@octokit/rest');
-const fs = require("fs").promises;
+const fs = require("fs");
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN, // Use your GitHub personal access token
 });
@@ -22,7 +22,7 @@ async function commitToGitHub(fileUrl) {
       ref: `heads/${defaultBranch}`,
     })).data.object.sha;
 
-    const imageContent = await fs.readFile(fileUrl);
+    const imageContent = fs.readFile(fileUrl);
 
     const tree = await octokit.git.createTree({
       owner: 'Tmoh-Squim',
