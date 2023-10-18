@@ -34,13 +34,13 @@ if (repo.data && repo.data.default_branch) {
         },
       ],
     });
-
+    const commitSha = repo?.data?.commit?.sha || null;
     const commit = await octokit.git.createCommit({
       owner: 'Tmoh-Squim',
       repo: 'mern-stack-ecommerce-web-app',
       message: 'Add uploaded file',
       tree: tree.data.sha,
-      parents: [repo.data.commit.sha],
+      parents: commitSha,
     });
 
     await octokit.git.updateRef({
