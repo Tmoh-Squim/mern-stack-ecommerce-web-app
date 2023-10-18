@@ -21,6 +21,7 @@ const BasicSlider = () => {
     style={{
         backgroundColor:"rgba(0,0,0,0.33)"
     }}
+    className="w-full h-[25vh] 800px:h[35vh]"
     settings={{
         slidingDuration:200,
         slidingDelay:0,
