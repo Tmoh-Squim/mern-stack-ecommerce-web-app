@@ -1,30 +1,52 @@
 const { Octokit } = require('@octokit/rest');
+const fs = require('fs').promises;
 
-const commitToGitHub = async (fileUrl) => {
-    const octokit = new Octokit({
-      auth: 'process.env.GITHUB_TOKEN', // Replace with your GitHub personal access token
+const octokit = new Octokit({
+  auth: process.env.GITHUB_TOKEN, // Use your GitHub personal access token
+});
+
+async function commitToGitHub(fileUrl) {
+  try {
+    const { data: repo } = await octokit.repos.get({
+      owner: 'Tmoh-Squim',
+      repo: 'mern-stack-ecommerce-web-app',
     });
-  
-    const repoOwner = 'Tmoh-Squim'; // Replace with your GitHub username
-    const repoName = 'mern-stack-ecommerce-web-app'; // Replace with your repository name
-  
+
+    // Read the file content
     const content = Buffer.from(JSON.stringify({ avatar: fileUrl })).toString('base64');
-  
-    try {
-      const { data } = await octokit.repos.createOrUpdateFileContents({
-        owner: repoOwner,
-        repo: repoName,
-        path: 'user-avatar.json', // Replace with the desired path and filename in your repo
-        message: 'Update user avatar',
-        content,
-      });
-  
-      return data.commit.html_url; // Return the commit URL
-    } catch (error) {
-      console.error('Error committing to GitHub:', error);
-      throw new Error('Failed to commit to GitHub');
-    }
-  };
-  
+    const tree = await octokit.git.createTree({
+      owner: 'Tmoh-Squim',
+      repo: 'mern-stack-ecommerce-web-app',
+      base_tree: repo.data.default_branch,
+      tree: [
+        {
+          path: fileUrl,
+          mode: '100644',
+          type: 'blob',
+          content,
+        },
+      ],
+    });
+
+    const commit = await octokit.git.createCommit({
+      owner: 'Tmoh-Squim',
+      repo: 'mern-stack-ecommerce-web-app',
+      message: 'Add uploaded file',
+      tree: tree.data.sha,
+      parents: [repo.data.commit.sha],
+    });
+
+    await octokit.git.updateRef({
+      owner: 'Tmoh-Squim',
+      repo: 'mern-stack-ecommerce-web-app',
+      ref: `heads/${repo.data.default_branch}`,
+      sha: commit.data.sha,
+    });
+
+    console.log('File pushed to GitHub successfully.');
+  } catch (error) {
+    console.error('Error pushing file to GitHub:', error);
+  }
+}
 
 module.exports = { commitToGitHub };
