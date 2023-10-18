@@ -18,14 +18,14 @@ const BasicSlider = () => {
     onChange={nextSlide=>console.log("onChange",nextSlide)}
     onAfterChange={nextSlide=>console.log("onAfterChange",nextSlide)}
     style={{
-        backgroundColor:"rgba(0,0,0,0.33)",
+        height:"35vh"
     }}
     className="relative w-full h-[25vh] 800px:h[35vh]"
     settings={{
         slidingDuration:200,
         slidingDelay:0,
         shouldAutoplay:true,
-        shouldDisplayButtons:true,
+        shouldDisplayButtons:false,
         autoplayDuration:1000,
     }}
     >
