@@ -14,8 +14,13 @@ async function commitToGitHub(fileUrl) {
     console.log("repo",repo)
     // Read the file content
     const content = Buffer.from(JSON.stringify({ avatar: fileUrl })).toString('base64');
-    const defaultBranch = repo.data.default_branch;
-    console.log("defaultBranch",defaultBranch)
+    let defaultBranch = 'main';  // Default branch to 'main' if not obtained from GitHub
+
+if (repo.data && repo.data.default_branch) {
+  defaultBranch = repo.data.default_branch;
+} else {
+  console.error('Unable to obtain default branch from GitHub API. Using default branch as "main".');
+}
     const tree = await octokit.git.createTree({
       owner: 'Tmoh-Squim',
       repo: 'mern-stack-ecommerce-web-app',
