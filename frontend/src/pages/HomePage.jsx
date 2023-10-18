@@ -12,7 +12,7 @@ const HomePage = () => {
   return (
     <div>
         <Header activeHeading={1} />
-        <Hero />
+        <Hero className="w-full h-[25pvh] 800px:h-[35vh]" />
         <Categories />
         <BestDeals />
         <Events />
