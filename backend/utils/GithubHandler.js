@@ -1,5 +1,4 @@
 const { Octokit } = require('@octokit/rest');
-const fs = require('fs').promises;
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN, // Use your GitHub personal access token
@@ -20,7 +19,7 @@ async function commitToGitHub(fileUrl) {
       base_tree: repo.data.default_branch,
       tree: [
         {
-          path: fileUrl,
+          path: '/backend/uploads',
           mode: '100644',
           type: 'blob',
           content,
