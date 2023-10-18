@@ -8,13 +8,13 @@ const Hero = () => {
   return (
     <>
     <div
-      className={`relative m-3 border border-gray-50 rounded-sm overflow-hidden h-[120px] 800px:h-[50vh] w-full bg-no-repeat ${styles.noramlFlex}`}
+      className={`relative overflow-hidden h-[120px] 800px:h-[50vh] w-full bg-no-repeat ${styles.noramlFlex}`}
       style={{
         backgroundImage:
           "url(https://themes.rslahmed.dev/rafcart/assets/images/banner-2.jpg)",
       }}
     >
-      <div className="w-full h-[100%] top-0 bottom-0">
+      <div className="w-full h-[100%] top-0 bottom-0 m-3 !mr-3 border border-gray-50 rounded-sm">
       <BasicSlider />
       </div>
       
