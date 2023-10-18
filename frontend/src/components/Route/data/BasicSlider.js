@@ -25,7 +25,7 @@ const BasicSlider = () => {
         slidingDuration:200,
         slidingDelay:0,
         shouldAutoplay:true,
-        shouldDisplayButtons:false,
+        shouldDisplayButtons:true,
         autoplayDuration:1000,
     }}
     >
