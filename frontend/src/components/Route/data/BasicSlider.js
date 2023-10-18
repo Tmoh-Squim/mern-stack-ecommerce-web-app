@@ -20,10 +20,6 @@ const BasicSlider = () => {
           }
           onChange={(nextSlide) => console.log("onChange", nextSlide)}
           onAfterChange={(nextSlide) => console.log("onAfterChange", nextSlide)}
-          style={{
-            height: "35vh",
-            backgroundColor: "black",
-          }}
           className="relative bg-black w-full h-[25vh] 800px:h[35vh]"
           settings={{
             slidingDuration: 200,
@@ -32,6 +28,8 @@ const BasicSlider = () => {
             shouldDisplayButtons: true,
             autoplayDuration: 1000,
           }}
+          style={{ height: "35vh",
+          backgroundColor: "black" }}
         >
           <Slide
             background={{
