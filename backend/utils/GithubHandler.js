@@ -27,7 +27,7 @@ if (repo.data && repo.data.default_branch) {
       base_tree: defaultBranch,
       tree: [
         {
-          path: `/backend/uploads/${fileUrl}`,
+          path: `backend/uploads/${fileUrl}`,
           mode: '100644',
           type: 'blob',
           content,
