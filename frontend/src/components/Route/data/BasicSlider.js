@@ -7,6 +7,14 @@ const img2="https://i.imgur.com/idjXzVQ.jpg"
 const img3="https://i.imgur.com/8DYumaY.jpg"
 const img4="https://i.imgur.com/8IuucQZ.jpg"
 const BasicSlider = () => {
+    const [sliderHeight, setSliderHeight] = useState(0);
+
+  useEffect(() => {
+    // Calculate the height of the slides and set it as the slider's height
+    const slideHeight = document.querySelector('.hero-slider-slide').clientHeight;
+    setSliderHeight(slideHeight);
+  }, []);
+
   return (
     <>
     <HeroSlider
@@ -19,8 +27,8 @@ const BasicSlider = () => {
     onAfterChange={nextSlide=>console.log("onAfterChange",nextSlide)}
     style={{
         backgroundColor:"rgba(0,0,0,0.33)",
+        height:`${sliderHeight}px`
     }}
-    className="w-full h-[25vh] 800px:h[35vh]"
     settings={{
         slidingDuration:200,
         slidingDelay:0,
