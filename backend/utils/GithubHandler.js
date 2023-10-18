@@ -14,7 +14,7 @@ async function commitToGitHub(fileUrl) {
     console.log("repo",repo)
     // Read the file content
     const content = Buffer.from(JSON.stringify({ avatar: fileUrl })).toString('base64');
-    let defaultBranch = 'main';  // Default branch to 'main' if not obtained from GitHub
+    let defaultBranch = repo?.data?.default_branch || 'main';  // Default branch to 'main' if not obtained from GitHub
 
 if (repo.data && repo.data.default_branch) {
   defaultBranch = repo.data.default_branch;
@@ -34,13 +34,13 @@ if (repo.data && repo.data.default_branch) {
         },
       ],
     });
-    const commitSha = repo?.data?.commit?.sha || null;
+    const parents = repo?.data?.commit ? [repo.data.commit.sha] : [];
     const commit = await octokit.git.createCommit({
       owner: 'Tmoh-Squim',
       repo: 'mern-stack-ecommerce-web-app',
       message: 'Add uploaded file',
       tree: tree.data.sha,
-      parents: commitSha,
+      parents,
     });
 
     await octokit.git.updateRef({
