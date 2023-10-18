@@ -9,7 +9,7 @@ const Categories = () => {
     <>
       <div className={`${styles.section} hidden sm:block`}>
         <div
-          className={`branding my-12 flex justify-between w-full shadow-sm bg-white p-2 rounded-md`}
+          className={`branding my-12 flex justify-between w-full shadow-sm bg-white p-5 rounded-md`}
         >
           {brandingData &&
             brandingData.map((i, index) => (
@@ -25,10 +25,10 @@ const Categories = () => {
       </div>
 
       <div
-        className={`${styles.section} bg-white p-4 rounded-lg mb-8`}
+        className={`${styles.section} bg-white p-6 rounded-lg mb-12`}
         id="categories"
       >
-        <div className=" flex justify-between flex-wrap 800px:grid grid-cols-1 gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-5 xl:gap-[30px]">
+        <div className=" flex justify-between mt-2 800px:mt-0 flex-wrap 800px:grid grid-cols-1 gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-5 xl:gap-[30px]">
           {categoriesData &&
             categoriesData.map((i) => {
               const handleSubmit = (i) => {
@@ -45,7 +45,7 @@ const Categories = () => {
                     className="w-[55px] 800px:w-[120px] object-cover"
                     alt=""
                   />
-                  <h5 className={`text-[11px] 800px:text-[18px] leading-[1.2]`}>{i.title}</h5>
+                  <h4 className={`text-[11px] 800px:text-[18px] leading-[1.2]`}>{i.title}</h4>
                   
                 </div>
               );
