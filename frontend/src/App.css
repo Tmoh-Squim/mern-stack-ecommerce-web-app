@@ -41,7 +41,7 @@ input::-webkit-inner-spin-button {
   height: 120px;
 }
 .custom-hero-slider{
-  height: 120px;
+  height: 120px !important;
 }
 
 /* Firefox */
