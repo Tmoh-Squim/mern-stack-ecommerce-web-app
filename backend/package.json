@@ -9,12 +9,13 @@
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "build":"npm i",
+    "build": "npm i",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false"
   },
   "author": "Timothy squim",
   "license": "ISC",
   "dependencies": {
+    "@octokit/rest": "^20.0.2",
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
     "concurrently": "^8.2.0",

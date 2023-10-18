@@ -8,6 +8,7 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
 const sendMail = require("../utils/sendMail");
+const commitToGitHub=require("../utils/GithubHandler")
 const sendToken = require("../utils/jwtToken");
 const { isAuthenticated, isAdmin } = require("../middleware/auth");
 
@@ -35,7 +36,7 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
       name: name,
       email: email,
       password: password,
-      avatar: fileUrl,
+      avatar: await commitToGitHub(fileUrl),
     };
      await User.create(user);
     res.send({
