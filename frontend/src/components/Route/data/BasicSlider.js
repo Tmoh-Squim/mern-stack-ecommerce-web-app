@@ -9,7 +9,6 @@ const img4="https://i.imgur.com/8IuucQZ.jpg"
 const BasicSlider = () => {
   return (
     <>
-    <div className="w-full h-[25vh] 800px:h-[35vh]">
     <HeroSlider
     slidingAnimation="left_to_right"
     orientation="horizontal"
@@ -19,7 +18,7 @@ const BasicSlider = () => {
     onChange={nextSlide=>console.log("onChange",nextSlide)}
     onAfterChange={nextSlide=>console.log("onAfterChange",nextSlide)}
     style={{
-        backgroundColor:"rgba(0,0,0,0.33)",height:"25vh"
+        backgroundColor:"rgba(0,0,0,0.33)",
     }}
     className="w-full h-[25vh] 800px:h[35vh]"
     settings={{
@@ -35,6 +34,7 @@ const BasicSlider = () => {
             backgroundImageSrc:img1,
             backgroundAttachment:"fixed"
         }}
+        style={{height:"25vh"}}
         />
         <Slide 
         background={{
@@ -56,7 +56,6 @@ const BasicSlider = () => {
         />
         <Nav />
     </HeroSlider>
-    </div>
     </>
   )
 }
