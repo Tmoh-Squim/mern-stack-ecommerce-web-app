@@ -20,7 +20,6 @@ const BasicSlider = () => {
     style={{
         backgroundColor:"rgba(0,0,0,0.33)",
     }}
-    className="w-full h-[25vh] 800px:h[35vh]"
     settings={{
         slidingDuration:200,
         slidingDelay:0,
@@ -34,28 +33,28 @@ const BasicSlider = () => {
             backgroundImageSrc:img1,
             backgroundAttachment:"fixed"
         }}
-        style={{height:"25vh"}}
+        className="h-[25vh] 800px:h-[35vh]"
         />
         <Slide 
         background={{
             backgroundImageSrc:img2,
             backgroundAttachment:"fixed"
         }}
-        style={{height:"25vh"}}
+        className="h-[25vh] 800px:h-[35vh]"
         />
         <Slide 
         background={{
             backgroundImageSrc:img3,
             backgroundAttachment:"fixed"
         }}
-        style={{height:"25vh"}}
+        className="h-[25vh] 800px:h-[35vh]"
         />
         <Slide 
         background={{
             backgroundImageSrc:img4,
             backgroundAttachment:"fixed"
         }}
-        style={{height:"25vh"}}
+        className="h-[25vh] 800px:h-[35vh]"
         />
         <Nav />
     </HeroSlider>
