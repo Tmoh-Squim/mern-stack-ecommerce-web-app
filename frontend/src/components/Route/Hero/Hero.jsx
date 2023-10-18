@@ -7,7 +7,6 @@ import BasicSlider from "../data/BasicSlider"
 const Hero = () => {
   return (
     <>
-    <div className="w-full h-[15vh] 800px:h-[50vh] m-3">
     <div
       className={`relative h-[25vh] 800px:h-[50vh] w-full bg-no-repeat ${styles.noramlFlex}`}
       style={{
@@ -19,7 +18,6 @@ const Hero = () => {
       <BasicSlider />
       </div>
       
-    </div>
     </div>
     </>
   );

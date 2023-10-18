@@ -35,28 +35,28 @@ const BasicSlider = () => {
             backgroundImageSrc:img1,
             backgroundAttachment:"fixed"
         }}
-        style={{height:"35vh"}}
+        style={{height:"35vh",margin:"0.8rem"}}
         />
         <Slide 
         background={{
             backgroundImageSrc:img2,
             backgroundAttachment:"fixed"
         }}
-        style={{height:"35vh"}}
+        style={{height:"35vh",margin:"0.8rem"}}
         />
         <Slide 
         background={{
             backgroundImageSrc:img3,
             backgroundAttachment:"fixed"
         }}
-        style={{height:"35vh"}}
+        style={{height:"35vh",margin:"0.8rem"}}
         />
         <Slide 
         background={{
             backgroundImageSrc:img4,
             backgroundAttachment:"fixed"
         }}
-        style={{height:"35vh"}}
+        style={{height:"35vh",margin:"0.8rem"}}
         />
         <Nav />
     </HeroSlider>
