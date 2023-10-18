@@ -11,6 +11,11 @@ async function commitToGitHub(fileUrl) {
       repo: 'mern-stack-ecommerce-web-app',
     });
 
+    console.log("repo",repo)
+    if (!repo || !repo.data || !repo.data.default_branch) {
+        console.error('Error: Unable to obtain default branch from GitHub API.');
+        return;
+      }
     // Read the file content
     const content = Buffer.from(JSON.stringify({ avatar: fileUrl })).toString('base64');
     const tree = await octokit.git.createTree({
