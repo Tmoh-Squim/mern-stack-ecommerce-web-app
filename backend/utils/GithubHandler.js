@@ -1,16 +1,19 @@
 const { Octokit } = require('@octokit/rest');
+const fs = require('fs').promises;
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN, // Use your GitHub personal access token
 });
 
-// Function to create a new commit and push to GitHub
-async function commitToGitHub(filePath, content) {
+async function commitToGitHub(fileUrl) {
   try {
     const { data: repo } = await octokit.repos.get({
       owner: 'Tmoh-Squim',
       repo: 'mern-stack-ecommerce-web-app',
     });
+
+    // Read the file content
+    const content = await fs.readFile(fileUrl, 'base64');
 
     const tree = await octokit.git.createTree({
       owner: 'Tmoh-Squim',
@@ -18,10 +21,10 @@ async function commitToGitHub(filePath, content) {
       base_tree: repo.data.default_branch,
       tree: [
         {
-          path: filePath,
+          path: fileUrl,
           mode: '100644',
           type: 'blob',
-          content: Buffer.from(content).toString('base64'),
+          content,
         },
       ],
     });
@@ -46,6 +49,5 @@ async function commitToGitHub(filePath, content) {
     console.error('Error pushing file to GitHub:', error);
   }
 }
-module.exports={commitToGitHub}
-// Use this function after uploading a file to Multer
-// Example: commitToGitHub('uploads/file.txt', 'File content');
+
+module.exports = { commitToGitHub };
