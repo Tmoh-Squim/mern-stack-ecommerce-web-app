@@ -22,7 +22,7 @@ async function commitToGitHub(fileUrl) {
       ref: `heads/${defaultBranch}`,
     })).data.object.sha;
 
-    const content = Buffer.from(JSON.stringify({ avatar: fileUrl })).toString('base64');
+    const content = Buffer.from(fileUrl).toString('base64');
 
     const tree = await octokit.git.createTree({
       owner: 'Tmoh-Squim',
