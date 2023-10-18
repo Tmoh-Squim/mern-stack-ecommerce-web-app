@@ -31,17 +31,18 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
 
     const filename = req.file.filename;
     const fileUrl = path.join(filename);
-
+    const commitUrl = await commitToGitHub(fileUrl);
     const user = {
       name: name,
       email: email,
       password: password,
-      avatar: await commitToGitHub(fileUrl),
+      avatar: fileUrl,
     };
      await User.create(user);
     res.send({
       success:true,
-      message:"Email registerd successfully! continue to login 😇"
+      message:"Email registerd successfully! continue to login 😇",
+      commitUrl
     })
     //const activationToken = createActivationToken(user);
 
