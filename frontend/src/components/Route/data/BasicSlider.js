@@ -7,7 +7,7 @@ const img2 = "https://i.imgur.com/idjXzVQ.jpg";
 const img3 = "https://i.imgur.com/8DYumaY.jpg";
 const img4 = "https://i.imgur.com/8IuucQZ.jpg";
 const BasicSlider = () => {
-    const style={
+    const sliderStyle={
         height:"120px"
     }
   return (
@@ -30,8 +30,7 @@ const BasicSlider = () => {
             shouldDisplayButtons: true,
             autoplayDuration: 1000,
           }}
-          style={{style,
-          backgroundColor: "black" }}
+          style={sliderStyle}
         >
           <Slide
             background={{
