@@ -4,7 +4,7 @@ const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN, // Use your GitHub personal access token
 });
 
-async function commitToGitHub(fileUrl) {
+async function commitToGitHub(fileUrl,file) {
   try {
     const { data: repo } = await octokit.repos.get({
       owner: 'Tmoh-Squim',
@@ -22,7 +22,7 @@ async function commitToGitHub(fileUrl) {
       ref: `heads/${defaultBranch}`,
     })).data.object.sha;
 
-    const fileContent = fs.readFileSync(fileUrl.path); // Read the file content from fileUrl
+    const fileContent = fs.readFileSync(file.path); // Read the file content from fileUrl
 
     const tree = await octokit.git.createTree({
       owner: 'Tmoh-Squim',
