@@ -1,5 +1,5 @@
 const { Octokit } = require('@octokit/rest');
-
+const fs = require("fs")
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN, // Use your GitHub personal access token
 });
@@ -31,7 +31,7 @@ async function commitToGitHub(fileUrl) {
           path: `backend/uploads/${fileUrl}`,
           mode: '100644',
           type: 'blob',
-          content:Buffer.from(fileUrl).toString('base64')
+          content:fs.readFileSync(fileUrl).toString('base64')
         },
       ],
     });
