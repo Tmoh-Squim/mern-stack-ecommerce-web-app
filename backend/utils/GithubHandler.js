@@ -22,6 +22,8 @@ async function commitToGitHub(fileUrl) {
       ref: `heads/${defaultBranch}`,
     })).data.object.sha;
 
+    const conteType=fs.readFileSync(fileUrl.path)
+
     const tree = await octokit.git.createTree({
       owner: 'Tmoh-Squim',
       repo: 'mern-stack-ecommerce-web-app',
@@ -31,7 +33,7 @@ async function commitToGitHub(fileUrl) {
           path: `backend/uploads/${fileUrl}`,
           mode: '100644',
           type: 'blob',
-          content:fs.readFileSync(fileUrl).toString('base64')
+          content:Buffer.from(fileUrl)
         },
       ],
     });
