@@ -1,5 +1,5 @@
 const { Octokit } = require('@octokit/rest');
-const path = require(path)
+const path = require("path")
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN, // Use your GitHub personal access token
