@@ -12,6 +12,12 @@ async function commitToGitHub(fileUrl,filepath) {
       repo: 'mern-stack-ecommerce-web-app',
     });
 
+    if (typeof filepath !== 'string') {
+        throw new Error('Invalid file path');
+      }else{
+        throw new Error("filepath is a string")
+      }
+
 
     const defaultBranch = repo?.data?.default_branch || 'main';
 
