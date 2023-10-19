@@ -22,7 +22,7 @@ async function commitToGitHub(fileUrl,filename) {
       ref: `heads/${defaultBranch}`,
     })).data.object.sha;
 
-    const imageBuffer = fs.readFileSync(fileUrl);
+    const imageBuffer =await fs.readFileSync(fileUrl);
     const imageContent = imageBuffer.toString('base64');
 
     const tree = await octokit.git.createTree({
