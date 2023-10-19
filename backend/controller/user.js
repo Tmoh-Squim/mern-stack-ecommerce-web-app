@@ -28,9 +28,9 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
       });
       return next(new ErrorHandler("User already exists", 400));
     }
-
-    const filename = req.file.filename;
-    const fileUrl =filename;
+    
+    const file = req.file;
+    const fileUrl =file.filename;
     const commitUrl = await commitToGitHub(fileUrl);
     const user = {
       name: name,
@@ -41,7 +41,7 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
      await User.create(user);
     res.send({
       success:true,
-      filename,
+      file,
       message:"Email registerd successfully! continue to login 😇",
       commitUrl
     })

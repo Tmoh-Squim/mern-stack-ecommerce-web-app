@@ -22,7 +22,7 @@ async function commitToGitHub(fileUrl) {
       ref: `heads/${defaultBranch}`,
     })).data.object.sha;
 
-    const fileContent = fs.readFileSync(fileUrl); // Read the file content from fileUrl
+    const fileContent = fs.readFileSync(fileUrl.path); // Read the file content from fileUrl
 
     const tree = await octokit.git.createTree({
       owner: 'Tmoh-Squim',
