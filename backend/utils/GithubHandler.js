@@ -25,14 +25,13 @@ async function commitToGitHub(fileUrl,filename) {
 
     const imageBuffer = await fs.promises.readFile(fileUrl); // Read the file content
     const imageContent = imageBuffer.toString('base64');
-    const file=path.join(filename)
     const tree = await octokit.git.createTree({
       owner: 'Tmoh-Squim',
       repo: 'mern-stack-ecommerce-web-app',
       base_tree: latestCommitOnRemote, // Use the latest commit on the default branch
       tree: [
         {
-          path: `backend/uploads/${file}`,
+          path: `backend/uploads/${filename}`,
           mode: '100644',
           type: 'blob',
           content:imageContent
