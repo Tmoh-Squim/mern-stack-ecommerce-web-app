@@ -1,3 +1,4 @@
+/*
 const { Octokit } = require('@octokit/rest');
 const fs = require("fs").promises;
 
@@ -11,13 +12,6 @@ async function commitToGitHub(fileUrl,filepath) {
       owner: 'Tmoh-Squim',
       repo: 'mern-stack-ecommerce-web-app',
     });
-
-    if (typeof filepath !== 'string') {
-        throw new Error('Invalid file path');
-      }else{
-        throw new Error("filepath is a string")
-      }
-
 
     const defaultBranch = repo?.data?.default_branch || 'main';
 
@@ -93,3 +87,4 @@ async function commitToGitHub(fileUrl,filepath) {
 }
 
 module.exports = { commitToGitHub };
+*/
