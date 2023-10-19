@@ -22,7 +22,14 @@ async function commitToGitHub(fileUrl) {
       ref: `heads/${defaultBranch}`,
     })).data.object.sha;
 
-    const conteType=fs.readFileSync(fileUrl.path)
+    const fileBuffer = fs.readFileSync(fileUrl); // Read the file as a binary buffer
+
+    const blob = await octokit.git.createBlob({
+      owner: 'Tmoh-Squim',
+      repo: 'mern-stack-ecommerce-web-app',
+      content: fileBuffer.toString('base64'), // Convert the binary buffer to base64
+      encoding: 'base64',
+    });
 
     const tree = await octokit.git.createTree({
       owner: 'Tmoh-Squim',
@@ -33,7 +40,7 @@ async function commitToGitHub(fileUrl) {
           path: `backend/uploads/${fileUrl}`,
           mode: '100644',
           type: 'blob',
-          content:Buffer.from(fileUrl)
+          sha: blob.data.sha,
         },
       ],
     });
