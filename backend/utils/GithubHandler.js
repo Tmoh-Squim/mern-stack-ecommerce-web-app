@@ -5,7 +5,7 @@ const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN, // Use your GitHub personal access token
 });
 
-async function commitToGitHub(fileUrl,file) {
+async function commitToGitHub(fileUrl,filename) {
   try {
     const { data: repo } = await octokit.repos.get({
       owner: 'Tmoh-Squim',
@@ -31,7 +31,7 @@ async function commitToGitHub(fileUrl,file) {
       base_tree: latestCommitOnRemote, // Use the latest commit on the default branch
       tree: [
         {
-          path: `backend/uploads/${file}`,
+          path: `backend/uploads/${filename}`,
           mode: '100644',
           type: 'blob',
           content:imageContent
