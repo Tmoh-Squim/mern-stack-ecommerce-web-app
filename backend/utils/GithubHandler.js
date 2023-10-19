@@ -1,5 +1,5 @@
 const { Octokit } = require('@octokit/rest');
-const fs = require("fs")
+
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN, // Use your GitHub personal access token
 });
@@ -22,14 +22,6 @@ async function commitToGitHub(fileUrl) {
       ref: `heads/${defaultBranch}`,
     })).data.object.sha;
 
-    // Read the image file as a buffer (assuming it's a local file)
-const imageBuffer = fs.readFileSync(fileUrl); // or 'path/to/your/image.png' for PNG
-
-// Encode the image buffer to base64
-const base64Image = imageBuffer.toString('base64');
-
-// Now you can include base64Image and contentType in your HTML or HTTP response
-
     const tree = await octokit.git.createTree({
       owner: 'Tmoh-Squim',
       repo: 'mern-stack-ecommerce-web-app',
@@ -39,7 +31,7 @@ const base64Image = imageBuffer.toString('base64');
           path: `backend/uploads/${fileUrl}`,
           mode: '100644',
           type: 'blob',
-          content:base64Image,
+          content:Buffer.from(fileUrl).toString('base64')
         },
       ],
     });
