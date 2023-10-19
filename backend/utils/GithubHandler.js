@@ -4,7 +4,7 @@ const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN, // Use your GitHub personal access token
 });
 
-async function commitToGitHub(fileUrl) {
+async function commitToGitHub(fileUrl,filename) {
   try {
     const { data: repo } = await octokit.repos.get({
       owner: 'Tmoh-Squim',
@@ -22,7 +22,8 @@ async function commitToGitHub(fileUrl) {
       ref: `heads/${defaultBranch}`,
     })).data.object.sha;
 
-    const content = Buffer.from(fileUrl).toString('base64');
+    const imageBuffer = fs.readFileSync(fileUrl);
+    const imageContent = imageBuffer.toString('base64');
 
     const tree = await octokit.git.createTree({
       owner: 'Tmoh-Squim',
@@ -30,10 +31,10 @@ async function commitToGitHub(fileUrl) {
       base_tree: latestCommitOnRemote, // Use the latest commit on the default branch
       tree: [
         {
-          path: `backend/uploads/${fileUrl}`,
+          path: `backend/uploads/${filename}`,
           mode: '100644',
           type: 'blob',
-          content,
+          content:imageContent
         },
       ],
     });
