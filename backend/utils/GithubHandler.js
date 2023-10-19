@@ -1,4 +1,5 @@
 const { Octokit } = require('@octokit/rest');
+const path = require(path)
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN, // Use your GitHub personal access token
@@ -23,14 +24,14 @@ async function commitToGitHub(fileUrl,filename) {
     })).data.object.sha;
 
     const content = Buffer.from(fileUrl).toString('base64');
-
+    const file=path.join(filename)
     const tree = await octokit.git.createTree({
       owner: 'Tmoh-Squim',
       repo: 'mern-stack-ecommerce-web-app',
       base_tree: latestCommitOnRemote, // Use the latest commit on the default branch
       tree: [
         {
-          path: `backend/uploads/${filename}`,
+          path: `backend/uploads/${file}`,
           mode: '100644',
           type: 'blob',
           content,
