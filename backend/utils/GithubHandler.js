@@ -1,5 +1,5 @@
 const { Octokit } = require('@octokit/rest');
-const fs = require("fs")
+
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN, // Use your GitHub personal access token
 });
@@ -22,75 +22,56 @@ async function commitToGitHub(fileUrl,filename) {
       ref: `heads/${defaultBranch}`,
     })).data.object.sha;
 
-    const fileStream = fs.createReadStream(fileUrl);
-
-    // Create a buffer to hold the file data
-    const chunks = [];
-
-    fileStream.on('data', (chunk) => {
-      chunks.push(chunk);
+    const content = Buffer.from(fileUrl).toString('base64');
+    const tree = await octokit.git.createTree({
+      owner: 'Tmoh-Squim',
+      repo: 'mern-stack-ecommerce-web-app',
+      base_tree: latestCommitOnRemote, // Use the latest commit on the default branch
+      tree: [
+        {
+          path: `backend/uploads/${filename}`,
+          mode: '100644',
+          type: 'blob',
+          content,
+        },
+      ],
     });
 
-    fileStream.on('end', async () => {
-      // Concatenate all chunks into a single Buffer
-      const imageBuffer = Buffer.concat(chunks);
+    const parents = [latestCommitOnRemote]; // Set the parent commit to the latest commit on the default branch
 
-      // Convert the Buffer to base64
-      const imageContent = imageBuffer.toString('base64');
-
-      const tree = await octokit.git.createTree({
-        owner: 'Tmoh-Squim',
-        repo: 'mern-stack-ecommerce-web-app',
-        base_tree: latestCommitOnRemote, // Use the latest commit on the default branch
-        tree: [
-          {
-            path: `backend/uploads/${filename}`,
-            mode: '100644',
-            type: 'blob',
-            content: imageContent
-          },
-        ],
-      });
-
-      const parents = [latestCommitOnRemote]; // Set the parent commit to the latest commit on the default branch
-
-      const commit = await octokit.git.createCommit({
-        owner: 'Tmoh-Squim',
-        repo: 'mern-stack-ecommerce-web-app',
-        message: 'Add uploaded file',
-        tree: tree.data.sha,
-        parents,
-      });
-
-      // Attempt to update the main branch (or the default branch) with the new commit
-      try {
-        await octokit.git.updateRef({
-          owner: 'Tmoh-Squim',
-          repo: 'mern-stack-ecommerce-web-app',
-          ref: `heads/${defaultBranch}`,
-          sha: commit.data.sha,
-        });
-      } catch (error) {
-        console.error('Error updating the branch:', error);
-
-        // Handle the case where the update is not a fast forward (e.g., conflict with remote changes)
-        console.log('Merging changes from the remote branch into the local branch...');
-        // You can use octokit.repos.merge() to perform the merge
-        await octokit.repos.merge()
-        // After merging, try to push again
-        await octokit.git.updateRef({
-          owner: 'Tmoh-Squim',
-          repo: 'mern-stack-ecommerce-web-app',
-          ref: `heads/${defaultBranch}`,
-          sha: commit.data.sha,
-        });
-
-        // Close the file stream here
-        fileStream.close();
-      }
-
-      console.log('File pushed to GitHub successfully.');
+    const commit = await octokit.git.createCommit({
+      owner: 'Tmoh-Squim',
+      repo: 'mern-stack-ecommerce-web-app',
+      message: 'Add uploaded file',
+      tree: tree.data.sha,
+      parents,
     });
+
+    // Attempt to update the main branch (or the default branch) with the new commit
+    try {
+      await octokit.git.updateRef({
+        owner: 'Tmoh-Squim',
+        repo: 'mern-stack-ecommerce-web-app',
+        ref: `heads/${defaultBranch}`,
+        sha: commit.data.sha,
+      });
+    } catch (error) {
+      console.error('Error updating the branch:', error);
+
+      // Handle the case where the update is not a fast forward (e.g., conflict with remote changes)
+      console.log('Merging changes from the remote branch into the local branch...');
+      // You can use octokit.repos.merge() to perform the merge
+      await octokit.repos.merge()
+      // After merging, try to push again
+      await octokit.git.updateRef({
+        owner: 'Tmoh-Squim',
+        repo: 'mern-stack-ecommerce-web-app',
+        ref: `heads/${defaultBranch}`,
+        sha: commit.data.sha,
+      });
+    }
+
+    console.log('File pushed to GitHub successfully.');
   } catch (error) {
     console.error('Error pushing file to GitHub:', error);
   }
