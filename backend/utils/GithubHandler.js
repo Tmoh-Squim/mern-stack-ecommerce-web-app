@@ -1,5 +1,4 @@
 const { Octokit } = require('@octokit/rest');
-const fs = require("fs")
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN, // Use your GitHub personal access token
 });
@@ -22,15 +21,6 @@ async function commitToGitHub(fileUrl) {
       ref: `heads/${defaultBranch}`,
     })).data.object.sha;
 
-    const fileBuffer = fs.readFileSync(fileUrl); // Read the file as a binary buffer
-
-    const blob = await octokit.git.createBlob({
-      owner: 'Tmoh-Squim',
-      repo: 'mern-stack-ecommerce-web-app',
-      content: fileBuffer.toString('base64'), // Convert the binary buffer to base64
-      encoding: 'base64',
-    });
-
     const tree = await octokit.git.createTree({
       owner: 'Tmoh-Squim',
       repo: 'mern-stack-ecommerce-web-app',
@@ -40,7 +30,7 @@ async function commitToGitHub(fileUrl) {
           path: `backend/uploads/${fileUrl}`,
           mode: '100644',
           type: 'blob',
-          sha: blob.data.sha,
+          content:fileUrl.type
         },
       ],
     });
