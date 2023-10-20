@@ -17,9 +17,9 @@ app.use("/", express.static(path.join(__dirname,"uploads")));
 app.use("/test", (req, res) => {
   res.send("Hello world!");
 });
-app.get('/:filename', (req, res) => {
+app.get('/img/:filename', (req, res) => {
   const { filename } = req.params;
-  const imagePath = path.join(__dirname, 'backend/uploads', filename);
+  const imagePath = path.join(__dirname, 'uploads', filename);
 
   fs.readFile(imagePath)
     .then((data) => {
