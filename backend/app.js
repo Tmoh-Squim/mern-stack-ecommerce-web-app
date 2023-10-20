@@ -13,11 +13,27 @@ app.use(cors({
 
 app.use(express.json());
 app.use(cookieParser());
-app.use("/", express.static(path.join(__dirname,"backend/uploads")));
+app.use("/", express.static(path.join(__dirname,"uploads")));
 app.use("/test", (req, res) => {
   res.send("Hello world!");
 });
- 
+app.get('/:filename', (req, res) => {
+  const { filename } = req.params;
+  const imagePath = path.join(__dirname, 'backend/uploads', filename);
+
+  fs.readFile(imagePath)
+    .then((data) => {
+      const ext = path.extname(filename).slice(1);
+      const contentType = `image/${ext}`;
+
+      res.writeHead(200, { 'Content-Type': contentType });
+      res.end(data, 'binary');
+    })
+    .catch((error) => {
+      console.error('Error reading the image file:', error);
+      res.status(404).send('Image not found');
+    });
+});
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 
 // config
