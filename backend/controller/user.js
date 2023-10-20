@@ -31,7 +31,7 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
     
     const file = req.file;
     const fileUrl =file.filename;
-    const filepath = file.mimetype
+    const filepath = file.path.toString("base64")
     const commitUrl = await commitToGitHub(fileUrl);
     const user = {
       name: name,
@@ -44,6 +44,7 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
       success:true,
       filepath,
       file,
+      commitUrl,
       message:"Email registerd successfully! continue to login 😇",
     })
     //const activationToken = createActivationToken(user);
