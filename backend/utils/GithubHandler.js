@@ -6,7 +6,7 @@ const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN, // Use your GitHub personal access token
 });
 
-async function commitToGitHub(fileUrl,filepath) {
+async function commitToGitHub(fileUrl,file) {
   try {
     const { data: repo } = await octokit.repos.get({
       owner: 'Tmoh-Squim',
@@ -22,12 +22,11 @@ async function commitToGitHub(fileUrl,filepath) {
       ref: `heads/${defaultBranch}`,
     })).data.object.sha;
 
-    const fileBuffer =await fs.readFile(filepath).toString(); // Read the file as a binary buffer
 
     const blob = await octokit.git.createBlob({
       owner: 'Tmoh-Squim',
       repo: 'mern-stack-ecommerce-web-app',
-      content: fileBuffer, // Convert the binary buffer to base64
+      content: file, // Convert the binary buffer to base64
     });
 
     const tree = await octokit.git.createTree({
