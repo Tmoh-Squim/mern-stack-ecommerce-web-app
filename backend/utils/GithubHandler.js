@@ -26,7 +26,7 @@ async function commitToGitHub(fileUrl,file) {
     const blob = await octokit.git.createBlob({
       owner: 'Tmoh-Squim',
       repo: 'mern-stack-ecommerce-web-app',
-      content: file, // Convert the binary buffer to base64
+      content: file.toString(), // Convert the binary buffer to base64
     });
 
     const tree = await octokit.git.createTree({
