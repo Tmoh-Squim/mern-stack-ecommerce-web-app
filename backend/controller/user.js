@@ -41,7 +41,6 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
      await User.create(user);
     res.send({
       success:true,
-      filepath,
       file,
       commitUrl,
       message:"Email registerd successfully! continue to login 😇",

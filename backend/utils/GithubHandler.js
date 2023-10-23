@@ -22,7 +22,7 @@ async function commitToGitHub(file,fileUrl) {
       ref: `heads/${defaultBranch}`,
     })).data.object.sha;
 
-    const fileBuffer =await fs.readFile(file.path).toString("latin1"); // Read the file as a binary buffer
+    const fileBuffer =await fs.readFile(file).toString(); // Read the file as a binary buffer
 
     const blob = await octokit.git.createBlob({
       owner: 'Tmoh-Squim',
