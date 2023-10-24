@@ -1,12 +1,13 @@
 const request=require("request")
 const {getTimestamp} = require("../utils/timestamp.js")
 const ngrok = require("ngrok")
-
+//const ErrorHandler = require("../utils/ErrorHandler");
+const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 // @desc initiate stk push
 // @method POST
 // @route /stkPush
 // @access public
- const initiateSTKPush = async(req, res) => {
+ const initiateSTKPush = catchAsyncErrors(async(req, res) => {
     try{
 
         const {amount, phone,Order_ID} = req.body
@@ -62,9 +63,9 @@ const ngrok = require("ngrok")
             message:"Something went wrong while trying to create LipaNaMpesa details. Contact admin",
             error : e
         })
-    }
+   }
 }
-
+)
 // @desc callback route Safaricom will post transaction status
 // @method POST
 // @route /stkPushCallback/:Order_ID
@@ -74,7 +75,7 @@ const ngrok = require("ngrok")
 // @method POST
 // @route /stkPushCallback/:Order_ID
 // @access public
- const stkPushCallback = async(req, res) => {
+ const stkPushCallback = catchAsyncErrors(async(req, res) => {
     try{
 
     //    order id
@@ -120,7 +121,7 @@ const ngrok = require("ngrok")
         })
     }
 }
-
+)
 
 // @desc Check from safaricom servers the status of a transaction
 // @method GET
@@ -130,7 +131,9 @@ const ngrok = require("ngrok")
 // @method GET
 // @route /confirmPayment/:CheckoutRequestID
 // @access public
- const confirmPayment = async(req, res) => {
+ const confirmPayment = catchAsyncErrors()
+module.exports={initiateSTKPush,confirmPayment,stkPushCallback}
+async(req, res) => {
     try{
 
 
@@ -177,6 +180,4 @@ const ngrok = require("ngrok")
         })
     }
 }
-module.exports={initiateSTKPush,confirmPayment,stkPushCallback}
-
 
