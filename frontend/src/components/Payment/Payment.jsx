@@ -20,7 +20,7 @@ const Payment = () => {
   const [orderData, setOrderData] = useState([]);
   const [open, setOpen] = useState(false);
   const [phone,setPhoneNumber]=useState("")
-  const [amount]=useState(100)
+  const [amount,setAmount]=useState(orderData.totalPrice)
   const [Order_Id] = useState("123")
   const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -215,6 +215,8 @@ const Payment = () => {
             paymentHandler={paymentHandler}
             cashOnDeliveryHandler={cashOnDeliveryHandler}
             phone={phone}
+            amount={amount}
+            setAmount={setAmount}
             setPhoneNumber={setPhoneNumber}
             handleMpesaPayment={handleMpesaPayment}
           />
@@ -232,6 +234,8 @@ const PaymentInfo = ({
   open,
   setOpen,
   phone,
+  amount,
+  setAmount,
   setPhoneNumber,
   onApprove,
   createOrder,
@@ -429,6 +433,9 @@ const PaymentInfo = ({
           <div className="w-full block border-b">
             <div>
               <input type="number" name="phone" value={phone} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Enter your prefferd phone number" id="phone" />
+            </div>
+            <div>
+              <input type="number" name="amount" id="amount" value={amount} onChange={(e)=>setAmount(e.target.value)} />
             </div>
             <div
               className={`${styles.button} !bg-[#f63b60] text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
