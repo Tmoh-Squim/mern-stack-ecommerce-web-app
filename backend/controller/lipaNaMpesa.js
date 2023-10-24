@@ -6,7 +6,7 @@ const ngrok = require("ngrok")
 // @method POST
 // @route /stkPush
 // @access public
-export const initiateSTKPush = async(req, res) => {
+ const initiateSTKPush = async(req, res) => {
     try{
 
         const {amount, phone,Order_ID} = req.body
@@ -74,7 +74,7 @@ export const initiateSTKPush = async(req, res) => {
 // @method POST
 // @route /stkPushCallback/:Order_ID
 // @access public
-export const stkPushCallback = async(req, res) => {
+ const stkPushCallback = async(req, res) => {
     try{
 
     //    order id
@@ -130,7 +130,7 @@ export const stkPushCallback = async(req, res) => {
 // @method GET
 // @route /confirmPayment/:CheckoutRequestID
 // @access public
-export const confirmPayment = async(req, res) => {
+ const confirmPayment = async(req, res) => {
     try{
 
 
@@ -177,5 +177,6 @@ export const confirmPayment = async(req, res) => {
         })
     }
 }
+module.exports={initiateSTKPush,confirmPayment,stkPushCallback}
 
 

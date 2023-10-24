@@ -1,6 +1,6 @@
 const request=require("request")
 
-export const accessToken = (req, res, next)=> {
+ const accessToken = (req, res, next)=> {
     try{
 
         const url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
@@ -37,3 +37,4 @@ export const accessToken = (req, res, next)=> {
     }
 
 }
+module.exports={accessToken}
