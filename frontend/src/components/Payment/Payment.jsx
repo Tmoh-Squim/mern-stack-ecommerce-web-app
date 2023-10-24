@@ -214,6 +214,7 @@ const Payment = () => {
             createOrder={createOrder}
             paymentHandler={paymentHandler}
             cashOnDeliveryHandler={cashOnDeliveryHandler}
+            phone={phone}
             setPhoneNumber={setPhoneNumber}
             handleMpesaPayment={handleMpesaPayment}
           />
@@ -230,6 +231,7 @@ const PaymentInfo = ({
   user,
   open,
   setOpen,
+  phone,
   setPhoneNumber,
   onApprove,
   createOrder,
