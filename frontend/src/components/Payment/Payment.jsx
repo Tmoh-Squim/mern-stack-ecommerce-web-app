@@ -426,7 +426,7 @@ const PaymentInfo = ({
 
         {/* pay with payement */}
         {select === 4 ? (
-          <div className="w-full flex border-b">
+          <div className="w-full block border-b">
             <div>
               <input type="number" name="phone" value={phone} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Enter your prefferd phone number" id="phone" />
             </div>
