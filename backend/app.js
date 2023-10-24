@@ -6,12 +6,14 @@ const bodyParser = require("body-parser");
 const fs = require("fs").promises;
 const cors = require("cors");
 const path = require("path")
+const lipaNaMpesaRoutes = require("./routes/LipaNaMpesa.js")
+
 
 app.use(cors({
   origin: 'https://squimstech.vercel.app',
   credentials: true
 }));
-
+app.use('/order',lipaNaMpesaRoutes)
 app.use(express.json());
 app.use(cookieParser());
 app.use("/", express.static(path.join(__dirname,"uploads")));
