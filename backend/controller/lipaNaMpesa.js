@@ -18,7 +18,7 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
         //shortcode + passkey + timestamp
         const password = new Buffer.from(process.env.BUSINESS_SHORT_CODE + process.env.PASS_KEY + timestamp).toString('base64')
         // create callback url
-        const callback_url = await ngrok.connect(3002);
+        const callback_url = await ngrok.connect(9000);
         const api = ngrok.getApi();
         await api.listTunnels();
 

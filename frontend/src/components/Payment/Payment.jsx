@@ -20,7 +20,7 @@ const Payment = () => {
   const [orderData, setOrderData] = useState([]);
   const [open, setOpen] = useState(false);
   const [phone,setPhoneNumber]=useState("")
-  const [amount]=useState(orderData?.totalPrice)
+  const [amount]=useState(100)
   const [Order_Id] = useState("123")
   const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -191,7 +191,7 @@ const Payment = () => {
     };
 
     await axios
-    .post(`${server}/order/stkPush`,phone,amount,Order_Id, order, config)
+    .post(`${server}/order/stkPush`,phone,amount,Order_Id)
     .then((res) => {
       setOpen(false);
       navigate("/order/success");
