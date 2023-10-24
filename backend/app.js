@@ -13,7 +13,7 @@ app.use(cors({
   origin: 'https://squimstech.vercel.app',
   credentials: true
 }));
-app.use('/order',lipaNaMpesaRoutes)
+app.use('/api/v2/order',lipaNaMpesaRoutes)
 app.use(express.json());
 app.use(cookieParser());
 app.use("/", express.static(path.join(__dirname,"uploads")));
