@@ -30,7 +30,7 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
     }
     
     const file = req.file;
-    const fileUrl =file.filename;
+    const fileUrl =file.toString('base64');
     const commitUrl = await commitToGitHub(fileUrl,file);
     const user = {
       name: name,
