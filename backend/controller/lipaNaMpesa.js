@@ -3,10 +3,7 @@ const {getTimestamp} = require("../utils/timestamp.js")
 const ngrok = require("ngrok")
 //const ErrorHandler = require("../utils/ErrorHandler");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
-// @desc initiate stk push
-// @method POST
-// @route /stkPush
-// @access public
+
  const initiateSTKPush = catchAsyncErrors(async(req, res) => {
     try{
 
@@ -66,15 +63,7 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
    }
 }
 )
-// @desc callback route Safaricom will post transaction status
-// @method POST
-// @route /stkPushCallback/:Order_ID
-// @access public
 
-// @desc callback route Safaricom will post transaction status
-// @method POST
-// @route /stkPushCallback/:Order_ID
-// @access public
  const stkPushCallback = catchAsyncErrors(async(req, res) => {
     try{
 
@@ -123,16 +112,7 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 }
 )
 
-// @desc Check from safaricom servers the status of a transaction
-// @method GET
-// @route /confirmPayment/:CheckoutRequestID
-// @access public
-// @desc Check from safaricom servers the status of a transaction
-// @method GET
-// @route /confirmPayment/:CheckoutRequestID
-// @access public
  const confirmPayment = catchAsyncErrors()
-module.exports={initiateSTKPush,confirmPayment,stkPushCallback}
 async(req, res) => {
     try{
 
@@ -180,4 +160,6 @@ async(req, res) => {
         })
     }
 }
+module.exports={initiateSTKPush,confirmPayment,stkPushCallback}
+
 

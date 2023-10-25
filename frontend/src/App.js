@@ -21,6 +21,7 @@ import {
   OrderDetailsPage,
   TrackOrderPage,
   UserInbox,
+  PageNotFound
 } from "./routes/Routes.js";
 import {
   ShopDashboardPage,
@@ -96,6 +97,7 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/sign-up" element={<SignupPage />} />
+        <Route path="*" element={<PageNotFound />} />
         <Route
           path="/activation/:activation_token"
           element={<ActivationPage />}
