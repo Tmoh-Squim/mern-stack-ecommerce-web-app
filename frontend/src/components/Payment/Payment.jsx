@@ -191,7 +191,7 @@ const Payment = () => {
     };
 
     await axios
-    .post(`${server}/order/stkPush`,phone,amount,Order_Id)
+    .post(`${server}/order/stkPush`,amount,phone,Order_Id)
     .then((res) => {
       setOpen(false);
       navigate("/order/success");
