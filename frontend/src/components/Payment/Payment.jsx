@@ -20,7 +20,7 @@ const Payment = () => {
   const [orderData, setOrderData] = useState([]);
   const [open, setOpen] = useState(false);
   const [phone,setPhoneNumber]=useState("")
-  const [amount,setAmount]=useState()
+  const [amount,setAmount]=useState("")
   const [Order_Id] = useState("123")
   const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -99,7 +99,7 @@ const Payment = () => {
   };
 
   const paymentData = {
-    amount: Math.round(orderData?.totalPrice * 100),
+    amounti: Math.round(orderData?.totalPrice * 100),
   };
 
   const paymentHandler = async (e) => {
@@ -435,7 +435,7 @@ const PaymentInfo = ({
               <input type="number" name="phone" value={phone} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Enter your prefferd phone number" id="phone" />
             </div>
             <div>
-              <input type="number" name="amount" id="amount" placeholder="Enter amount" value={amount} onChange={(e)=>setAmount(e.target.value)} />
+            <input type="number" name="amount" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" id="amount" />
             </div>
             <div
               className={`${styles.button} !bg-[#f63b60] text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
