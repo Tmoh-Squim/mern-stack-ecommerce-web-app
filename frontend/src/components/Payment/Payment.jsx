@@ -435,10 +435,10 @@ const PaymentInfo = ({
           <div className="w-full block border-b">
             <form action="" onSubmit={handleMpesaPayment}>
             <div>
-              <input type="number" name="phone" value={phone} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Enter your prefferd phone number" id="phone" />
+              <input type="text" name="phone" value={phone} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Enter your prefferd phone number" id="phone" />
             </div>
             <div>
-            <input type="number" name="amount" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" id="amount" />
+            <input type="text" name="amount" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" id="amount" />
             </div>
             <button type="submit">
             <div
