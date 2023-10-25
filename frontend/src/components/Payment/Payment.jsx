@@ -180,18 +180,20 @@ const Payment = () => {
  
   const handleMpesaPayment = async (e) => {
     e.preventDefault();
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+    const config = { headers: { "Content-Type": "multipart/form-data" } };
+
+    const newForm = new FormData();
+
+    newForm.append("phone", phone);
+    newForm.append("amount", amount);
+    newForm.append("Order_Id",Order_Id);
 
     order.paymentInfo = {
       type: "lipa na mpesa",
     };
 
     await axios
-    .post(`${server}/order/stkPush`,amount,phone,Order_Id)
+    .post(`${server}/order/stkPush`,newForm,config)
     .then((res) => {
       setOpen(false);
       navigate("/order/success");
