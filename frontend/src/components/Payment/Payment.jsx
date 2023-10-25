@@ -431,19 +431,21 @@ const PaymentInfo = ({
         {/* pay with payement */}
         {select === 4 ? (
           <div className="w-full block border-b">
+            <form action="" onSubmit={handleMpesaPayment}>
             <div>
               <input type="number" name="phone" value={phone} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Enter your prefferd phone number" id="phone" />
             </div>
             <div>
             <input type="number" name="amount" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" id="amount" />
             </div>
+            <button type="submit">
             <div
               className={`${styles.button} !bg-[#f63b60] text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
-              onClick={handleMpesaPayment}
             >
               Pay Now
             </div>
-            
+            </button>
+            </form>
           </div>
         ) : null}
       </div>
