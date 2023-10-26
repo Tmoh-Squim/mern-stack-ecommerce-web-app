@@ -7,10 +7,10 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
  const initiateSTKPush = catchAsyncErrors(async(req, res) => {
     try{
 
-        //const {amount, phone,Order_ID} = req.body
-        const {amount} = req.body.amount
-        const {phone} = req.body.phone
-        const {Order_ID} = req.body.Order_Id
+        const { amount, phone, Order_ID } = req.body;
+        //const {amount} = req.body.amount
+        //const {phone} = req.body.phone
+        //const {Order_ID} = req.body.Order_Id
         const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
         const auth = "Bearer " + req.safaricom_access_token
 
