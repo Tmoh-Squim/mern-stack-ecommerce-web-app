@@ -66,7 +66,7 @@ const ngrok = require("ngrok")
    }
 }
 
- const stkPushCallback = catchAsyncErrors(async(req, res) => {
+ const stkPushCallback = async(req, res) => {
     try{
 
     //    order id
@@ -112,10 +112,8 @@ const ngrok = require("ngrok")
         })
     }
 }
-)
 
- const confirmPayment = catchAsyncErrors()
-async(req, res) => {
+ const confirmPayment = async(req, res) => {
     try{
 
 
