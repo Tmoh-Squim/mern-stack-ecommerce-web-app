@@ -2,15 +2,15 @@ const request=require("request")
 const {getTimestamp} = require("../utils/timestamp.js")
 const ngrok = require("ngrok")
 //const ErrorHandler = require("../utils/ErrorHandler");
-const catchAsyncErrors = require("../middleware/catchAsyncErrors");
+//const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
  const initiateSTKPush = async(req, res) => {
     try{
 
-        const { phone, amount, Order_ID } = req.body;
+        const { phone, amount, Order_Id } = req.body;
         //const {amount} = req.body.amount
         //const {phone} = req.body.phone
-        //const {Order_ID} = req.body.Order_Id
+        //const {Order_Id} = req.body.Order_Id
         const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
         const auth = "Bearer " + req.safaricom_access_token
 
@@ -40,7 +40,7 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
                     "PartyA": phone,
                     "PartyB": process.env.BUSINESS_SHORT_CODE,
                     "PhoneNumber": phone,
-                    "CallBackURL": `${callback_url}/api/stkPushCallback/${Order_ID}`,
+                    "CallBackURL": `${callback_url}/api/stkPushCallback/${Order_Id}`,
                     "AccountReference": "squims-tech online shopping",
                     "TransactionDesc": "Paid online",
                 }
@@ -85,13 +85,13 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
         const PhoneNumber = meta.find(o => o.Name === 'PhoneNumber').Value.toString()
         const Amount = meta.find(o => o.Name === 'Amount').Value.toString()
         const MpesaReceiptNumber = meta.find(o => o.Name === 'MpesaReceiptNumber').Value.toString()
-        const Order_ID = meta.find(o => o.Name === 'Order_ID').Value.toString()
+        const Order_Id = meta.find(o => o.Name === 'Order_Id').Value.toString()
         const TransactionDate = meta.find(o => o.Name === 'TransactionDate').Value.toString()
 
         // do something with the data
         console.log("-".repeat(20)," OUTPUT IN THE CALLBACK ", "-".repeat(20))
         console.log(`
-            Order_ID : ${Order_ID},
+            Order_Id : ${Order_Id},
             MerchantRequestID : ${MerchantRequestID},
             CheckoutRequestID: ${CheckoutRequestID},
             ResultCode: ${ResultCode},
