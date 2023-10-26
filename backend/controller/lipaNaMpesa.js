@@ -4,7 +4,7 @@ const ngrok = require("ngrok")
 //const ErrorHandler = require("../utils/ErrorHandler");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
- const initiateSTKPush = catchAsyncErrors(async(req, res) => {
+ const initiateSTKPush = async(req, res) => {
     try{
 
         const { phone, amount, Order_ID } = req.body;
@@ -65,7 +65,6 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
         })
    }
 }
-)
 
  const stkPushCallback = catchAsyncErrors(async(req, res) => {
     try{
