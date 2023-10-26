@@ -7,7 +7,7 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
  const initiateSTKPush = catchAsyncErrors(async(req, res) => {
     try{
 
-        const { amount, phone, Order_ID } = req.body;
+        const { phone, amount, Order_ID } = req.body;
         //const {amount} = req.body.amount
         //const {phone} = req.body.phone
         //const {Order_ID} = req.body.Order_Id
