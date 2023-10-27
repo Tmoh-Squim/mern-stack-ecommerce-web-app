@@ -1,4 +1,3 @@
-import request from "request";
 const request = require("request")
 const ngrok = require("ngrok")
 const {getTimestamp} = require("../utils/timestamp")
