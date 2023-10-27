@@ -9,7 +9,10 @@ const {getTimestamp} = require("../utils/timestamp")
  const initiateSTKPush = async(req, res) => {
     try{
 
-        const {amount, phone,Order_ID} = req.body
+        //const {amount, phone,Order_ID} = req.body
+        const {amount} = req.body.amount
+        const {phone} = req.body.phone
+        const {Order_ID} = req.body.Order_ID
         const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
         const auth = "Bearer " + req.safaricom_access_token
 
