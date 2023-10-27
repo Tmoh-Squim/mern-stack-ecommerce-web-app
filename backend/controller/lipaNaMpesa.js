@@ -10,9 +10,9 @@ const {getTimestamp} = require("../utils/timestamp")
     try{
 
         //const {amount, phone,Order_ID} = req.body
-        const {amount} = req.body.amount
-        const {phone} = req.body.phone
-        const {Order_ID} = req.body.Order_ID
+        const {amount} = 10
+        const {phone} = 254748143442
+        const {Order_ID} = "1234"
         const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
         const auth = "Bearer " + req.safaricom_access_token
 
