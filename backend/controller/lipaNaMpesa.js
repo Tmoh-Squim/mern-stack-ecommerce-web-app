@@ -1,16 +1,16 @@
-const request=require("request")
-const {getTimestamp} = require("../utils/timestamp.js")
+import request from "request";
+const request = require("request")
 const ngrok = require("ngrok")
-//const ErrorHandler = require("../utils/ErrorHandler");
-//const catchAsyncErrors = require("../middleware/catchAsyncErrors");
-
+const {getTimestamp} = require("../utils/timestamp")
+ require("dotenv").config()
+// @desc initiate stk push
+// @method POST
+// @route /stkPush
+// @access public
  const initiateSTKPush = async(req, res) => {
     try{
 
-        const { phone, amount, Order_Id } = req.body;
-        //const {amount} = req.body.amount
-        //const {phone} = req.body.phone
-        //const {Order_Id} = req.body.Order_Id
+        const {amount, phone,Order_ID} = req.body
         const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
         const auth = "Bearer " + req.safaricom_access_token
 
@@ -18,9 +18,10 @@ const ngrok = require("ngrok")
         //shortcode + passkey + timestamp
         const password = new Buffer.from(process.env.BUSINESS_SHORT_CODE + process.env.PASS_KEY + timestamp).toString('base64')
         // create callback url
-        const callback_url = await ngrok.connect(9000);
+        const callback_url = await ngrok.connect(3002);
         const api = ngrok.getApi();
         await api.listTunnels();
+        const equityAccNum='0660182944658'
 
 
         console.log("callback ",callback_url)
@@ -40,8 +41,8 @@ const ngrok = require("ngrok")
                     "PartyA": phone,
                     "PartyB": process.env.BUSINESS_SHORT_CODE,
                     "PhoneNumber": phone,
-                    "CallBackURL": `${callback_url}/api/stkPushCallback/${Order_Id}`,
-                    "AccountReference": "squims-tech online shopping",
+                    "CallBackURL": `${callback_url}/api/stkPushCallback/${Order_ID}`,
+                    "AccountReference": equityAccNum,
                     "TransactionDesc": "Paid online",
                 }
             },
@@ -63,9 +64,18 @@ const ngrok = require("ngrok")
             message:"Something went wrong while trying to create LipaNaMpesa details. Contact admin",
             error : e
         })
-   }
+    }
 }
 
+// @desc callback route Safaricom will post transaction status
+// @method POST
+// @route /stkPushCallback/:Order_ID
+// @access public
+
+// @desc callback route Safaricom will post transaction status
+// @method POST
+// @route /stkPushCallback/:Order_ID
+// @access public
  const stkPushCallback = async(req, res) => {
     try{
 
@@ -85,13 +95,13 @@ const ngrok = require("ngrok")
         const PhoneNumber = meta.find(o => o.Name === 'PhoneNumber').Value.toString()
         const Amount = meta.find(o => o.Name === 'Amount').Value.toString()
         const MpesaReceiptNumber = meta.find(o => o.Name === 'MpesaReceiptNumber').Value.toString()
-        const Order_Id = meta.find(o => o.Name === 'Order_Id').Value.toString()
+        const Order_ID = meta.find(o => o.Name === 'Order_ID').Value.toString()
         const TransactionDate = meta.find(o => o.Name === 'TransactionDate').Value.toString()
 
         // do something with the data
         console.log("-".repeat(20)," OUTPUT IN THE CALLBACK ", "-".repeat(20))
         console.log(`
-            Order_Id : ${Order_Id},
+            Order_ID : ${Order_ID},
             MerchantRequestID : ${MerchantRequestID},
             CheckoutRequestID: ${CheckoutRequestID},
             ResultCode: ${ResultCode},
@@ -113,6 +123,15 @@ const ngrok = require("ngrok")
     }
 }
 
+
+// @desc Check from safaricom servers the status of a transaction
+// @method GET
+// @route /confirmPayment/:CheckoutRequestID
+// @access public
+// @desc Check from safaricom servers the status of a transaction
+// @method GET
+// @route /confirmPayment/:CheckoutRequestID
+// @access public
  const confirmPayment = async(req, res) => {
     try{
 
@@ -160,6 +179,6 @@ const ngrok = require("ngrok")
         })
     }
 }
+
+
 module.exports={initiateSTKPush,confirmPayment,stkPushCallback}
-
-
