@@ -39,7 +39,7 @@ const Payment = () => {
           {
             description: "Sunflower",
             amount: {
-              currency_code: "KSH",
+              currency_code: "KES",
               value: orderData?.totalPrice,
             },
           },
