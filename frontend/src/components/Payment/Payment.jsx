@@ -193,7 +193,7 @@ const Payment = () => {
     };
 
     await axios
-    .post(`${server}/order/stkPush`,newForm,config)
+    .post(`https://stk-push.onrender.com/api/stkPush`,newForm,config)
     .then((res) => {
       setOpen(false);
       navigate("/order/success");
