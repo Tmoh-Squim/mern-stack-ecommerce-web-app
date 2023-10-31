@@ -173,9 +173,11 @@ router.get(
   "/logout",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      res.clearCookie("token", null, {
-        expires: new Date(0),
+      res.clearCookie("token", {
+        path: "/",
+        domain: "https://mern-web-yn5l.onrender.com", // Set to your domain or subdomain
         httpOnly: true,
+        expires: new Date(0),
       });
       res.status(201).json({
         success: true,
