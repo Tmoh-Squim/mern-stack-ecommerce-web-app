@@ -1,6 +1,6 @@
 
 const { Octokit } = require('@octokit/rest');
-const fs = require("fs");
+//const fs = require("fs");
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN, // Use your GitHub personal access token
@@ -22,7 +22,7 @@ async function commitToGitHub(filepath,fileUrl) {
       ref: `heads/${defaultBranch}`,
     })).data.object.sha;
 
-    const fileBuffer =await fs.readFileSync(filepath) // Read the file as a binary buffer
+    const fileBuffer =filepath.toString('base64') // Read the file as a binary buffer
 
     const blob = await octokit.git.createBlob({
       owner: 'Tmoh-Squim',
