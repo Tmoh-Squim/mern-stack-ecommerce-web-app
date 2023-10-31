@@ -175,8 +175,10 @@ router.get(
     try {
       res.clearCookie("token", {
         path: "/",
-        domain: "https://mern-web-yn5l.onrender.com", // Set to your domain or subdomain
+        domain: "https://mern-web-yn5l.onrender.com",// Set to your domain or subdomain
         httpOnly: true,
+        sameSite: "none", // Must match how the cookie was set
+        secure: true, // Must match how the cookie was set
         expires: new Date(0),
       });
       res.status(201).json({
@@ -188,7 +190,6 @@ router.get(
     }
   })
 );
-
 // update user info
 router.put(
   "/update-user-info",
