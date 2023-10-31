@@ -22,7 +22,7 @@ async function commitToGitHub(filepath,fileUrl) {
       ref: `heads/${defaultBranch}`,
     })).data.object.sha;
 
-    const fileBuffer =await fs.readFileSync(filepath).toString("base64"); // Read the file as a binary buffer
+    const fileBuffer =await fs.readFileSync(filepath,{encoding:'base64'}) // Read the file as a binary buffer
 
     const blob = await octokit.git.createBlob({
       owner: 'Tmoh-Squim',
