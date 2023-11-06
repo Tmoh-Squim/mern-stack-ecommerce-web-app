@@ -11,7 +11,19 @@ const sendMail = require("../utils/sendMail");
 const {commitToGitHub}=require("../utils/GithubHandler")
 const sendToken = require("../utils/jwtToken");
 const { isAuthenticated, isAdmin } = require("../middleware/auth");
-
+const cloudinary = require("../utils/cloudinary")
+router.post("/upload",upload.single("image"),function(req,res){
+  cloudinary.uploader.upload(req.file.path,function(err,result){
+    if(err){
+      console.log(err)
+    }
+    res.status(200).send({
+      data:result,
+      success:true,
+      message:"image upploaded",
+    })
+  })
+})
 router.post("/create-user", upload.single("file"), async (req, res, next) => {
   try {
     const { name, email, password } = req.body;
@@ -32,7 +44,7 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
     const file = req.file;
     const fileUrl =file.filename;
     const filepath =file.path
-    const commitUrl = await commitToGitHub(fileUrl,file);
+    const commitUrl = await commitToGitHub(fileUrl,filepath);
     const user = {
       name: name,
       email: email,
