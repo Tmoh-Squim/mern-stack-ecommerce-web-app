@@ -25,6 +25,7 @@ router.post("/upload",upload.single("image"),function(req,res){
   })
 })
 router.post("/create-user", upload.single("file"), async (req, res, next) => {
+  console.log("File uploaded:", req.file);
   try {
     const { name, email, password } = req.body;
     const userEmail = await User.findOne({ email });
@@ -58,6 +59,7 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
       file,
       message:"Email registerd successfully! continue to login 😇",
     })
+    
     //const activationToken = createActivationToken(user);
 
    // const activationUrl = `https://squimstech.vercel.app/activation/${activationToken}`;
