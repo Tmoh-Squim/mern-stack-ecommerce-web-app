@@ -1,4 +1,4 @@
-
+/*
 const { Octokit } = require('@octokit/rest');
 const fs = require("fs");
 
@@ -88,3 +88,4 @@ async function commitToGitHub(filepath,fileUrl) {
 }
 
 module.exports = { commitToGitHub };
+*/
