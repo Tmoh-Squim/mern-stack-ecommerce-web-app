@@ -13,7 +13,7 @@ const sendToken = require("../utils/jwtToken");
 const { isAuthenticated, isAdmin } = require("../middleware/auth");
 const cloudinary = require("../utils/cloudinary")
 router.post("/upload",upload.single("image"),function(req,res){
-  cloudinary.uploader.upload(req.file.path,function(err,result){
+  cloudinary.uploader.upload(req.files.path,function(err,result){
     if(err){
       console.log(err)
     }
@@ -43,9 +43,10 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
     }
     
     const file = req.file;
-    const fileUrl =file.filename;
     const filepath =file.path
     //const commitUrl = await commitToGitHub(fileUrl,filepath);
+    const result = await cloudinary.uploader.upload(filepath)
+    const fileUrl =result.secure_url;
     const user = {
       name: name,
       email: email,
@@ -56,6 +57,7 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
     res.send({
       success:true,
       filepath,
+      fileUrl,
       file,
       message:"Email registerd successfully! continue to login 😇",
     })
