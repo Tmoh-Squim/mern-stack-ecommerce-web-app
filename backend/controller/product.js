@@ -38,7 +38,7 @@ router.post(
 
         res.status(201).json({
           success: true,
-          urls,
+          imageUrls,
           product,
         });
       }
