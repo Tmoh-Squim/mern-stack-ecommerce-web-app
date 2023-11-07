@@ -11,8 +11,7 @@ const { upload } = require("../multer");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ErrorHandler = require("../utils/ErrorHandler");
 const sendShopToken = require("../utils/shopToken");
-import cloudinary from "../utils/cloudinary"
-
+const cloudinary = require("../utils/cloudinary")
 // create shop
 router.post("/create-shop", upload.single("file"), async (req, res, next) => {
   try {
