@@ -92,11 +92,13 @@ const ProductCard = ({ data,isEvent }) => {
             </div>
             <div className="flex">
           <Ratings rating={data?.ratings} />
+          <span className="font-[400] text-[13px] text-[#68d284] 800px:hidden">
+              ({data?.sold_out})
+            </span>
           </div>
-         {/* <span className="font-[400] text-[13px] text-[#68d284]">
+          <span className="hidden font-[400] text-[13px] text-[#68d284] 800px:block">
               {data?.sold_out} sold
             </span>
-               */}
             </div>
         </Link>
 
