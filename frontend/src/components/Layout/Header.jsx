@@ -99,9 +99,9 @@ const Header = ({ activeHeading }) => {
           </div>
           {isSeller ? (
             <div className={`${styles.button}`}>
-              <Link to={`${isSeller ? "/dashboard" : "/"}`}>
+              <Link to={`/dashboard`}>
                 <h1 className="text-[#fff] flex items-center">
-                  {isSeller ? "Go Dashboard" : null}{" "}
+                   Go Dashboard {" "}
                   <IoIosArrowForward className="ml-1" />
                 </h1>
               </Link>
@@ -286,7 +286,7 @@ const Header = ({ activeHeading }) => {
                         <Link to={`/product/${Product_name}`}>
                           <div className="flex items-center">
                             <img
-                              src={`${backend_url}${i.images[0]}`}
+                              src={`${i.images[0]}`}
                               alt=""
                               className="w-[50px] mr-2"
                             />
@@ -300,14 +300,16 @@ const Header = ({ activeHeading }) => {
               </div>
 
               <Navbar active={activeHeading} />
-              <div className={`${styles.button} ml-4 !rounded-[4px]`}>
-                <Link to={`${isSeller ? "/dashboard" : "/"}`}>
-                  <h1 className="text-[#fff] flex items-center">
-                    {isSeller ? "Go Dashboard" : null}{" "}
-                    <IoIosArrowForward className="ml-1" />
-                  </h1>
-                </Link>
-              </div>
+              {isSeller ? (
+                <div className={`${styles.button} ml-4 !rounded-[4px]`}>
+                  <Link to={`/dashboard`}>
+                    <h1 className="text-[#fff] flex items-center">
+                       Go Dashboard {" "}
+                      <IoIosArrowForward className="ml-1" />
+                    </h1>
+                  </Link>
+                </div>
+              ) : null}
               <br />
               <br />
               <br />
