@@ -69,7 +69,7 @@ const ProductCard = ({ data,isEvent }) => {
           <img
             src={`${data.images && data.images[0]}`}
             alt=""
-            className="w-full h-[170px]  object-cover 800px:object-contain"
+            className="w-full h-[170px] 800px:rounded-t-lg object-cover 800px:object-contain"
           />
         </Link>
         <div className="px-3">
