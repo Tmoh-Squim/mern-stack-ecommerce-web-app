@@ -11,7 +11,7 @@ const lipaNaMpesaRoutes = require("./routes/LipaNaMpesa.js")
 
 app.use(cors({
   origin: 'https://squimstech.vercel.app',
-  withCredentials: true
+  credentials: true
 }));
 app.use('/api/v2/order',lipaNaMpesaRoutes)
 app.use(express.json());
