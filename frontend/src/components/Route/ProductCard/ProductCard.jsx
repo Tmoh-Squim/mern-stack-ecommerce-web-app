@@ -63,7 +63,7 @@ const ProductCard = ({ data,isEvent }) => {
 
   return (
     <>
-      <div className="w-[48%] h-[auto] mb-[2px] bg-white rounded-lg shadow-sm p-0 relative cursor-pointer sm:w-full">
+      <div className="w-[48%] h-[auto] mb-[2px] bg-white rounded-lg shadow-sm !pb-2 p-0  relative cursor-pointer sm:w-full">
         <div className="flex justify-end"></div>
         <Link to={`${isEvent === true ? `/product/${data._id}?isEvent=true` : `/product/${data._id}`}`}>
           <img
@@ -72,6 +72,7 @@ const ProductCard = ({ data,isEvent }) => {
             className="w-full h-[170px]  object-cover 800px:object-contain"
           />
         </Link>
+        <div className="px-3">
         <Link to={`/shop/preview/${data?.shop._id}`}>
           <h5 className={`${styles.shop_name}`}>{data.shop.name}</h5>
         </Link>
@@ -101,6 +102,7 @@ const ProductCard = ({ data,isEvent }) => {
             </span>
             </div>
         </Link>
+        </div>
 
         {/* side options */}
         <div className="hidden 800px:block">
