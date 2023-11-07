@@ -149,7 +149,7 @@ const ProfileSidebar = ({ setActive, active }) => {
         </Link>
       )}
       {user && user?.role === "Admin" && (
-        <Link to="/create-shop">
+        <Link to="/shop-create">
           <div
             className="flex items-center cursor-pointer w-full mb-8"
             onClick={() => setActive(9)}
