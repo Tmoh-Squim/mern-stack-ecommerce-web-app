@@ -8,7 +8,7 @@ const Shop = require("../model/shop");
 const { upload } = require("../multer");
 const ErrorHandler = require("../utils/ErrorHandler");
 const fs = require("fs");
-
+const cloudinary = require("../utils/cloudinary")
 // create product
 router.post(
   "/create-product",
