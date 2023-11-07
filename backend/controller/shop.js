@@ -11,6 +11,7 @@ const { upload } = require("../multer");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ErrorHandler = require("../utils/ErrorHandler");
 const sendShopToken = require("../utils/shopToken");
+import cloudinary from "../utils/cloudinary"
 
 // create shop
 router.post("/create-shop", upload.single("file"), async (req, res, next) => {
@@ -29,8 +30,11 @@ router.post("/create-shop", upload.single("file"), async (req, res, next) => {
       return next(new ErrorHandler("User already exists", 400));
     }
 
-    const filename = req.file.filename;
-    const fileUrl = path.join(filename);
+    //const filename = req.file.filename;
+    //const fileUrl = path.join(filename);
+
+    const result = await cloudinary.uploader.upload(req.file.path);
+    const fileUrl=result.secure_url;
 
     const seller = {
       name: req.body.name,
@@ -221,7 +225,10 @@ router.put(
 
       fs.unlinkSync(existAvatarPath);
 
-      const fileUrl = path.join(req.file.filename);
+      const result = await cloudinary.uploader.upload(req.file.path);
+     // const fileUrl = path.join(req.file.filename);
+     const fileUrl = result.secure_url
+
 
       const seller = await Shop.findByIdAndUpdate(req.seller._id, {
         avatar: fileUrl,

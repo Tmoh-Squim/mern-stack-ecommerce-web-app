@@ -256,8 +256,9 @@ router.put(
 
       fs.unlinkSync(existAvatarPath);
 
-      const fileUrl = path.join(req.file.filename);
-
+      //const fileUrl = path.join(req.file.filename);
+      const result = await cloudinary.uploader.upload(req.file.path);
+      const fileUrl = result.secure_url 
       const user = await User.findByIdAndUpdate(req.user.id, {
         avatar: fileUrl,
       });
