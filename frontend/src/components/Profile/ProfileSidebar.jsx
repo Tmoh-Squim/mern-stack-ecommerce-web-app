@@ -1,5 +1,5 @@
 import React from "react";
-import { AiOutlineLogin, AiOutlineMessage } from "react-icons/ai";
+import { AiOutlineLogin, AiOutlineMessage,AiOutlineFolderAdd } from "react-icons/ai";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { HiOutlineReceiptRefund, HiOutlineShoppingBag } from "react-icons/hi";
 import {
@@ -144,6 +144,26 @@ const ProfileSidebar = ({ setActive, active }) => {
               } 800px:block hidden`}
             >
               Admin Dashboard
+            </span>
+          </div>
+        </Link>
+      )}
+      {user && user?.role === "Admin" && (
+        <Link to="/create-shop">
+          <div
+            className="flex items-center cursor-pointer w-full mb-8"
+            onClick={() => setActive(9)}
+          >
+            <AiOutlineFolderAdd
+              size={20}
+              color={active === 9 ? "red" : ""}
+            />
+            <span
+              className={`pl-3 ${
+                active === 9 ? "text-[red]" : ""
+              } 800px:block hidden`}
+            >
+              Create Shop
             </span>
           </div>
         </Link>
