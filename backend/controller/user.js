@@ -250,15 +250,15 @@ router.put(
   upload.single("image"),
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const existsUser = await User.findById(req.user.id);
+     // const existsUser = await User.findById(req.user.id);
 
-      const existAvatarPath = `uploads/${existsUser.avatar}`;
+     // const existAvatarPath = `uploads/${existsUser.avatar}`;
 
-      fs.unlinkSync(existAvatarPath);
+     // fs.unlinkSync(existAvatarPath);
 
       //const fileUrl = path.join(req.file.filename);
       const result = await cloudinary.uploader.upload(req.file.path);
-      const fileUrl = result.secure_url 
+      const fileUrl = result.secure_url;
       const user = await User.findByIdAndUpdate(req.user.id, {
         avatar: fileUrl,
       });
