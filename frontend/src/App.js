@@ -154,7 +154,6 @@ const App = () => {
         />
         <Route path="/shop/preview/:id" element={<ShopPreviewPage />} />
         {/* shop Routes */}
-        <Route path="/shop-create" element={<ShopCreatePage />} />
         <Route path="/shop-login" element={<ShopLoginPage />} />
         <Route
           path="/shop/:id"
@@ -267,6 +266,14 @@ const App = () => {
           element={
             <ProtectedAdminRoute>
               <AdminDashboardPage />
+            </ProtectedAdminRoute>
+          }
+        />
+         <Route
+          path="/shop-create"
+          element={
+            <ProtectedAdminRoute>
+              <ShopCreatePage />
             </ProtectedAdminRoute>
           }
         />
