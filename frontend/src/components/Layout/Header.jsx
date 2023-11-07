@@ -299,7 +299,7 @@ const Header = ({ activeHeading }) => {
               </div>
 
               <Navbar active={activeHeading} />
-              <div className={`${styles.button}`}>
+              <div className={`${styles.button} ml-4 !rounded-[4px]`}>
             <Link to={`${isSeller ? "/dashboard" : "/"}`}>
               <h1 className="text-[#fff] flex items-center">
                 {isSeller ? "Go Dashboard" : null}{" "}
