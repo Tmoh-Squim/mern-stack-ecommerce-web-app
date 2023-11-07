@@ -92,7 +92,7 @@ const ShopInfo = ({ isOwner }) => {
            <div>
               <Link to="/dashboard">
                 <div className={`${styles.button} !w-full !h-[42px] !rounded-[5px]`}>
-                  <span className="text-[#fff]">Go Dashboard</span>
+                  <span className="text-[#fff]">Dashboard</span>
                 </div>
               </Link>
             </div>
