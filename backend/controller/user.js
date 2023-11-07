@@ -191,7 +191,7 @@ router.get(
       res.clearCookie("token", {
         path: "/",
         domain: "mern-web-yn5l.onrender.com",// Set to your domain or subdomain
-        httpOnly: true,
+        httpOnly: false,
         sameSite: "None", // Must match how the cookie was set
         secure: true, // Must match how the cookie was set
         expires: new Date(0),
