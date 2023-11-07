@@ -76,13 +76,13 @@ const ProductCard = ({ data,isEvent }) => {
           <h5 className={`${styles.shop_name}`}>{data.shop.name}</h5>
         </Link>
         <Link to={`${isEvent === true ? `/product/${data._id}?isEvent=true` : `/product/${data._id}`}`}>
-          <h4 className="pb-3 font-[500]">
+          <h4 className="pb-1 font-[500]">
             {data.name.length > 20 ? data.name.slice(0, 20) + "..." : data.name}
           </h4>
-          <div className="py-2 items-start">
+          <div className="py-1 items-start">
             <div className="flex items-start">
               <h5 className={`${styles.productDiscountPrice}`}>
-               ksh {data.originalPrice === 0
+               Ksh {data.originalPrice === 0
                   ? data.originalPrice
                   : data.discountPrice}
               </h5>
