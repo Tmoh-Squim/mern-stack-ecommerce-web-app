@@ -100,6 +100,8 @@ const Payment = () => {
   const paymentData = {
     amount: Math.round(orderData?.totalPrice * 100),
   };
+  const Amount={orderData?.totalPrice}
+  console.log(Amount)
 
   const paymentHandler = async (e) => {
     e.preventDefault();
@@ -184,7 +186,7 @@ const Payment = () => {
     const newForm = new FormData();
 
     newForm.append("phone", phone);
-    newForm.append("amount", paymentData);
+    newForm.append("amount", Amount);
     newForm.append("Order_ID",Order_ID);
 
     order.paymentInfo = {
