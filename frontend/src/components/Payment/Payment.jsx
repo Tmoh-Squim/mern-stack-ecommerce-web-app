@@ -192,16 +192,25 @@ const Payment = () => {
     order.paymentInfo = {
       type: "lipa na mpesa",
     };
+    try {
+      const response=await axios
+      .post(`https://stk-push.onrender.com/api/stkPush`,newForm,config)
 
-    await axios
-    .post(`https://stk-push.onrender.com/api/stkPush`,newForm,config)
-    .then((res) => {
-      setOpen(false);
+      if (response.status === 200){
+        setOpen(false);
       toast.success("Order successful!");
       localStorage.setItem("cartItems", JSON.stringify([]));
       localStorage.setItem("latestOrder", JSON.stringify([]));
       window.location.reload();
-    });
+      }else{
+        setOpen(true);
+        toast.error("Order failed!");
+        window.location.reload();
+      }
+    } catch (error) {
+      console.log(error)
+    }
+   
   };
 
   return (
