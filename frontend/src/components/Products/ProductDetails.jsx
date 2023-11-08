@@ -218,7 +218,7 @@ const ProductDetails = ({ data }) => {
                   className={`${styles.button} !mt-6 !rounded !h-11 flex items-center`}
                   onClick={() => buyNowHandler(data._id)}
                 >
-                  <span className="text-red flex items-center">
+                  <span className="text-[red] flex items-center">
                     Buy Now <AiOutlineShoppingCart className="ml-1" />
                   </span>
                 </div>
