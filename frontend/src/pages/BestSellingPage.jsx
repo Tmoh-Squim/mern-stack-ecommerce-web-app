@@ -28,7 +28,7 @@ const BestSellingPage = () => {
       <br />
       <br />
       <div className={`${styles.section}`}>
-        <div className="flex flex-wrap grid-cols-1 gap-[6px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-4 lg:gap-[25px] xl:grid-cols-5 xl:gap-[30px] mb-12">
+        <div className="flex 800px:grid flex-wrap grid-cols-1 gap-[6px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-4 lg:gap-[25px] xl:grid-cols-5 xl:gap-[30px] mb-12">
           {data && data.map((i, index) => <ProductCard data={i} key={index} />)}
         </div>
       </div>
