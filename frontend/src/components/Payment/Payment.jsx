@@ -30,7 +30,6 @@ const Payment = () => {
     const orderData = JSON.parse(localStorage.getItem("latestOrder"));
     setOrderData(orderData);
   }, []);
-  const {amount} = orderData?.totalPrice;
 
   const createOrder = (data, actions) => {
     return actions.order
@@ -99,7 +98,7 @@ const Payment = () => {
   };
 
   const paymentData = {
-    amounti: Math.round(orderData?.totalPrice * 100),
+    amount: Math.round(orderData?.totalPrice * 100),
   };
 
   const paymentHandler = async (e) => {
@@ -185,7 +184,7 @@ const Payment = () => {
     const newForm = new FormData();
 
     newForm.append("phone", phone);
-    newForm.append("amount", amount);
+    newForm.append("amount", paymentData);
     newForm.append("Order_ID",Order_ID);
 
     order.paymentInfo = {
