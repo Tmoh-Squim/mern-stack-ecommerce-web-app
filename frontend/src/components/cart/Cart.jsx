@@ -4,7 +4,6 @@ import { IoBagHandleOutline } from "react-icons/io5";
 import { HiOutlineMinus, HiPlus } from "react-icons/hi";
 import styles from "../../styles/styles";
 import { Link } from "react-router-dom";
-import { backend_url } from "../../server";
 import { useDispatch, useSelector } from "react-redux";
 import { addTocart, removeFromCart } from "../../redux/actions/cart";
 import { toast } from "react-toastify";
@@ -65,6 +64,7 @@ const Cart = ({ setOpenCart }) => {
                       key={index}
                       data={i}
                       quantityChangeHandler={quantityChangeHandler}
+                      selectedImage={i.selectedImage}
                       removeFromCartHandler={removeFromCartHandler}
                     />
                   ))}
@@ -129,7 +129,7 @@ const CartSingle = ({ data, quantityChangeHandler, removeFromCartHandler }) => {
           </div>
         </div>
         <img
-          src={`${data?.images[0]}`}
+          src={`${data?.selectedImage}`}
           alt=""
           className="w-[110px] h-min ml-2 mr-1 rounded-[5px]"
         />

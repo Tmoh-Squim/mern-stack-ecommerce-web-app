@@ -66,7 +66,8 @@ const ProductDetails = ({ data }) => {
       if (data.stock < 1) {
         toast.error("Product stock limited!");
       } else {
-        const cartData = { ...data, qty: count };
+        const selectedImage = data.images[select];
+        const cartData = { ...data, qty: count, selectedImage };
         dispatch(addTocart(cartData));
         toast.success("Item added to cart successfully!");
       }
