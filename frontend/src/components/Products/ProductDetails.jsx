@@ -172,7 +172,7 @@ const ProductDetails = ({ data }) => {
                     ksh{data.discountPrice}
                   </h4>
                   <h3 className={`${styles.price}`}>
-                    {"ksh" + data.originalPrice ? data.originalPrice : null}
+                    {ksh + data.originalPrice ? data.originalPrice : null}
                   </h3>
                 </div>
 

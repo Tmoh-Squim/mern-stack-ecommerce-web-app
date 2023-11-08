@@ -88,7 +88,7 @@ const ProductCard = ({ data,isEvent }) => {
                   : data.discountPrice}
               </h5>
               <h4 className={`${styles.price}`}>
-                {" ksh" + data.originalPrice ? data.originalPrice  : null}
+                { ksh + data.originalPrice ? data.originalPrice  : null}
               </h4>
             </div>
             <div className="flex">
