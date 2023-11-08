@@ -56,7 +56,7 @@ const Footer = () => {
           ))}
         </ul>
 
-        <ul className="hidden 800px:text-center 800px:items-center">
+        <ul className="hidden 800px:block text-center items-center">
           <h1 className="mb-1 font-semibold">Shop</h1>
           {footercompanyLinks.map((link,index) => (
             <li key={index}>
