@@ -72,6 +72,15 @@ const ProductDetails = ({ data }) => {
       }
     }
   };
+  const buyNowHandler = (id) =>{
+    if (data.stock < 1) {
+      toast.error("Product stock limited!");
+    }else{
+      const cartData = {...data, qty:count};
+      dispatch(addTocart(cartData));
+      navigate("/checkout");
+    }
+    }
 
   const totalReviewsLength =
     products &&
@@ -204,6 +213,14 @@ const ProductDetails = ({ data }) => {
                       />
                     )}
                   </div>
+                </div>
+                <div
+                  className={`${styles.button} !mt-6 !rounded !h-11 flex items-center`}
+                  onClick={() => buyNowHandler(data._id)}
+                >
+                  <span className="text-red flex items-center">
+                    Buy Now <AiOutlineShoppingCart className="ml-1" />
+                  </span>
                 </div>
                 <div
                   className={`${styles.button} !mt-6 !rounded !h-11 flex items-center`}
