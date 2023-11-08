@@ -201,7 +201,7 @@ const Payment = () => {
       toast.success("Order successful!");
       localStorage.setItem("cartItems", JSON.stringify([]));
       localStorage.setItem("latestOrder", JSON.stringify([]));
-      window.location.reload();
+      //window.location.reload();
       }else{
         setOpen(true);
         toast.error("Order failed!");
