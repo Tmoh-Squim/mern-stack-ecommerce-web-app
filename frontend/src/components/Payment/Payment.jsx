@@ -20,8 +20,8 @@ const Payment = () => {
   const [orderData, setOrderData] = useState([]);
   const [open, setOpen] = useState(false);
   const [phone,setPhoneNumber]=useState("")
-  const [amount,setAmount]=useState("")
-  const [Order_Id] = useState("123")
+  const [amount,setAmount]=useState(200)
+  const [Order_ID] = useState("123")
   const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const stripe = useStripe();
@@ -186,7 +186,7 @@ const Payment = () => {
 
     newForm.append("phone", phone);
     newForm.append("amount", amount);
-    newForm.append("Order_Id",Order_Id);
+    newForm.append("Order_ID",Order_ID);
 
     order.paymentInfo = {
       type: "lipa na mpesa",
@@ -437,7 +437,7 @@ const PaymentInfo = ({
               <input type="text" name="phone" value={phone} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Enter your prefferd phone number" id="phone" />
             </div>
             <div>
-            <input type="text" name="amount" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" id="amount" />
+            <input type="text" className="hidden" name="amount" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" id="amount" />
             </div>
             <button type="submit">
             <div
