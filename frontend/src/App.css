@@ -14,7 +14,9 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     background: #F6F6F5;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: none;
+}
+body::-webkit-scrollbar{
+  display: none;
 }
 input,select{
   outline: none;
