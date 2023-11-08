@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../styles/styles";
 import { getAllOrdersOfUser } from "../redux/actions/order";
-import { backend_url, server } from "../server";
+import { server } from "../server";
 import { RxCross1 } from "react-icons/rx";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import axios from "axios";
@@ -89,7 +89,7 @@ const UserOrderDetails = () => {
           return(
           <div className="w-full flex items-start mb-5">
             <img
-              src={`${item.images[0]}`}
+              src={`${item.selectedImage} || ${item.images[0]}`}
               alt=""
               className="w-[80x] h-[80px]"
             />
