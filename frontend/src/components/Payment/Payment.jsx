@@ -20,7 +20,6 @@ const Payment = () => {
   const [orderData, setOrderData] = useState([]);
   const [open, setOpen] = useState(false);
   const [phone,setPhoneNumber]=useState("")
-  const [amount,setAmount]=useState(200)
   const [Order_ID] = useState("123")
   const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -31,6 +30,7 @@ const Payment = () => {
     const orderData = JSON.parse(localStorage.getItem("latestOrder"));
     setOrderData(orderData);
   }, []);
+  const [amount,setAmount]=useState(orderData?.totalPrice)
 
   const createOrder = (data, actions) => {
     return actions.order
