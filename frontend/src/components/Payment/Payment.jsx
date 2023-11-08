@@ -100,7 +100,7 @@ const Payment = () => {
   const paymentData = {
     amount: Math.round(orderData?.totalPrice * 100),
   };
-  const Amount={orderData?.totalPrice}
+  const Amount=orderData?.totalPrice
   console.log(Amount)
 
   const paymentHandler = async (e) => {
