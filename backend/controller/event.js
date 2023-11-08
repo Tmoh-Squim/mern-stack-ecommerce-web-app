@@ -7,6 +7,7 @@ const ErrorHandler = require("../utils/ErrorHandler");
 const { isSeller, isAdmin, isAuthenticated } = require("../middleware/auth");
 const router = express.Router();
 const fs = require("fs");
+const cloudinary = require("../utils/cloudinary")
 
 // create event
 router.post(
@@ -20,7 +21,14 @@ router.post(
         return next(new ErrorHandler("Shop Id is invalid!", 400));
       } else {
         const files = req.files;
-        const imageUrls = files.map((file) => `${file.filename}`);
+        //const imageUrls = files.map((file) => `${file.filename}`);
+        const imageUrls = [];
+        for (const file of files) {
+          // Upload each image file to Cloudinary
+          const result = await cloudinary.uploader.upload(file.path);
+          const urls = result.secure_url
+          imageUrls.push(urls);
+        }
 
         const eventData = req.body;
         eventData.images = imageUrls;
