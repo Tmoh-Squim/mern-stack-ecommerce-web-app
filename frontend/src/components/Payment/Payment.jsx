@@ -217,7 +217,6 @@ const Payment = () => {
             cashOnDeliveryHandler={cashOnDeliveryHandler}
             phone={phone}
             amount={amount}
-            setAmount={setAmount}
             setPhoneNumber={setPhoneNumber}
             handleMpesaPayment={handleMpesaPayment}
           />
@@ -236,7 +235,6 @@ const PaymentInfo = ({
   setOpen,
   phone,
   amount,
-  setAmount,
   setPhoneNumber,
   onApprove,
   createOrder,
@@ -436,7 +434,7 @@ const PaymentInfo = ({
             <div>
               <input type="text" name="phone" value={phone} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Enter your prefferd phone number" id="phone" />
             </div>
-            
+           
             <button type="submit">
             <div
               className={`${styles.button} !bg-[#f63b60] text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
