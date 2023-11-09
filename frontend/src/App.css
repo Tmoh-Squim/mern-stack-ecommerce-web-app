@@ -41,7 +41,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 .hero-slider-wrapper{
-  height: 20%;
+  height: 20% !important;
 }
 .custom-hero-slider{
   height: 120px !important;
