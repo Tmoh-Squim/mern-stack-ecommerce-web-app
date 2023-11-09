@@ -32,7 +32,7 @@ const BasicSlider = () => {
           <Slide
             background={{
               backgroundImageSrc: img1,
-              backgroundAttachment: "fixed",
+              
               backgroundSize:'cover',
               backgroundRepeat:'no-repeat'
             }}
@@ -42,7 +42,7 @@ const BasicSlider = () => {
           <Slide
             background={{
               backgroundImageSrc: img2,
-              backgroundAttachment: "fixed",
+              
               backgroundSize:'cover',
               backgroundRepeat:'no-repeat'
             }}
@@ -52,7 +52,7 @@ const BasicSlider = () => {
           <Slide
             background={{
               backgroundImageSrc: img3,
-              backgroundAttachment: "fixed",
+              
               backgroundSize:'cover',
               backgroundRepeat:'no-repeat'
             }}
@@ -62,7 +62,7 @@ const BasicSlider = () => {
           <Slide
             background={{
               backgroundImageSrc: img4,
-              backgroundAttachment: "fixed",
+              
               backgroundSize:'cover',
               backgroundRepeat:'no-repeat'
             }}
