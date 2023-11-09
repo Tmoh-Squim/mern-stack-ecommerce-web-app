@@ -15,7 +15,7 @@ const initiateSTKPush = async(req, res) => {
         const {amount, phone,Order_ID} = req.body
 
         if ( !phone || !amount || !Order_ID) {
-            throw new Error("Invalid request body. Ensure it includes 'amount', 'phone', and 'Order_ID'.");
+            res.send({message:"Invalid request body. Ensure it includes 'amount', 'phone', and 'Order_ID'."})
         }
         const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
         const auth = "Bearer " + req.safaricom_access_token
