@@ -11,8 +11,8 @@ const BasicSlider = () => {
   return (
     <>
         <HeroSlider
-          slidingAnimation="left_to_right"
-          orientation="horizontal"
+          slidingAnimation="top_to_bottom"
+          orientation="vertical"
           initialSlide={1}
           autoplay
           onBeforeChange={(previousSlide, nextSlide) =>
