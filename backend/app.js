@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const fs = require("fs").promises;
 const cors = require("cors");
 const path = require("path")
-const lipaNaMpesaRoutes = require("./routes/LipaNaMpesa.js")
+const lipaNaMpesaRoutes = require("./routes/LipaNaMpesa")
 //good
 
 app.use(cors({

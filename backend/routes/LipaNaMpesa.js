@@ -6,10 +6,10 @@ const {
     confirmPayment
 
 
-} = require("../controller/lipaNaMpesa.js")
+} = require("../controller/lipaNaMpesa")
 
 
-const {accessToken} = require("../middleware/genenerateAccessToken.js")
+const {accessToken} = require("../middleware/genenerateAccessToken")
 
 router.post('/stkPush',accessToken,initiateSTKPush)
 router.post('/stkPushCallback/:Order_ID',stkPushCallback)
