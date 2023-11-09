@@ -4,6 +4,7 @@ import styles from "../../../styles/styles";
 //import Typed from "react-typed"
 import BasicSlider from "../data/BasicSlider"
 //import { ImageData } from '../data/Slider';
+import "../../../App.css"
 const Hero = () => {
   const hero="height-[20vh] bg-black"
   return (
