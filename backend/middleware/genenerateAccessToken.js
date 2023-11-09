@@ -29,7 +29,7 @@ const request=require("request")
         )
     }catch (error) {
 
-        console.error("Access token error ", error)
+        console.error("token error ", error)
         res.status(401).send({
             "message": 'Something went wrong when trying to process your payment',
             "error":error.message
