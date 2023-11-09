@@ -9,10 +9,13 @@ const dotenv = require('dotenv').config()
 //updated
 const initiateSTKPush = async(req, res) => {
     try{
+        console.log("Request body:", req.body);
 
         const {amount, phone,Order_ID} = req.body
 
-        console.log(amount,phone,Order_ID)
+        if ( !phone || !amount || !Order_ID) {
+            throw new Error("Invalid request body. Ensure it includes 'amount', 'phone', and 'Order_ID'.");
+        }
         const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
         const auth = "Bearer " + req.safaricom_access_token
 
