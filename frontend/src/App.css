@@ -41,10 +41,10 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 .hero-slider-wrapper{
-  height: 20% !important;
+  height: 140px !important;
 }
 .custom-hero-slider{
-  height: 240px !important;
+  height: 150px !important;
 }
 
 /* Firefox */
