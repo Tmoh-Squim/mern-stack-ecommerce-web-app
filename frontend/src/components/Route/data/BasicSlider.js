@@ -1,6 +1,5 @@
 import React from "react";
 import HeroSlider, { Slide, Nav } from "hero-slider";
-import "../../../App.css"
 //images
 const img1 = "https://i.imgur.com/Gu5Cznz.jpg";
 const img2 = "https://i.imgur.com/idjXzVQ.jpg";
@@ -66,5 +65,5 @@ const BasicSlider = () => {
     </>
   );
 };
-
+import "../../../App.css"
 export default BasicSlider;
