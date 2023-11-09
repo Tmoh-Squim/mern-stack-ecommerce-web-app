@@ -45,6 +45,8 @@ input::-webkit-inner-spin-button {
 }
 .custom-hero-slider{
   height: 198px !important;
+}
+.hero-slider-slid{
   animation-delay: 0ms;
   transition: transform 0ms linear var(--sliding-delay, 0ms);
   transition-duration: 0;
