@@ -34,7 +34,7 @@ const BasicSlider = () => {
               backgroundAttachment: "fixed",
             }}
             className="w-[92%] 800px:w-full"
-            style={{ height: "35vh",margin:"0.75rem" }}
+            style={{ height: "35vh"}}
           />
           <Slide
             background={{
@@ -42,7 +42,7 @@ const BasicSlider = () => {
               backgroundAttachment: "fixed",
             }}
             className="w-[92%] 800px:w-full"
-            style={{ height: "35vh",margin:"0.75rem" }}
+            style={{ height: "35vh"}}
           />
           <Slide
             background={{
@@ -50,7 +50,7 @@ const BasicSlider = () => {
               backgroundAttachment: "fixed",
             }}
             className="w-[92%] 800px:w-full"
-            style={{ height: "35vh",margin:"0.75rem" }}
+            style={{ height: "35vh"}}
           />
           <Slide
             background={{
@@ -58,7 +58,7 @@ const BasicSlider = () => {
               backgroundAttachment: "fixed",
             }}
             className="w-[92%] 800px:w-full"
-            style={{ height: "35vh",margin:"0.75rem" }}
+            style={{ height: "35vh"}}
           />
           <Nav />
         </HeroSlider>
