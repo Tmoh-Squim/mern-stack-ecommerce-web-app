@@ -52,6 +52,7 @@ input::-webkit-inner-spin-button {
   transition-delay: 0 !important;
   transition: transform 0ms linear var(--sliding-delay, 0ms) !important;
   transition-duration: 0 !important;
+  will-change:auto;
 }
 
 /* Firefox */
