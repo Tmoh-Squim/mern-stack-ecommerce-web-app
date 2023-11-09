@@ -30,55 +30,56 @@ const BasicSlider = () => {
           className="custom-hero-slider"
         >
           <Slide
-            background={{
-              backgroundImageSrc: img1,
-              
-              backgroundSize:'cover',
-              backgroundPosition:'center',
-              backgroundRepeat:'no-repeat',
-              height:'100vh'
-            }}
-            className="w-[92%] 800px:w-full h-[100%]"
-            style={{ height: "100vh"}}
-          />
+  className="w-[92%] 800px:w-full h-[100%] relative"
+  style={{ height: "100vh" }}
+>
+  <div
+    className="absolute top-0 left-0 w-full h-full bg-center bg-cover"
+    
+  >
+    <img scr={`${img1}`} alt='squim' />
+    </div>
+
+  
+</Slide>
 
 
-          <Slide
-            background={{
-              backgroundImageSrc: img2,
-              
-              backgroundSize:'cover',
-              backgroundPosition:'center',
-              backgroundRepeat:'no-repeat',
-              height:'100vh'
-            }}
-            className="w-[92%] 800px:w-full h-[100%]"
-            style={{ height: "100vh"}}
-          />
-          <Slide
-            background={{
-              backgroundImageSrc: img3,
-              
-              backgroundSize:'cover',
-              backgroundPosition:'center',
-              backgroundRepeat:'no-repeat',
-              height:'100vh'
-            }}
-            className="w-[92%] 800px:w-full h-[100%]"
-            style={{ height: "100vh"}}
-          />
-          <Slide
-            background={{
-              backgroundImageSrc: img4,
-              
-              backgroundSize:'cover',
-              backgroundPosition:'center',
-              backgroundRepeat:'no-repeat',
-              height:'100vh'
-            }}
-            className="w-[92%] 800px:w-full h-[100%]"
-            style={{ height: "100vh"}}
-          />
+<Slide
+  className="w-[92%] 800px:w-full h-[100%] relative"
+  style={{ height: "100vh" }}
+>
+  <div
+    className="absolute top-0 left-0 w-full h-full bg-center bg-cover"
+    
+  >
+    <img scr={`${img2}`} alt='squim' />
+    </div>
+  
+</Slide>
+<Slide
+  className="w-[92%] 800px:w-full h-[100%] relative"
+  style={{ height: "100vh" }}
+>
+  <div
+    className="absolute top-0 left-0 w-full h-full bg-center bg-cover"
+    
+  >
+    <img scr={`${img3}`} alt='squim' />
+    </div>
+  
+</Slide>
+<Slide
+  className="w-[92%] 800px:w-full h-[100%] relative"
+  style={{ height: "100vh" }}
+>
+  <div
+    className="absolute top-0 left-0 w-full h-full bg-center bg-cover"
+    
+  >
+    <img scr={`${img4}`} alt='squim' />
+    </div>
+  
+</Slide>
           <Nav />
         </HeroSlider>
     </>
