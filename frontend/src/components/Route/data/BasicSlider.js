@@ -35,7 +35,7 @@ const BasicSlider = () => {
 >
   <div
     className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center"
-    style={{ backgroundImage: `url(${img1})` }}
+    style={{ backgroundImage: `url(${img1})`,objectFit:'cover' }}
   />
 </Slide>
 
@@ -45,7 +45,7 @@ const BasicSlider = () => {
 >
   <div
     className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center"
-    style={{ backgroundImage: `url(${img2})` }}
+    style={{ backgroundImage: `url(${img2})`,objectFit:'cover' }}
   />
 </Slide>
 
@@ -55,7 +55,7 @@ const BasicSlider = () => {
 >
   <div
     className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center"
-    style={{ backgroundImage: `url(${img3})` }}
+    style={{ backgroundImage: `url(${img3})`,objectFit:'cover' }}
   />
 </Slide>
 <Slide
@@ -64,7 +64,7 @@ const BasicSlider = () => {
 >
   <div
     className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center"
-    style={{ backgroundImage: `url(${img4})` }}
+    style={{ backgroundImage: `url(${img4})`,objectFit:'cover' }}
   />
 </Slide>
         <Nav />
