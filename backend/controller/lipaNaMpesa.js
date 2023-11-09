@@ -11,6 +11,8 @@ const initiateSTKPush = async(req, res) => {
     try{
 
         const {amount, phone,Order_ID} = req.body
+
+        console.log(amount,phone,Order_ID)
         const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
         const auth = "Bearer " + req.safaricom_access_token
 
