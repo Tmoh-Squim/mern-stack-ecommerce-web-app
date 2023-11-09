@@ -1,18 +1,16 @@
-const request = require("request")
-const ngrok = require("ngrok")
-const {getTimestamp} = require("../utils/timestamp")
- require("dotenv").config()
+const request = require("request");
+const {getTimestamp} = require("../utils/timestamp");
+const ngrok = require('ngrok'); 
+const dotenv = require('dotenv').config()
+
 // @desc initiate stk push
 // @method POST
 // @route /stkPush
-// @access public
- const initiateSTKPush = async(req, res) => {
+//updated
+const initiateSTKPush = async(req, res) => {
     try{
 
-        //const {amount, phone,Order_ID} = req.body
-        const {amount} = '10'
-        const {phone} = '254748143442'
-        const {Order_ID} = "1234"
+        const {amount, phone,Order_ID} = req.body
         const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
         const auth = "Bearer " + req.safaricom_access_token
 
@@ -78,7 +76,7 @@ const {getTimestamp} = require("../utils/timestamp")
 // @method POST
 // @route /stkPushCallback/:Order_ID
 // @access public
- const stkPushCallback = async(req, res) => {
+const stkPushCallback = async(req, res) => {
     try{
 
     //    order id
@@ -134,7 +132,7 @@ const {getTimestamp} = require("../utils/timestamp")
 // @method GET
 // @route /confirmPayment/:CheckoutRequestID
 // @access public
- const confirmPayment = async(req, res) => {
+const confirmPayment = async(req, res) => {
     try{
 
 
@@ -181,6 +179,5 @@ const {getTimestamp} = require("../utils/timestamp")
         })
     }
 }
+module.exports={initiateSTKPush,stkPushCallback,confirmPayment}
 
-
-module.exports={initiateSTKPush,confirmPayment,stkPushCallback}

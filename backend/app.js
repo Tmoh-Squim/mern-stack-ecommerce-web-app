@@ -13,7 +13,7 @@ app.use(cors({
   origin: 'https://squimstech.vercel.app',
   credentials: true
 }));
-app.use('/api/v2/order',lipaNaMpesaRoutes)
+app.use('/api/v1',lipaNaMpesaRoutes)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser());
