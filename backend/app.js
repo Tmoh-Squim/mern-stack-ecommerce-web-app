@@ -7,7 +7,7 @@ const fs = require("fs").promises;
 const cors = require("cors");
 const path = require("path")
 const lipaNaMpesaRoutes = require("./routes/LipaNaMpesa.js")
-
+//good
 
 app.use(cors({
   origin: 'https://squimstech.vercel.app',
