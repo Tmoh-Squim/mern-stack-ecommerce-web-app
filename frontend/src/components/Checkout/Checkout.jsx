@@ -40,7 +40,7 @@ const Checkout = () => {
 
     const orderData = {
       cart,
-      totalPrice,
+      totalPrice:Math.round(totalPrice),
       subTotalPrice,
       shipping,
       discountPrice,
@@ -97,8 +97,9 @@ const Checkout = () => {
   const discountPercentenge = couponCodeData ? discountPrice : "";
 
   const totalPrice = couponCodeData
-    ? (subTotalPrice + shipping - discountPercentenge).toFixed(2)
-    : (subTotalPrice + shipping).toFixed(2);
+  ? Math.round(subTotalPrice + shipping - discountPercentenge) // Round the total price to an integer
+  : Math.round(subTotalPrice + shipping); // Round the total price to an integer
+
 
   console.log(discountPercentenge);
 
