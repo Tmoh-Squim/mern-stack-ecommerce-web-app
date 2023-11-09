@@ -34,7 +34,7 @@ const BasicSlider = () => {
   style={{ height: "100vh" }}
 >
   <div
-    className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat"
+    className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center"
     style={{ backgroundImage: `url(${img1})` }}
   />
 </Slide>
@@ -44,7 +44,7 @@ const BasicSlider = () => {
   style={{ height: "100vh" }}
 >
   <div
-    className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat"
+    className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center"
     style={{ backgroundImage: `url(${img2})` }}
   />
 </Slide>
@@ -54,7 +54,7 @@ const BasicSlider = () => {
   style={{ height: "100vh" }}
 >
   <div
-    className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat"
+    className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center"
     style={{ backgroundImage: `url(${img3})` }}
   />
 </Slide>
@@ -63,7 +63,7 @@ const BasicSlider = () => {
   style={{ height: "100vh" }}
 >
   <div
-    className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat"
+    className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center"
     style={{ backgroundImage: `url(${img4})` }}
   />
 </Slide>
