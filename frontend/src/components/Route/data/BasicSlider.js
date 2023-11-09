@@ -30,46 +30,44 @@ const BasicSlider = () => {
           className="custom-hero-slider"
         >
           <Slide
-            background={{
-              backgroundImageSrc: img1,
-              
-              backgroundSize:'cover',
-              backgroundRepeat:'no-repeat'
-            }}
-            className="w-[92%] 800px:w-full h-[100%]"
-            style={{ height: "100vh"}}
-          />
-          <Slide
-            background={{
-              backgroundImageSrc: img2,
-              
-              backgroundSize:'cover',
-              backgroundRepeat:'no-repeat'
-            }}
-            className="w-[92%] 800px:w-full h-[100%]"
-            style={{ height: "100vh"}}
-          />
-          <Slide
-            background={{
-              backgroundImageSrc: img3,
-              
-              backgroundSize:'cover',
-              backgroundRepeat:'no-repeat'
-            }}
-            className="w-[92%] 800px:w-full h-[100%]"
-            style={{ height: "100vh"}}
-          />
-          <Slide
-            background={{
-              backgroundImageSrc: img4,
-              
-              backgroundSize:'cover',
-              backgroundRepeat:'no-repeat'
-            }}
-            className="w-[92%] 800px:w-full h-[100%]"
-            style={{ height: "100vh"}}
-          />
-          <Nav />
+  className="w-[92%] 800px:w-full h-[100%] relative"
+  style={{ height: "100vh" }}
+>
+  <div
+    className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat"
+    style={{ backgroundImage: `url(${img1})` }}
+  />
+</Slide>
+
+<Slide
+  className="w-[92%] 800px:w-full h-[100%] relative"
+  style={{ height: "100vh" }}
+>
+  <div
+    className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat"
+    style={{ backgroundImage: `url(${img2})` }}
+  />
+</Slide>
+
+<Slide
+  className="w-[92%] 800px:w-full h-[100%] relative"
+  style={{ height: "100vh" }}
+>
+  <div
+    className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat"
+    style={{ backgroundImage: `url(${img3})` }}
+  />
+</Slide>
+<Slide
+  className="w-[92%] 800px:w-full h-[100%] relative"
+  style={{ height: "100vh" }}
+>
+  <div
+    className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat"
+    style={{ backgroundImage: `url(${img4})` }}
+  />
+</Slide>
+        <Nav />
         </HeroSlider>
     </>
   );
