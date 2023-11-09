@@ -36,7 +36,7 @@ const BasicSlider = () => {
               backgroundSize:'contain',
               backgroundRepeat:'no-repeat'
             }}
-            className="w-[92%] 800px:w-full"
+            className="w-[92%] 800px:w-full height-[100%]"
             style={{ height: "100vh"}}
           />
           <Slide
@@ -46,7 +46,7 @@ const BasicSlider = () => {
               backgroundSize:'contain',
               backgroundRepeat:'no-repeat'
             }}
-            className="w-[92%] 800px:w-full"
+            className="w-[92%] 800px:w-full height-[100%]"
             style={{ height: "100vh"}}
           />
           <Slide
@@ -56,7 +56,7 @@ const BasicSlider = () => {
               backgroundSize:'contain',
               backgroundRepeat:'no-repeat'
             }}
-            className="w-[92%] 800px:w-full"
+            className="w-[92%] 800px:w-full height-[100%]"
             style={{ height: "100vh"}}
           />
           <Slide
@@ -66,7 +66,7 @@ const BasicSlider = () => {
               backgroundSize:'contain',
               backgroundRepeat:'no-repeat'
             }}
-            className="w-[92%] 800px:w-full"
+            className="w-[92%] 800px:w-full height-[100%]"
             style={{ height: "100vh"}}
           />
           <Nav />
