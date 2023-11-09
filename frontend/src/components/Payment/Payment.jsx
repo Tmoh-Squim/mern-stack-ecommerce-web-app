@@ -247,6 +247,8 @@ const Payment = () => {
             handlePhoneChange={handlePhoneChange}
             phone={phone}
             setPhoneNumber={setPhoneNumber}
+            phoneError={phoneError}
+            setPhoneError={setPhoneError}
             handleMpesaPayment={handleMpesaPayment}
           />
         </div>
