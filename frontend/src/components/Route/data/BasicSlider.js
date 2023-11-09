@@ -21,7 +21,7 @@ const BasicSlider = () => {
           onChange={(nextSlide) => console.log("onChange", nextSlide)}
           onAfterChange={(nextSlide) => console.log("onAfterChange", nextSlide)}
           settings={{
-            slidingDuration: 200,
+            slidingDuration: 100,
             slidingDelay: 0,
             shouldAutoplay: true,
             shouldDisplayButtons: true,
@@ -36,7 +36,7 @@ const BasicSlider = () => {
               backgroundSize:'cover',
               backgroundPosition:'center',
               backgroundRepeat:'no-repeat',
-              height:'100%'
+              height:'100vh'
             }}
             className="w-[92%] 800px:w-full h-[100%]"
             style={{ height: "100vh"}}
@@ -50,7 +50,7 @@ const BasicSlider = () => {
               backgroundSize:'cover',
               backgroundPosition:'center',
               backgroundRepeat:'no-repeat',
-              height:'100%'
+              height:'100vh'
             }}
             className="w-[92%] 800px:w-full h-[100%]"
             style={{ height: "100vh"}}
@@ -62,7 +62,7 @@ const BasicSlider = () => {
               backgroundSize:'cover',
               backgroundPosition:'center',
               backgroundRepeat:'no-repeat',
-              height:'100%'
+              height:'100vh'
             }}
             className="w-[92%] 800px:w-full h-[100%]"
             style={{ height: "100vh"}}
@@ -74,7 +74,7 @@ const BasicSlider = () => {
               backgroundSize:'cover',
               backgroundPosition:'center',
               backgroundRepeat:'no-repeat',
-              height:'100%'
+              height:'100vh'
             }}
             className="w-[92%] 800px:w-full h-[100%]"
             style={{ height: "100vh"}}
