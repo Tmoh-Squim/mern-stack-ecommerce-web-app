@@ -30,7 +30,7 @@ const BasicSlider = () => {
           className="custom-hero-slider"
         >
           <Slide
-  className="w-[92%] 800px:w-full h-[100%] relative"
+  className="w-[92%] 800px:w-full h-[100%] relative justify-center"
   style={{ height: "100vh" }}
 >
   <div
@@ -40,7 +40,7 @@ const BasicSlider = () => {
 </Slide>
 
 <Slide
-  className="w-[92%] 800px:w-full h-[100%] relative"
+  className="w-[92%] 800px:w-full h-[100%] relative justify-center"
   style={{ height: "100vh" }}
 >
   <div
@@ -50,7 +50,7 @@ const BasicSlider = () => {
 </Slide>
 
 <Slide
-  className="w-[92%] 800px:w-full h-[100%] relative"
+  className="w-[92%] 800px:w-full h-[100%] relative justify-center"
   style={{ height: "100vh" }}
 >
   <div
@@ -59,7 +59,7 @@ const BasicSlider = () => {
   />
 </Slide>
 <Slide
-  className="w-[92%] 800px:w-full h-[100%] relative"
+  className="w-[92%] 800px:w-full h-[100%] relative justify-center"
   style={{ height: "100vh" }}
 >
   <div
