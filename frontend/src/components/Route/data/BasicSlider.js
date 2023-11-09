@@ -21,7 +21,7 @@ const BasicSlider = () => {
           onChange={(nextSlide) => console.log("onChange", nextSlide)}
           onAfterChange={(nextSlide) => console.log("onAfterChange", nextSlide)}
           settings={{
-            slidingDuration: 3,
+            slidingDuration: 300,
             slidingDelay: 0,
             shouldAutoplay: true,
             shouldDisplayButtons: true,
@@ -37,7 +37,7 @@ const BasicSlider = () => {
     className="absolute top-0 left-0 w-full h-full bg-center bg-cover"
     
   >
-    <img src={img1} alt='squim' />
+    <img src={img1} style={{height:'100%',width:'100%'}} alt='squim' />
     </div>
 
   
@@ -52,7 +52,7 @@ const BasicSlider = () => {
     className="absolute top-0 left-0 w-full h-full bg-center bg-cover"
     
   >
-    <img src={img2} alt='squim' />
+    <img src={img2} alt='squim' style={{height:'100%',width:'100%'}} />
     </div>
   
 </Slide>
@@ -64,7 +64,7 @@ const BasicSlider = () => {
     className="absolute top-0 left-0 w-full h-full bg-center bg-cover"
     
   >
-    <img src={img3} alt='squim' />
+    <img src={img3} alt='squim' style={{height:'100%',width:'100%'}} />
     </div>
   
 </Slide>
@@ -76,7 +76,7 @@ const BasicSlider = () => {
     className="absolute top-0 left-0 w-full h-full bg-center bg-cover"
     
   >
-    <img src={img4} alt='squim' />
+    <img src={img4} alt='squim' style={{height:'100%',width:'100%'}} />
     </div>
   
 </Slide>
