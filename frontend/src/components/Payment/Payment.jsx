@@ -32,8 +32,8 @@ const Payment = () => {
     setOrderData(orderData);
   }, []);
 
-  const phoneRegex = /^\254\d{9}$/;
-
+  
+const phoneRegex = /^254\d{9}$/;
   const handlePhoneChange = (e) => {
     const phoneNum = e.target.value;
     setPhoneNumber(phoneNum);
