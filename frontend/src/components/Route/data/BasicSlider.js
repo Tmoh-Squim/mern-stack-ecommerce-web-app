@@ -4,7 +4,7 @@ import "../../../App.css"
 //images
 const img1 = "https://img.freepik.com/free-psd/horizontal-banner-online-fashion-sale_23-2148585404.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699401600&semt=ais";
 const img2 = "https://img.freepik.com/free-psd/special-sales-banner-template_23-2148975924.jpg";
-const img3 = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/grocery-sale-retail-or-e-commerce-banner-ad-design-template-67720435bb809be27f46dfb1dd44c6fa_screen.jpg?ts=1606113265";
+const img3 = "https://cdn5.vectorstock.com/i/1000x1000/52/04/online-shopping-e-commerce-banner-concept-vector-25035204.jpg";
 const img4 = "https://img.freepik.com/free-psd/online-shopping-concept-banner-template_23-2148559464.jpg";
 
 const BasicSlider = () => {
@@ -22,7 +22,7 @@ const BasicSlider = () => {
           onAfterChange={(nextSlide) => console.log("onAfterChange", nextSlide)}
           settings={{
             slidingDuration: 300,
-            slidingDelay: 0,
+            slidingDelay: -2,
             shouldAutoplay: true,
             shouldDisplayButtons: true,
             autoplayDuration: 1000,
