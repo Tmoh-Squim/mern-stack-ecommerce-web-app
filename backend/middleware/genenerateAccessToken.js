@@ -1,4 +1,6 @@
 const request=require("request")
+const dotenv = require('dotenv')
+dotenv.config()
 
  const accessToken = (req, res, next)=> {
     try{
@@ -37,4 +39,4 @@ const request=require("request")
     }
 
 }
-module.exports={accessToken}
+module.exports=accessToken
