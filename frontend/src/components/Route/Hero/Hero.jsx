@@ -5,6 +5,7 @@ import styles from "../../../styles/styles";
 import BasicSlider from "../data/BasicSlider"
 //import { ImageData } from '../data/Slider';
 const Hero = () => {
+  const hero="height-[20vh] bg-black"
   return (
     <>
     <div
@@ -15,7 +16,7 @@ const Hero = () => {
       }}
     >
       <div className="w-full">
-      <BasicSlider />
+      <BasicSlider style={{hero}} />
       </div>
       
     </div>
