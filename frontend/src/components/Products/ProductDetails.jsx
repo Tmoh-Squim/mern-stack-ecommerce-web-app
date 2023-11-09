@@ -19,6 +19,8 @@ import { toast } from "react-toastify";
 import Ratings from "./Ratings";
 import axios from "axios";
 import ReactImageZoom from "react-image-zoom"
+import { IoIosArrowBackward } from "react-icons/io";
+
 const ProductDetails = ({ data }) => {
   const { wishlist } = useSelector((state) => state.wishlist);
   const { cart } = useSelector((state) => state.cart);
