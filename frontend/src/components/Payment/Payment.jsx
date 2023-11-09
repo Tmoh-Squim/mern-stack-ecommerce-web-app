@@ -20,6 +20,7 @@ const Payment = () => {
   const [orderData, setOrderData] = useState([]);
   const [open, setOpen] = useState(false);
   const [phone,setPhoneNumber]=useState("")
+  const [phoneError, setPhoneError] = useState('');
   const [Order_ID] = useState("123")
   const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -30,6 +31,19 @@ const Payment = () => {
     const orderData = JSON.parse(localStorage.getItem("latestOrder"));
     setOrderData(orderData);
   }, []);
+
+  const phoneRegex = /^\254\d{8}$/;
+
+  const handlePhoneChange = (e) => {
+    const phoneNum = e.target.value;
+    setPhoneNumber(phoneNum);
+
+    if (phoneRegex.test(phoneNum)) {
+      setPhoneError(''); // Clear the error message
+    } else {
+      setPhoneError('Invalid phone number format');
+    }
+  };
 
   const createOrder = (data, actions) => {
     return actions.order
@@ -181,37 +195,42 @@ const Payment = () => {
  
   const handleMpesaPayment = async (e) => {
     e.preventDefault();
-    const config = { headers: { "Content-Type": "multipart/form-data" } };
+    if(phoneError){
+      return;
+    }else{
+      const config = { headers: { "Content-Type": "multipart/form-data" } };
 
-    const newForm = new FormData();
-
-    newForm.append("phone", phone);
-    newForm.append("amount", Amount);
-    newForm.append("Order_ID",Order_ID);
-
-    order.paymentInfo = {
-      type: "lipa na mpesa",
-    };
-    try {
-      const response=await axios
-      .post(`https://stk-push.onrender.com/api/stkPush`,newForm,config)
-
-      if (response.status === 200){
-        setOpen(false);
-      toast.success("Order successful!");
-      localStorage.setItem("cartItems", JSON.stringify([]));
-      localStorage.setItem("latestOrder", JSON.stringify([]));
-      //window.location.reload();
-      }else{
-        setOpen(true);
-        toast.error("Order failed!");
-        window.location.reload();
+      const newForm = new FormData();
+  
+      newForm.append("phone", phone);
+      newForm.append("amount", Amount);
+      newForm.append("Order_ID",Order_ID);
+  
+      order.paymentInfo = {
+        type: "lipa na mpesa",
+      };
+      try {
+        const response=await axios
+        .post(`https://stk-push.onrender.com/api/stkPush`,newForm,config)
+  
+        if (response.status === 200){
+          setOpen(false);
+        toast.success("Order successful!");
+        localStorage.setItem("cartItems", JSON.stringify([]));
+        localStorage.setItem("latestOrder", JSON.stringify([]));
+        //window.location.reload();
+        }else{
+          setOpen(true);
+          toast.error("Order failed!");
+          window.location.reload();
+        }
+      } catch (error) {
+        console.log(error)
       }
-    } catch (error) {
-      console.log(error)
+     
+    };
     }
    
-  };
 
   return (
     <div className="w-full flex flex-col items-center py-8">
@@ -225,6 +244,7 @@ const Payment = () => {
             createOrder={createOrder}
             paymentHandler={paymentHandler}
             cashOnDeliveryHandler={cashOnDeliveryHandler}
+            handlePhoneChange={handlePhoneChange}
             phone={phone}
             setPhoneNumber={setPhoneNumber}
             handleMpesaPayment={handleMpesaPayment}
@@ -244,6 +264,7 @@ const PaymentInfo = ({
   setOpen,
   phone,
   setPhoneNumber,
+  handlePhoneChange,
   onApprove,
   createOrder,
   paymentHandler,
@@ -440,7 +461,8 @@ const PaymentInfo = ({
           <div className="w-full block border-b">
             <form action="" onSubmit={handleMpesaPayment}>
             <div>
-              <input type="text" name="phone" value={phone} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Enter your prefferd phone number" id="phone" />
+              <input type="text" name="phone" value={phone} onChange={handlePhoneChange} placeholder="Enter your prefferd phone number" id="phone" />
+              {phoneError && <p style={{ color: 'red' }}>{phoneError}</p>}
             </div>
            
             <button type="submit">
