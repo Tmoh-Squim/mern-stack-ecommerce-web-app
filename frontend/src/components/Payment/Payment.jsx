@@ -465,7 +465,7 @@ const PaymentInfo = ({
           <div className="w-full block border-b">
             <form action="" onSubmit={handleMpesaPayment}>
             <div>
-              <input type="text" name="phone" value={phone} className="h-[1.35rem]" onChange={handlePhoneChange} placeholder="Enter your prefferd phone number" id="phone" />
+              <input type="number" name="phone" value={phone} className="h-[1.5rem]" onChange={handlePhoneChange} placeholder="Enter your prefferd phone number" id="phone" />
               {phoneError && <p style={{ color: 'red' }}>{phoneError}</p>}
             </div>
            

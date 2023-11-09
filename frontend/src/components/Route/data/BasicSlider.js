@@ -33,7 +33,7 @@ const BasicSlider = () => {
             background={{
               backgroundImageSrc: img1,
               backgroundAttachment: "fixed",
-              backgroundSize:'cover',
+              backgroundSize:'contain',
               backgroundRepeat:'no-repeat'
             }}
             className="w-[92%] 800px:w-full"
@@ -43,7 +43,7 @@ const BasicSlider = () => {
             background={{
               backgroundImageSrc: img2,
               backgroundAttachment: "fixed",
-              backgroundSize:'cover',
+              backgroundSize:'contain',
               backgroundRepeat:'no-repeat'
             }}
             className="w-[92%] 800px:w-full"
@@ -53,7 +53,7 @@ const BasicSlider = () => {
             background={{
               backgroundImageSrc: img3,
               backgroundAttachment: "fixed",
-              backgroundSize:'cover',
+              backgroundSize:'contain',
               backgroundRepeat:'no-repeat'
             }}
             className="w-[92%] 800px:w-full"
@@ -63,7 +63,7 @@ const BasicSlider = () => {
             background={{
               backgroundImageSrc: img4,
               backgroundAttachment: "fixed",
-              backgroundSize:'cover',
+              backgroundSize:'contain',
               backgroundRepeat:'no-repeat'
             }}
             className="w-[92%] 800px:w-full"
