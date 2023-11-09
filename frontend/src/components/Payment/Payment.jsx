@@ -267,6 +267,8 @@ const PaymentInfo = ({
   phone,
   setPhoneNumber,
   handlePhoneChange,
+  phoneError,
+  setPhoneError,
   onApprove,
   createOrder,
   paymentHandler,
