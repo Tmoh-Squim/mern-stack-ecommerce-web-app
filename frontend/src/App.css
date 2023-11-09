@@ -40,8 +40,8 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.hero-slider-wrapper.HeroSlider-module_Wrapper__TaeBr{
-  height: 120px;
+.hero-slider-wrapper{
+  height: 20%;
 }
 .custom-hero-slider{
   height: 120px !important;
