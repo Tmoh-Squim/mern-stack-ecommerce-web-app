@@ -6,9 +6,8 @@ const img1 = "https://i.imgur.com/Gu5Cznz.jpg";
 const img2 = "https://i.imgur.com/idjXzVQ.jpg";
 const img3 = "https://i.imgur.com/8DYumaY.jpg";
 const img4 = "https://i.imgur.com/8IuucQZ.jpg";
-const hero={
-  Style:"height-[35vh] bg-black"
-}
+const hero="height-[35vh] bg-black"
+
 const BasicSlider = () => {
   return (
     <>
@@ -29,7 +28,7 @@ const BasicSlider = () => {
             shouldDisplayButtons: true,
             autoplayDuration: 1000,
           }}
-          style={`${hero.Style}`}
+          style={{hero}}
           className="custom-hero-slider"
         >
           <Slide
