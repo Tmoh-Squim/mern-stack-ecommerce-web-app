@@ -66,5 +66,6 @@ const BasicSlider = () => {
     </>
   );
 };
+//default 
 
 export default BasicSlider;
