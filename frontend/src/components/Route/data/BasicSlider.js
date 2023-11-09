@@ -37,7 +37,7 @@ const BasicSlider = () => {
     className="absolute top-0 left-0 w-full h-full bg-center bg-cover"
     
   >
-    <img scr={`${img1}`} alt='squim' />
+    <img scr={img1} alt='squim' />
     </div>
 
   
@@ -52,7 +52,7 @@ const BasicSlider = () => {
     className="absolute top-0 left-0 w-full h-full bg-center bg-cover"
     
   >
-    <img scr={`${img2}`} alt='squim' />
+    <img scr={img2} alt='squim' />
     </div>
   
 </Slide>
@@ -64,7 +64,7 @@ const BasicSlider = () => {
     className="absolute top-0 left-0 w-full h-full bg-center bg-cover"
     
   >
-    <img scr={`${img3}`} alt='squim' />
+    <img scr={img3} alt='squim' />
     </div>
   
 </Slide>
@@ -76,7 +76,7 @@ const BasicSlider = () => {
     className="absolute top-0 left-0 w-full h-full bg-center bg-cover"
     
   >
-    <img scr={`${img4}`} alt='squim' />
+    <img scr={img4} alt='squim' />
     </div>
   
 </Slide>
