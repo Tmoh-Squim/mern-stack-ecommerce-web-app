@@ -30,44 +30,56 @@ const BasicSlider = () => {
           className="custom-hero-slider"
         >
           <Slide
-  className="w-[92%] 800px:w-full h-[100%] relative justify-center"
-  style={{ height: "100vh" }}
->
-  <div
-    className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center"
-    style={{ backgroundImage: `url(${img1})`,objectFit:'cover' }}
-  />
-</Slide>
+            background={{
+              backgroundImageSrc: img1,
+              
+              backgroundSize:'cover',
+              backgroundPosition:'center',
+              backgroundRepeat:'no-repeat',
+              height:'100%'
+            }}
+            className="w-[92%] 800px:w-full h-[100%]"
+            style={{ height: "100vh"}}
+          />
 
-<Slide
-  className="w-[92%] 800px:w-full h-[100%] relative justify-center"
-  style={{ height: "100vh" }}
->
-  <div
-    className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center"
-    style={{ backgroundImage: `url(${img2})`,objectFit:'cover' }}
-  />
-</Slide>
 
-<Slide
-  className="w-[92%] 800px:w-full h-[100%] relative justify-center"
-  style={{ height: "100vh" }}
->
-  <div
-    className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center"
-    style={{ backgroundImage: `url(${img3})`,objectFit:'cover' }}
-  />
-</Slide>
-<Slide
-  className="w-[92%] 800px:w-full h-[100%] relative justify-center"
-  style={{ height: "100vh" }}
->
-  <div
-    className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center"
-    style={{ backgroundImage: `url(${img4})`,objectFit:'cover' }}
-  />
-</Slide>
-        <Nav />
+          <Slide
+            background={{
+              backgroundImageSrc: img2,
+              
+              backgroundSize:'cover',
+              backgroundPosition:'center',
+              backgroundRepeat:'no-repeat',
+              height:'100%'
+            }}
+            className="w-[92%] 800px:w-full h-[100%]"
+            style={{ height: "100vh"}}
+          />
+          <Slide
+            background={{
+              backgroundImageSrc: img3,
+              
+              backgroundSize:'cover',
+              backgroundPosition:'center',
+              backgroundRepeat:'no-repeat',
+              height:'100%'
+            }}
+            className="w-[92%] 800px:w-full h-[100%]"
+            style={{ height: "100vh"}}
+          />
+          <Slide
+            background={{
+              backgroundImageSrc: img4,
+              
+              backgroundSize:'cover',
+              backgroundPosition:'center',
+              backgroundRepeat:'no-repeat',
+              height:'100%'
+            }}
+            className="w-[92%] 800px:w-full h-[100%]"
+            style={{ height: "100vh"}}
+          />
+          <Nav />
         </HeroSlider>
     </>
   );
