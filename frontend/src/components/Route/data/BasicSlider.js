@@ -21,7 +21,7 @@ const BasicSlider = () => {
           onChange={(nextSlide) => console.log("onChange", nextSlide)}
           onAfterChange={(nextSlide) => console.log("onAfterChange", nextSlide)}
           settings={{
-            slidingDuration: 100,
+            slidingDuration: 3,
             slidingDelay: 0,
             shouldAutoplay: true,
             shouldDisplayButtons: true,
