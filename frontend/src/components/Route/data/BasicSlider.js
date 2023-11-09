@@ -2,10 +2,10 @@ import React from "react";
 import HeroSlider, { Slide, Nav } from "hero-slider";
 import "../../../App.css"
 //images
-const img1 = "https://images.app.goo.gl/tXa6b5N1iNTV4ST47";
-const img2 = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.postermywall.com%2Findex.php%2Fart%2Ftemplate%2F67720435bb809be27f46dfb1dd44c6fa%2Fgrocery-sale-retail-or-e-commerce-banner-ad-design-template&psig=AOvVaw1s7nQbcnTEBHnXTOUShC5h&ust=1699622247413000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLCP6siAt4IDFQAAAAAdAAAAABAI";
-const img3 = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Fpsd%2Fe-commerce-banner&psig=AOvVaw1s7nQbcnTEBHnXTOUShC5h&ust=1699622247413000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLCP6siAt4IDFQAAAAAdAAAAABAQ";
-const img4 = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Fpsd%2Fe-commerce-banner&psig=AOvVaw2Njng2mh8JKZDUM826Evw9&ust=1699622452264000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCODY9JyBt4IDFQAAAAAdAAAAABAE";
+const img1 = "https://img.freepik.com/free-psd/horizontal-banner-online-fashion-sale_23-2148585404.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699401600&semt=ais";
+const img2 = "https://img.freepik.com/free-psd/special-sales-banner-template_23-2148975924.jpg";
+const img3 = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/grocery-sale-retail-or-e-commerce-banner-ad-design-template-67720435bb809be27f46dfb1dd44c6fa_screen.jpg?ts=1606113265";
+const img4 = "https://img.freepik.com/free-psd/online-shopping-concept-banner-template_23-2148559464.jpg";
 
 const BasicSlider = () => {
   return (
