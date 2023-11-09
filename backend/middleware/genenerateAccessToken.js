@@ -39,4 +39,4 @@ dotenv.config()
     }
 
 }
-module.exports=accessToken
+module.exports={accessToken}
