@@ -9,6 +9,11 @@ export const loadUser = () => async (dispatch) => {
     });
     const { data } = await axios.get(`${server}/user/getuser`, {
       withCredentials: true,
+      headers: {
+        // Add your custom headers here
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        // Other headers if needed
+      },
     });
     dispatch({
       type: "LoadUserSuccess",
