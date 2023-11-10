@@ -198,20 +198,20 @@ const phoneRegex = /^254\d{9}$/;
     if(phoneError){
       return;
     }else{
-      const config = { headers: { "Content-Type": "multipart/form-data" } };
+      const config = { headers: { "Content-Type": "application/json" } };
 
-      const newForm = new FormData();
-  
-      newForm.append("phone", phone);
-      newForm.append("amount", Amount);
-      newForm.append("Order_ID",Order_ID);
+     const jsonData={
+      phone:phone,
+      amount:Amount,
+      Order_ID:Order_ID
+      }
   
       order.paymentInfo = {
         type: "lipa na mpesa",
       };
       try {
         const response=await axios
-        .post(`https://mern-web-yn5l.onrender.com/api/v1/stkPush`,newForm,config)
+        .post(`https://mern-web-yn5l.onrender.com/api/v1/stkPush`,jsonData,config)
   
         if (response.status === 200){
           setOpen(false);
