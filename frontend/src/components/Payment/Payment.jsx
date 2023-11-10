@@ -230,6 +230,9 @@ const Payment = () => {
               localStorage.setItem("latestOrder", JSON.stringify([]));
               window.location.reload();
             });
+        }else if(response.status ===500 || response.status > 500){
+          setOpen(true);
+          toast.error("Payment could not be processed 😞");
         } else {
           setOpen(true);
           toast.error("Order failed!");
