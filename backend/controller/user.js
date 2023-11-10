@@ -12,7 +12,6 @@ const sendMail = require("../utils/sendMail");
 const sendToken = require("../utils/jwtToken");
 const { isAuthenticated, isAdmin } = require("../middleware/auth");
 const cloudinary = require("../utils/cloudinary")
-const jwt = require('jsonwebtoken')
 router.post("/upload",upload.single("image"),function(req,res){
   cloudinary.uploader.upload(req.files.path,function(err,result){
     if(err){
