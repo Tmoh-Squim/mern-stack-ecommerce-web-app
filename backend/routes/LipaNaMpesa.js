@@ -7,7 +7,7 @@ const {
 
 
 } = require("../controller/lipaNaMpesa")
-
+//fixed
 
 const {accessToken} = require("../middleware/genenerateAccessToken")
 
