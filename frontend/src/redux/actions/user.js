@@ -11,7 +11,7 @@ export const loadUser = () => async (dispatch) => {
       withCredentials: true,
       headers: {
         // Add your custom headers here
-        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Authorization': `${localStorage.getItem('token')}`,
         // Other headers if needed
       },
     });
