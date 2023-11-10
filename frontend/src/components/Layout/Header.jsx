@@ -17,7 +17,7 @@ import { backend_url } from "../../server";
 import Cart from "../cart/Cart";
 import Wishlist from "../Wishlist/Wishlist";
 import { RxCross1 } from "react-icons/rx";
-import logo from "../../Assests/logo/logo.png"
+import logo from "../../Assests/logo/logo2.png"
 
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -222,7 +222,8 @@ const Header = ({ activeHeading }) => {
               <img
                 src={logo}
                 alt=""
-                className="mt-3 cursor-pointer"
+                color={yellow}
+                className="mt-1 h-[63px]  cursor-pointer"
               />
             </Link>
           </div>
