@@ -4,13 +4,11 @@ const router = express.Router();
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
 const sendMail = require("../utils/sendMail");
-const sendToken = require("../utils/jwtToken");
 const Shop = require("../model/shop");
 const { isAuthenticated, isSeller, isAdmin } = require("../middleware/auth");
 const { upload } = require("../multer");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ErrorHandler = require("../utils/ErrorHandler");
-const sendShopToken = require("../utils/shopToken");
 const cloudinary = require("../utils/cloudinary")
 // create shop
 router.post("/create-shop", upload.single("file"), async (req, res, next) => {
@@ -147,7 +145,16 @@ router.post(
         );
       }
 
-      sendShopToken(user, 201, res);
+      const token =jwt.sign({ _id: user._id }, process.env.JWT_SECRET_KEY, {
+        expiresIn: "7d",
+      })
+
+      res.status(200).send({
+        success:true,
+        message:'Logged in successfully',
+        user,
+        token
+      });
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
     }
