@@ -16,7 +16,6 @@ import { useSelector } from "react-redux";
 import Cart from "../cart/Cart";
 import Wishlist from "../Wishlist/Wishlist";
 import { RxCross1 } from "react-icons/rx";
-import logo from "../../Assests/logo/logo2.png"
 
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -220,7 +219,7 @@ const Header = ({ activeHeading }) => {
           <div>
             <Link to="/">
               <img
-                src={logo}
+                src='https://res.cloudinary.com/dvsmxvdtr/image/upload/v1699607379/logo2_ncrmd5.png'
                 alt=""
                 className="mt-0 h-[64px]  cursor-pointer"
               />
