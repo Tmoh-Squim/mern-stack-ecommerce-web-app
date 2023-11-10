@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "../../styles/styles";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
@@ -11,7 +11,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
-
+  const location = useLocation()
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -31,7 +31,7 @@ const Login = () => {
       localStorage.setItem('token', token);
   
       toast.success('Login Success!');
-      navigate('/');
+      navigate(location.state || '/');
       window.location.reload(true);
     } catch (error) {
       toast.error(error.response?.data?.message || 'An error occurred during login');

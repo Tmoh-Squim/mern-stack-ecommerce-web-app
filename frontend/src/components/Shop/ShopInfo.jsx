@@ -7,6 +7,7 @@ import Loader from "../Layout/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProductsShop } from "../../redux/actions/product";
 import {toast} from 'react-toastify'
+import { useNavigate } from "react-router-dom";
 
 const ShopInfo = ({ isOwner }) => {
   const [data,setData] = useState({});
@@ -14,6 +15,7 @@ const ShopInfo = ({ isOwner }) => {
   const [isLoading,setIsLoading] = useState(false);
   const {id} = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(getAllProductsShop(id));
@@ -32,6 +34,7 @@ const ShopInfo = ({ isOwner }) => {
     localStorage.removeItem('seller_token');
     toast.success('Logged out successfully')
     window.location.reload();
+    navigate('/shop-login')
   };
 
   const totalReviewsLength =
