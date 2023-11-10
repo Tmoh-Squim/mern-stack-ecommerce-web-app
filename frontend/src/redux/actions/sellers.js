@@ -11,9 +11,7 @@ export const getAllSellers = () => async (dispatch) => {
     const { data } = await axios.get(`${server}/shop/admin-all-sellers`, {
       withCredentials: true,
       headers: {
-        // Add your custom headers here
         'Authorization': `${localStorage.getItem('seller_token')}`,
-        // Other headers if needed
       },
     });
 
