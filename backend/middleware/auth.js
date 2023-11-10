@@ -6,11 +6,16 @@ const Shop = require("../model/shop");
 
 exports.isAuthenticated = catchAsyncErrors(async(req,res,next) => {
 
-    const decoded = jwt.verify(req.headers.authorization, process.env.JWT_SECRET_KEY);
-
-    req.user = await User.findById(decoded.id);
-
-    next();
+    try {
+        const decode=JWT.verify(
+           req.headers.authorization,
+           process.env.JWT_SECRET
+        )
+        req.user=decode
+        next()
+   } catch (error) {
+       console.log(error)
+   }
 });
 
 
