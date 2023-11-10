@@ -1,6 +1,5 @@
 const request=require("request")
-const dotenv = require('dotenv')
-dotenv.config()
+require('dotenv').config()
 
  const accessToken = (req, res, next)=> {
     try{

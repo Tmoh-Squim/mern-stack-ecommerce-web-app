@@ -28,7 +28,7 @@ const Categories = () => {
         className={`${styles.section} bg-white p-6 rounded-lg mb-12`}
         id="categories"
       >
-        <div className=" flex justify-between overflow-x-scroll h-[200px] overflow-y-hidden mt-2 800px:mt-0 flex-wrap 800px:grid grid-cols-1 gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-5 xl:gap-[30px]">
+        <div className=" flex justify-between h-[200px] overflow-y-scroll mt-2 800px:mt-0 flex-wrap 800px:grid grid-cols-1 gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-5 xl:gap-[30px]">
           {categoriesData &&
             categoriesData.map((i) => {
               const handleSubmit = (i) => {
