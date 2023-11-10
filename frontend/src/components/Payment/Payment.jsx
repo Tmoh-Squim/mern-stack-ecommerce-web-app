@@ -470,7 +470,7 @@ const PaymentInfo = ({
                   name="phone"
                   required
                   value={phone}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  className="appearance-none block w-[93%] px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                   onChange={handlePhoneChange}
                   placeholder="2547******** or 2541********"
                   id="phone"
