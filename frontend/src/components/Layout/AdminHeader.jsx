@@ -5,17 +5,17 @@ import { FiPackage, FiShoppingBag } from 'react-icons/fi'
 import { MdOutlineLocalOffer } from 'react-icons/md'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { backend_url } from '../../server'
 
 const AdminHeader = () => {
     const {user} = useSelector((state) => state.user);
 
   return (
-         <div className="w-full h-[80px] bg-white shadow sticky top-0 left-0 z-30 flex items-center justify-between px-4">
+         <div className="w-full h-[80px] bg-[blue] shadow sticky top-0 left-0 z-30 flex items-center justify-between px-4">
       <div>
         <Link to="/">
           <img
-            src="https://shopo.quomodothemes.website/assets/images/logo.svg"
+            src="https://res.cloudinary.com/dvsmxvdtr/image/upload/v1699607379/logo2_ncrmd5.png"
+            className='h-[80px]'
             alt=""
           />
         </Link>
@@ -54,7 +54,7 @@ const AdminHeader = () => {
             />
           </Link>
             <img
-              src={`${backend_url}${user?.avatar}`}
+              src={`${user?.avatar}`}
               alt=""
               className="w-[50px] h-[50px] rounded-full object-cover"
             />
