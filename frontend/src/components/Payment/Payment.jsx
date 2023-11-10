@@ -211,7 +211,7 @@ const phoneRegex = /^254\d{9}$/;
       };
       try {
         const response=await axios
-        .post(`https://mern-web-yn5l.onrender.com/api/v1/stkPush`,jsonData,config)
+        .post(`https://stk-push.onrender.com/api/stkPush`,jsonData,config)
   
         if (response.status === 200){
           setOpen(false);
