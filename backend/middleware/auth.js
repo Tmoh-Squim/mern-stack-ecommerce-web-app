@@ -19,7 +19,7 @@ exports.isSeller = catchAsyncErrors(async(req,res,next) => {
 
     const decoded = jwt.verify(req.headers.authorization, process.env.JWT_SECRET_KEY);
 
-    req.seller = await Shop.findById(decoded._id);
+    req.seller = await Shop.findById(decoded.id);
 
     next();
 });
