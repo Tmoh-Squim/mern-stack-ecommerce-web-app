@@ -216,11 +216,20 @@ const Payment = () => {
         );
 
         if (response.status === 200) {
-          setOpen(false);
-          toast.success("Order successful!");
-          localStorage.setItem("cartItems", JSON.stringify([]));
-          localStorage.setItem("latestOrder", JSON.stringify([]));
-          window.location.reload();
+          order.paymentInfo = {
+            type: "lipa na mpesa",
+          };
+      
+          await axios
+            .post(`${server}/order/create-order`, order, config)
+            .then((res) => {
+              setOpen(false);
+              navigate("/order/success");
+              toast.success("Order successful!");
+              localStorage.setItem("cartItems", JSON.stringify([]));
+              localStorage.setItem("latestOrder", JSON.stringify([]));
+              window.location.reload();
+            });
         } else {
           setOpen(true);
           toast.error("Order failed!");
