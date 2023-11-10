@@ -217,11 +217,12 @@ const ProductDetails = ({ data }) => {
                     )}
                   </div>
                 </div>
+                <div className='flex justify-evenly'>
                 <div
                   className={`${styles.button} !mt-6 !rounded !h-11 flex items-center`}
                   onClick={() => buyNowHandler(data._id)}
                 >
-                  <span className="text-[red] flex items-center">
+                  <span className="text-white flex items-center">
                     Buy Now <AiOutlineShoppingCart className="ml-1" />
                   </span>
                 </div>
@@ -233,6 +234,8 @@ const ProductDetails = ({ data }) => {
                     Add to cart <AiOutlineShoppingCart className="ml-1" />
                   </span>
                 </div>
+                </div>
+                
                 <div className="flex items-center pt-8">
                   <Link to={`/shop/preview/${data?.shop._id}`}>
                     <img
