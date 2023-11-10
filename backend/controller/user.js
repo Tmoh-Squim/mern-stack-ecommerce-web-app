@@ -12,6 +12,7 @@ const sendMail = require("../utils/sendMail");
 const sendToken = require("../utils/jwtToken");
 const { isAuthenticated, isAdmin } = require("../middleware/auth");
 const cloudinary = require("../utils/cloudinary")
+const jwt = require('jsonwebtoken')
 router.post("/upload",upload.single("image"),function(req,res){
   cloudinary.uploader.upload(req.files.path,function(err,result){
     if(err){
@@ -153,8 +154,16 @@ router.post(
           new ErrorHandler("Please provide the correct information", 400)
         );
       }
+      const token =jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+        expiresIn: "7d",
+      })
 
-      sendToken(user, 201, res);
+      res.status(200).send({
+        success:true,
+        message:'Logged in successfully',
+        user,
+        token
+      });
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
     }

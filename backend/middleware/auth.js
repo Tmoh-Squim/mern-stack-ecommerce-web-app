@@ -3,22 +3,15 @@ const catchAsyncErrors = require("./catchAsyncErrors");
 const jwt = require("jsonwebtoken");
 const User = require("../model/user");
 const Shop = require("../model/shop");
-require('dotenv').config()
 
 exports.isAuthenticated = catchAsyncErrors(async(req,res,next) => {
+    const token = req.headers.authorization;
+    console.log('token',token)
+    const decoded = jwt.verify(req.headers.authorization, process.env.JWT_SECRET_KEY);
 
-    try {
-    const token=req.headers.authorization;
-    console.log(token)
-        const decode=jwt.verify(
-           req.headers.authorization,
-           process.env.JWT_SECRET
-        )
-        req.user=decode
-        next()
-   } catch (error) {
-       console.log(error)
-   }
+    req.user = await User.findById(decoded.id);
+
+    next();
 });
 
 
