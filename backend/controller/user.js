@@ -153,7 +153,7 @@ router.post(
           new ErrorHandler("Please provide the correct information", 400)
         );
       }
-      const token =jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+      const token =jwt.sign({ _id: user._id }, process.env.JWT_SECRET_KEY, {
         expiresIn: "7d",
       })
 
