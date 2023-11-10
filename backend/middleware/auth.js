@@ -7,7 +7,7 @@ const Shop = require("../model/shop");
 exports.isAuthenticated = catchAsyncErrors(async(req,res,next) => {
 
     try {
-        const decode=JWT.verify(
+        const decode=jwt.verify(
            req.headers.authorization,
            process.env.JWT_SECRET
         )
