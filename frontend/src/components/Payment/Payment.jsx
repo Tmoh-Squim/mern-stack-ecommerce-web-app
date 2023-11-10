@@ -19,9 +19,9 @@ import { RxCross1 } from "react-icons/rx";
 const Payment = () => {
   const [orderData, setOrderData] = useState([]);
   const [open, setOpen] = useState(false);
-  const [phone,setPhoneNumber]=useState("")
-  const [phoneError, setPhoneError] = useState('');
-  const [Order_ID] = useState("123")
+  const [phone, setPhoneNumber] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [Order_ID] = useState("123");
   const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const stripe = useStripe();
@@ -32,16 +32,15 @@ const Payment = () => {
     setOrderData(orderData);
   }, []);
 
-  
-const phoneRegex = /^254\d{9}$/;
+  const phoneRegex = /^254\d{9}$/;
   const handlePhoneChange = (e) => {
     const phoneNum = e.target.value;
     setPhoneNumber(phoneNum);
 
     if (phoneRegex.test(phoneNum)) {
-      setPhoneError(''); // Clear the error message
+      setPhoneError(""); // Clear the error message
     } else {
-      setPhoneError('Enter num in 254 format... without a +');
+      setPhoneError("Enter num in 254 format... without a +");
     }
   };
 
@@ -114,8 +113,8 @@ const phoneRegex = /^254\d{9}$/;
   const paymentData = {
     amount: Math.round(orderData?.totalPrice * 100),
   };
-  const Amount=orderData?.totalPrice
-  console.log(Amount)
+  const Amount = orderData?.totalPrice;
+  console.log(Amount);
 
   const paymentHandler = async (e) => {
     e.preventDefault();
@@ -182,55 +181,56 @@ const phoneRegex = /^254\d{9}$/;
     };
 
     await axios
-    .post(`${server}/order/create-order`, order, config)
-    .then((res) => {
-      setOpen(false);
-      navigate("/order/success");
-      toast.success("Order successful!");
-      localStorage.setItem("cartItems", JSON.stringify([]));
-      localStorage.setItem("latestOrder", JSON.stringify([]));
-      window.location.reload();
-    });
-  };
- 
-  const handleMpesaPayment = async (e) => {
-    e.preventDefault();
-    if(phoneError){
-      return;
-    }else{
-      const config = { headers: { "Content-Type": "application/json" } };
-
-     const jsonData={
-      phone:phone,
-      amount:Amount,
-      Order_ID:Order_ID
-      }
-  
-      order.paymentInfo = {
-        type: "lipa na mpesa",
-      };
-      try {
-        const response=await axios
-        .post(`https://stk-push.onrender.com/api/stkPush`,jsonData,config)
-  
-        if (response.status === 200){
-          setOpen(false);
+      .post(`${server}/order/create-order`, order, config)
+      .then((res) => {
+        setOpen(false);
+        navigate("/order/success");
         toast.success("Order successful!");
         localStorage.setItem("cartItems", JSON.stringify([]));
         localStorage.setItem("latestOrder", JSON.stringify([]));
         window.location.reload();
-        }else{
+      });
+  };
+
+  const handleMpesaPayment = async (e) => {
+    e.preventDefault();
+    if (phoneError) {
+      return;
+    } else {
+      const config = { headers: { "Content-Type": "application/json" } };
+
+      const jsonData = {
+        phone: phone,
+        amount: Amount,
+        Order_ID: Order_ID,
+      };
+
+      order.paymentInfo = {
+        type: "lipa na mpesa",
+      };
+      try {
+        const response = await axios.post(
+          `https://stk-push.onrender.com/api/stkPush`,
+          jsonData,
+          config
+        );
+
+        if (response.status === 200) {
+          setOpen(false);
+          toast.success("Order successful!");
+          localStorage.setItem("cartItems", JSON.stringify([]));
+          localStorage.setItem("latestOrder", JSON.stringify([]));
+          window.location.reload();
+        } else {
           setOpen(true);
           toast.error("Order failed!");
           window.location.reload();
         }
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-     
-    };
     }
-   
+  };
 
   return (
     <div className="w-full flex flex-col items-center py-8">
@@ -273,7 +273,7 @@ const PaymentInfo = ({
   createOrder,
   paymentHandler,
   cashOnDeliveryHandler,
-  handleMpesaPayment
+  handleMpesaPayment,
 }) => {
   const [select, setSelect] = useState(1);
 
@@ -425,18 +425,18 @@ const PaymentInfo = ({
                       onClick={() => setOpen(false)}
                     />
                   </div>
-                    <PayPalScriptProvider
-                      options={{
-                        "client-id":
-                          "Aczac4Ry9_QA1t4c7TKH9UusH3RTe6onyICPoCToHG10kjlNdI-qwobbW9JAHzaRQwFMn2-k660853jn",
-                      }}
-                    >
-                      <PayPalButtons
-                        style={{ layout: "vertical" }}
-                        onApprove={onApprove}
-                        createOrder={createOrder}
-                      />
-                    </PayPalScriptProvider>
+                  <PayPalScriptProvider
+                    options={{
+                      "client-id":
+                        "Aczac4Ry9_QA1t4c7TKH9UusH3RTe6onyICPoCToHG10kjlNdI-qwobbW9JAHzaRQwFMn2-k660853jn",
+                    }}
+                  >
+                    <PayPalButtons
+                      style={{ layout: "vertical" }}
+                      onApprove={onApprove}
+                      createOrder={createOrder}
+                    />
+                  </PayPalScriptProvider>
                 </div>
               </div>
             )}
@@ -464,18 +464,27 @@ const PaymentInfo = ({
         {select === 4 ? (
           <div className="w-full block border-b">
             <form action="" onSubmit={handleMpesaPayment}>
-            <div>
-              <input type="number" name="phone" value={phone} className="h-[1.5rem]" onChange={handlePhoneChange} placeholder="2547******** or 2541********" id="phone" />
-              {phoneError && <p style={{ color: 'red' }}>{phoneError}</p>}
-            </div>
-           
-            <button type="submit">
-            <div
-              className={`${styles.button} !bg-[#f63b60] text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
-            >
-              Pay Now
-            </div>
-            </button>
+              <div>
+                <input
+                  type="number"
+                  name="phone"
+                  required
+                  value={phone}
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  onChange={handlePhoneChange}
+                  placeholder="2547******** or 2541********"
+                  id="phone"
+                />
+                {phoneError && <p style={{ color: "red" }}>{phoneError}</p>}
+              </div>
+
+              <button type="submit">
+                <div
+                  className={`${styles.button} !bg-[#f63b60] text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
+                >
+                  Pay Now
+                </div>
+              </button>
             </form>
           </div>
         ) : null}
@@ -520,7 +529,9 @@ const CartData = ({ orderData }) => {
     <div className="w-full bg-[#fff] rounded-md p-5 pb-8">
       <div className="flex justify-between">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">subtotal:</h3>
-        <h5 className="text-[18px] font-[600]">Ksh{orderData?.subTotalPrice}</h5>
+        <h5 className="text-[18px] font-[600]">
+          Ksh{orderData?.subTotalPrice}
+        </h5>
       </div>
       <br />
       <div className="flex justify-between">
@@ -530,7 +541,9 @@ const CartData = ({ orderData }) => {
       <br />
       <div className="flex justify-between border-b pb-3">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">Discount:</h3>
-        <h5 className="text-[18px] font-[600]">{orderData?.discountPrice? "Ksh" + orderData.discountPrice : "-"}</h5>
+        <h5 className="text-[18px] font-[600]">
+          {orderData?.discountPrice ? "Ksh" + orderData.discountPrice : "-"}
+        </h5>
       </div>
       <h5 className="text-[18px] font-[600] text-end pt-3">
         Ksh{orderData?.totalPrice}

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import logo from "./Assests/logo/logo2.png"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   LoginPage,
