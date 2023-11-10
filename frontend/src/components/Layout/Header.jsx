@@ -277,7 +277,7 @@ const Header = ({ activeHeading }) => {
                   onChange={handleSearchChange}
                 />
                 {searchData && (
-                  <div className="absolute bg-[#fff] z-10 shadow w-full left-0 p-3">
+                  <div className="absolute bg-[#fff] z-10 shadow w-ful l left-0 p-3">
                     {searchData.map((i) => {
                       const d = i.name;
 

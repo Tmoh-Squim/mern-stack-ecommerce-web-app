@@ -188,18 +188,18 @@ router.get(
   "/logout",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      res.clearCookie("token", {
-        path: "/",
-        domain: "mern-web-yn5l.onrender.com",// Set to your domain or subdomain
-        httpOnly: true,
-        sameSite: "None", // Must match how the cookie was set
-        secure: true, // Must match how the cookie was set
-        expires: new Date(0),
-      });
-      res.status(201).json({
-        success: true,
-        message: "Log out successful!",
-      });
+        // Clear token from localStorage
+  const script = `
+  <script>
+    // Clear the token from localStorage
+    localStorage.removeItem('token');
+    // Optionally, redirect or perform additional actions
+    window.location.reload()
+     window.location.href = '/login';
+  </script>
+`;
+
+res.status(200).send(script);
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
     }
