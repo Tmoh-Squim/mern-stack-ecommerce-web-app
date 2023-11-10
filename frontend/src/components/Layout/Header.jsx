@@ -13,7 +13,6 @@ import { CgProfile } from "react-icons/cg";
 import DropDown from "./DropDown";
 import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
-import { backend_url } from "../../server";
 import Cart from "../cart/Cart";
 import Wishlist from "../Wishlist/Wishlist";
 import { RxCross1 } from "react-icons/rx";
@@ -222,8 +221,7 @@ const Header = ({ activeHeading }) => {
               <img
                 src={logo}
                 alt=""
-                color={yellow}
-                className="mt-1 h-[63px]  cursor-pointer"
+                className="mt-1 h-[63px] text-[yellow]  cursor-pointer"
               />
             </Link>
           </div>
