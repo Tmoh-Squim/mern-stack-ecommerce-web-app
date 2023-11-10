@@ -221,7 +221,7 @@ const Header = ({ activeHeading }) => {
               <img
                 src={logo}
                 alt=""
-                className="mt-1 h-[63px] text-[yellow]  cursor-pointer"
+                className="mt-1 h-[63px] text-[yellow] bg-[yellow]  cursor-pointer"
               />
             </Link>
           </div>
