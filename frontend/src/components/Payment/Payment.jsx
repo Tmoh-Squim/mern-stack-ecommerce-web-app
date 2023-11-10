@@ -41,7 +41,7 @@ const phoneRegex = /^254\d{9}$/;
     if (phoneRegex.test(phoneNum)) {
       setPhoneError(''); // Clear the error message
     } else {
-      setPhoneError('Invalid phone number format');
+      setPhoneError('Enter num in 254 format... without a +');
     }
   };
 
@@ -465,7 +465,7 @@ const PaymentInfo = ({
           <div className="w-full block border-b">
             <form action="" onSubmit={handleMpesaPayment}>
             <div>
-              <input type="number" name="phone" value={phone} className="h-[1.5rem]" onChange={handlePhoneChange} placeholder="Enter your prefferd phone number" id="phone" />
+              <input type="number" name="phone" value={phone} className="h-[1.5rem]" onChange={handlePhoneChange} placeholder="2547******** or 2541********" id="phone" />
               {phoneError && <p style={{ color: 'red' }}>{phoneError}</p>}
             </div>
            
