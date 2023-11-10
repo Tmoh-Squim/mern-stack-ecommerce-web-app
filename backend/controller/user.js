@@ -9,9 +9,9 @@ const fs = require("fs");
 const jwt = require("jsonwebtoken");
 const sendMail = require("../utils/sendMail");
 //const {commitToGitHub}=require("../utils/GithubHandler")
-const sendToken = require("../utils/jwtToken");
 const { isAuthenticated, isAdmin } = require("../middleware/auth");
 const cloudinary = require("../utils/cloudinary")
+require('dotenv').config()
 router.post("/upload",upload.single("image"),function(req,res){
   cloudinary.uploader.upload(req.files.path,function(err,result){
     if(err){
