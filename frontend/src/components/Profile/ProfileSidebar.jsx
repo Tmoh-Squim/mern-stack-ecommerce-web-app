@@ -19,16 +19,14 @@ const ProfileSidebar = ({ setActive, active }) => {
   const navigate = useNavigate();
  const {user} = useSelector((state) => state.user);
   const logoutHandler = () => {
-    axios
-      .get(`${server}/user/logout`, { withCredentials: true })
-      .then((res) => {
-        toast.success(res.data.message);
+    try {
+      localStorage.removeItem('token')
+    toast.success(res.data.message);
         window.location.reload(true);
         navigate("/login");
-      })
-      .catch((error) => {
-        console.log(error.response.data.message);
-      });
+    } catch (error) {
+      toast.error('Logout failed')
+    }
   };
   return (
     <div className="w-full bg-white shadow-sm rounded-[10px] p-4 pt-8">
