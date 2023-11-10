@@ -206,7 +206,7 @@ const Header = ({ activeHeading }) => {
         className={`${
           active === true ? "shadow-sm fixed top-0 left-0 z-10" : null
         }
-      w-full h-[60px] bg-[#fff] z-50 top-0 left-0 shadow-sm 800px:hidden`}
+      w-full h-[60px] bg-[blue] z-50 top-0 left-0 shadow-sm 800px:hidden`}
       >
         <div className="w-full flex items-center justify-between">
           <div>
@@ -221,7 +221,7 @@ const Header = ({ activeHeading }) => {
               <img
                 src={logo}
                 alt=""
-                className="mt-1 h-[63px] text-[yellow] bg-[yellow]  cursor-pointer"
+                className="mt-0 h-[64px]  cursor-pointer"
               />
             </Link>
           </div>
