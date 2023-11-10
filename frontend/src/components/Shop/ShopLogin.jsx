@@ -15,7 +15,7 @@ const ShopLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await axios
+   await axios
       .post(
         `${server}/shop/login-shop`,
         {
@@ -25,6 +25,8 @@ const ShopLogin = () => {
         { withCredentials: true }
       )
       .then((res) => {
+      const {token} = res.data
+        localStorage.setItem('seller_token',token)
         toast.success("Login Success!");
         navigate("/dashboard");
         window.location.reload(true); 
