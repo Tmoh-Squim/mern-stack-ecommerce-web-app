@@ -13,6 +13,9 @@ export const createProduct = (newForm) => async (dispatch) => {
     const { data } = await axios.post(
       `${server}/product/create-product`,
       newForm,
+      headers: {
+        'Authorization': `${localStorage.getItem('seller_token')}`,
+      },
       config
     );
     dispatch({
@@ -60,6 +63,9 @@ export const deleteProduct = (id) => async (dispatch) => {
       `${server}/product/delete-shop-product/${id}`,
       {
         withCredentials: true,
+        headers: {
+          'Authorization': `${localStorage.getItem('seller_token')}`,
+        },
       }
     );
 

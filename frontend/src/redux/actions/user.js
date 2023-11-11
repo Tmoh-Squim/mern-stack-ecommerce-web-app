@@ -71,6 +71,7 @@ export const updateUserInformation =
           withCredentials: true,
           headers: {
             "Access-Control-Allow-Credentials": true,
+            'Authorization': `${localStorage.getItem('seller_token')}`,
           },
         }
       );
@@ -106,7 +107,11 @@ export const updatUserAddress =
           zipCode,
           addressType,
         },
-        { withCredentials: true }
+        { withCredentials: true,
+          headers: {
+            'Authorization': `${localStorage.getItem('seller_token')}`,
+          },
+         },
       );
 
       dispatch({
@@ -133,7 +138,10 @@ export const deleteUserAddress = (id) => async (dispatch) => {
 
     const { data } = await axios.delete(
       `${server}/user/delete-user-address/${id}`,
-      { withCredentials: true }
+      { withCredentials: true,headers: {
+        'Authorization': `${localStorage.getItem('token')}`,
+      },
+     },
     );
 
     dispatch({
@@ -160,6 +168,9 @@ export const getAllUsers = () => async (dispatch) => {
 
     const { data } = await axios.get(`${server}/user/admin-all-users`, {
       withCredentials: true,
+      headers: {
+        'Authorization': `${localStorage.getItem('token')}`,
+      },
     });
 
     dispatch({
