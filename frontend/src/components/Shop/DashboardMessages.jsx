@@ -45,7 +45,7 @@ const DashboardMessages = () => {
     const getConversation = async () => {
       try {
         const resonse = await axios.get(
-          `${server}/conversation/get-all-conversation-user/${user?._id}`,
+          `${server}/conversation/get-all-conversation-user/${seller?._id}`,
           {
             withCredentials: true,
             headers: {
@@ -60,17 +60,17 @@ const DashboardMessages = () => {
       }
     };
     getConversation();
-  }, [user, messages]);
+  }, [seller, messages]);
 
   useEffect(() => {
-    if (user) {
-      const sellerId = user?._id;
+    if (seller) {
+      const sellerId = seller?._id;
       socketId.emit("addUser", sellerId);
       socketId.on("getUsers", (data) => {
         setOnlineUsers(data);
       });
     }
-  }, [user]);
+  }, [seller]);
 
   const onlineCheck = (chat) => {
     const chatMembers = chat.members.find((member) => member !== seller?._id);
