@@ -316,7 +316,7 @@ const MessageList = ({
     >
       <div className="relative">
         <img
-          src={`${user?.avatar}`}
+          src={`${seller?.avatar}`}
           alt=""
           className="w-[50px] h-[50px] rounded-full"
         />
@@ -327,7 +327,7 @@ const MessageList = ({
         )}
       </div>
       <div className="pl-3">
-        <h1 className="text-[18px]">{user?.name}</h1>
+        <h1 className="text-[18px]">{seller?.name}</h1>
         <p className="text-[16px] text-[#000c]">
           {data?.lastMessageId !== userData?._id
             ? "You:"
