@@ -11,8 +11,8 @@ import styles from "../../styles/styles";
 const ENDPOINT = "https://socket-93qx.onrender.com";
 const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
 
-const UserInbox = () => {
-  const { seller } = useSelector((state) => state.seller);
+const DashboardMessages = () => {
+  const { user } = useSelector((state) => state.user);
   const [conversations, setConversations] = useState([]);
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [currentChat, setCurrentChat] = useState();
@@ -45,7 +45,7 @@ const UserInbox = () => {
     const getConversation = async () => {
       try {
         const resonse = await axios.get(
-          `${server}/conversation/get-all-conversation-seller/${seller?._id}`,
+          `${server}/conversation/get-all-conversation-user/${user?._id}`,
           {
             withCredentials: true,
             headers: {
@@ -60,17 +60,17 @@ const UserInbox = () => {
       }
     };
     getConversation();
-  }, [seller, messages]);
+  }, [user, messages]);
 
   useEffect(() => {
-    if (seller) {
-      const sellerId = seller?._id;
+    if (user) {
+      const sellerId = user?._id;
       socketId.emit("addUser", sellerId);
       socketId.on("getUsers", (data) => {
         setOnlineUsers(data);
       });
     }
-  }, [seller]);
+  }, [user]);
 
   const onlineCheck = (chat) => {
     const chatMembers = chat.members.find((member) => member !== seller?._id);
@@ -455,4 +455,4 @@ const SellerInbox = ({
   );
 };
 
-export default UserInbox;
+export default DashboardMessages;
