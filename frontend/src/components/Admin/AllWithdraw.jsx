@@ -18,6 +18,9 @@ const AllWithdraw = () => {
     axios
       .get(`${server}/withdraw/get-all-withdraw-request`, {
         withCredentials: true,
+        headers: {
+          'Authorization': `${localStorage.getItem('token')}`,
+        },
       })
       .then((res) => {
         setData(res.data.withdraws);

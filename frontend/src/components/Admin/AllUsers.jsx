@@ -23,7 +23,11 @@ const AllUsers = () => {
 
   const handleDelete = async (id) => {
     await axios
-    .delete(`${server}/user/delete-user/${id}`, { withCredentials: true })
+    .delete(`${server}/user/delete-user/${id}`, { withCredentials: true,
+      headers: {
+        'Authorization': `${localStorage.getItem('token')}`,
+      },
+     })
     .then((res) => {
       toast.success(res.data.message);
     });

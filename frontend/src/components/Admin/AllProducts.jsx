@@ -15,7 +15,11 @@ const AllProducts = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get(`${server}/product/admin-all-products`, {withCredentials: true}).then((res) => {
+    axios.get(`${server}/product/admin-all-products`, {withCredentials: true,
+      headers: {
+        'Authorization': `${localStorage.getItem('token')}`,
+      },
+    }).then((res) => {
         setData(res.data.products);
     })
   }, []);

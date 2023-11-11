@@ -49,6 +49,9 @@ const DashboardMessages = () => {
           `${server}/conversation/get-all-conversation-seller/${seller?._id}`,
           {
             withCredentials: true,
+            headers: {
+              'Authorization': `${localStorage.getItem('seller_token')}`,
+            },
           }
         );
 
@@ -82,7 +85,11 @@ const DashboardMessages = () => {
     const getMessage = async () => {
       try {
         const response = await axios.get(
-          `${server}/message/get-all-messages/${currentChat?._id}`
+          `${server}/message/get-all-messages/${currentChat?._id}`,{
+            headers: {
+              'Authorization': `${localStorage.getItem('seller_token')}`,
+            },
+          }
         );
         setMessages(response.data.messages);
       } catch (error) {
@@ -115,7 +122,11 @@ const DashboardMessages = () => {
     try {
       if (newMessage !== "") {
         await axios
-          .post(`${server}/message/create-new-message`, message)
+          .post(`${server}/message/create-new-message`, message,{
+            headers: {
+              'Authorization': `${localStorage.getItem('seller_token')}`,
+            },
+          })
           .then((res) => {
             setMessages([...messages, res.data.message]);
             updateLastMessage();
@@ -139,6 +150,9 @@ const DashboardMessages = () => {
       .put(`${server}/conversation/update-last-message/${currentChat._id}`, {
         lastMessage: newMessage,
         lastMessageId: seller._id,
+        headers: {
+          'Authorization': `${localStorage.getItem('seller_token')}`,
+        },
       })
       .then((res) => {
         console.log(res.data.conversation);
@@ -178,6 +192,7 @@ const DashboardMessages = () => {
         .post(`${server}/message/create-new-message`, formData,{
           headers: {
             "Content-Type": "multipart/form-data",
+            'Authorization': `${localStorage.getItem('seller_token')}`,
           },
         })
         .then((res) => {
@@ -196,6 +211,9 @@ const DashboardMessages = () => {
       {
         lastMessage: "Photo",
         lastMessageId: seller._id,
+        headers: {
+          'Authorization': `${localStorage.getItem('seller_token')}`,
+        },
       }
     );
   };
@@ -273,7 +291,11 @@ const MessageList = ({
 
     const getUser = async () => {
       try {
-        const res = await axios.get(`${server}/user/user-info/${userId}`);
+        const res = await axios.get(`${server}/user/user-info/${userId}`,{
+          headers: {
+            'Authorization': `${localStorage.getItem('seller_token')}`,
+          },
+        });
         setUser(res.data.user);
       } catch (error) {
         console.log(error);

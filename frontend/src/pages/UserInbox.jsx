@@ -49,6 +49,9 @@ const UserInbox = () => {
           `${server}/conversation/get-all-conversation-user/${user?._id}`,
           {
             withCredentials: true,
+            headers: {
+              'Authorization': `${localStorage.getItem('token')}`,
+            },
           }
         );
 
@@ -82,7 +85,11 @@ const UserInbox = () => {
     const getMessage = async () => {
       try {
         const response = await axios.get(
-          `${server}/message/get-all-messages/${currentChat?._id}`
+          `${server}/message/get-all-messages/${currentChat?._id}`,{
+            headers: {
+              'Authorization': `${localStorage.getItem('token')}`,
+            },
+          }
         );
         setMessages(response.data.messages);
       } catch (error) {
@@ -114,7 +121,11 @@ const UserInbox = () => {
     try {
       if (newMessage !== "") {
         await axios
-          .post(`${server}/message/create-new-message`, message)
+          .post(`${server}/message/create-new-message`, message,{
+            headers: {
+              'Authorization': `${localStorage.getItem('token')}`,
+            },
+          })
           .then((res) => {
             setMessages([...messages, res.data.message]);
             updateLastMessage();
@@ -138,6 +149,10 @@ const UserInbox = () => {
       .put(`${server}/conversation/update-last-message/${currentChat._id}`, {
         lastMessage: newMessage,
         lastMessageId: user._id,
+          headers: {
+            'Authorization': `${localStorage.getItem('token')}`,
+          },
+        
       })
       .then((res) => {
         setNewMessage("");
@@ -176,6 +191,7 @@ const UserInbox = () => {
         .post(`${server}/message/create-new-message`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
+              'Authorization': `${localStorage.getItem('token')}`,
           },
         })
         .then((res) => {
@@ -194,6 +210,9 @@ const UserInbox = () => {
       {
         lastMessage: "Photo",
         lastMessageId: user._id,
+        headers: {
+          'Authorization': `${localStorage.getItem('token')}`,
+        },
       }
     );
   };
@@ -271,7 +290,11 @@ const MessageList = ({
     const userId = data.members.find((user) => user !== me);
     const getUser = async () => {
       try {
-        const res = await axios.get(`${server}/shop/get-shop-info/${userId}`);
+        const res = await axios.get(`${server}/shop/get-shop-info/${userId}`,{
+          headers: {
+            'Authorization': `${localStorage.getItem('token')}`,
+          },
+        });
         setUser(res.data.shop);
       } catch (error) {
         console.log(error);
