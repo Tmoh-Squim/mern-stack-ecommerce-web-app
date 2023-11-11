@@ -57,7 +57,7 @@ const DashboardMessages = () => {
 
         setConversations(resonse.data.conversations);
       } catch (error) {
-        // console.log(error);
+        // console.log();
       }
     };
     getConversation();
