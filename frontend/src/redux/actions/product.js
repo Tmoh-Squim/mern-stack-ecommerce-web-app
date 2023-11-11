@@ -13,10 +13,11 @@ export const createProduct = (newForm) => async (dispatch) => {
     const { data } = await axios.post(
       `${server}/product/create-product`,
       newForm,
-      headers: {
-        'Authorization': `${localStorage.getItem('seller_token')}`,
-      },
-      config
+      config,{
+        headers: {
+          'Authorization': `${localStorage.getItem('seller_token')}`,
+        },
+      }
     );
     dispatch({
       type: "productCreateSuccess",

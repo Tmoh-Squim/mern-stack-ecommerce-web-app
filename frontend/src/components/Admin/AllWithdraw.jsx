@@ -84,7 +84,11 @@ const AllWithdraw = () => {
     await axios
       .put(`${server}/withdraw/update-withdraw-request/${withdrawData.id}`,{
         sellerId: withdrawData.shopId,
-      },{withCredentials: true})
+      },{withCredentials: true,
+        headers: {
+          'Authorization': `${localStorage.getItem('token')}`,
+        },
+      })
       .then((res) => {
         toast.success("Withdraw request updated successfully!");
         setData(res.data.withdraws);

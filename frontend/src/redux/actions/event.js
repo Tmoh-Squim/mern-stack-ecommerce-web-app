@@ -14,6 +14,11 @@ export const createevent = (newForm) => async (dispatch) => {
       `${server}/event/create-event`,
       newForm,
       config,
+      {
+        headers: {
+          'Authorization': `${localStorage.getItem('seller_token')}`,
+        },
+      }
     );
     dispatch({
       type: "eventCreateSuccess",
@@ -59,6 +64,9 @@ export const deleteEvent = (id) => async (dispatch) => {
   
       const {data} = await axios.delete(`${server}/event/delete-shop-event/${id}`,{
         withCredentials: true,
+        headers: {
+          'Authorization': `${localStorage.getItem('seller_token')}`,
+        },
       });
   
       dispatch({

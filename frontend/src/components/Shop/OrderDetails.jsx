@@ -30,7 +30,11 @@ const OrderDetails = () => {
         {
           status,
         },
-        { withCredentials: true }
+        { withCredentials: true,
+          headers: {
+            'Authorization': `${localStorage.getItem('seller_token')}`,
+          },
+         }
       )
       .then((res) => {
         toast.success("Order updated!");
@@ -48,7 +52,11 @@ const OrderDetails = () => {
       {
         status,
       },
-      { withCredentials: true }
+      { withCredentials: true,
+        headers: {
+          'Authorization': `${localStorage.getItem('seller_token')}`,
+        },
+       }
     )
     .then((res) => {
       toast.success("Order updated!");
