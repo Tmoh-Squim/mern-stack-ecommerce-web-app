@@ -73,7 +73,7 @@ const UserInbox = () => {
   }, [seller]);
 
   const onlineCheck = (chat) => {
-    const chatMembers = chat.members.find((member) => member !== user?._id);
+    const chatMembers = chat.members.find((member) => member !== seller?._id);
     const online = onlineUsers.find((user) => user.userId === chatMembers);
 
     return online ? true : false;
@@ -112,7 +112,7 @@ const UserInbox = () => {
     );
 
     socketId.emit("sendMessage", {
-      senderId: user?._id,
+      senderId: seller?._id,
       receiverId,
       text: newMessage,
     });
@@ -176,7 +176,7 @@ const UserInbox = () => {
     formData.append("conversationId", currentChat._id);
 
     const receiverId = currentChat.members.find(
-      (member) => member !== user._id
+      (member) => member !== seller._id
     );
 
     socketId.emit("sendMessage", {
