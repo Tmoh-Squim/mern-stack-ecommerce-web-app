@@ -10,9 +10,8 @@ require("dotenv").config({
   path: "./.env",
 });
 
-app.use(cors({
-  origin:'https://squimstech.vercel.app'
-}));
+app.use(cors());
+//updated
 app.use(express.json());
 
 app.get("/", (req, res) => {
