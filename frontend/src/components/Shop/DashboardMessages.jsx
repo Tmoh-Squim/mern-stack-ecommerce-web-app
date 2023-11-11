@@ -12,7 +12,7 @@ const ENDPOINT = "https://socket-93qx.onrender.com";
 const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
 
 const DashboardMessages = () => {
-  const { user } = useSelector((state) => state.user);
+  const { seller } = useSelector((state) => state.seller);
   const [conversations, setConversations] = useState([]);
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [currentChat, setCurrentChat] = useState();
