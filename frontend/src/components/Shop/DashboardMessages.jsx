@@ -7,7 +7,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineArrowRight, AiOutlineSend } from "react-icons/ai";
 import { TfiGallery } from "react-icons/tfi";
-import styles from "../../styles/styles.js";
+import styles from "../../styles/styles";
 const ENDPOINT = "https://socket-93qx.onrender.com";
 const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
 
@@ -73,8 +73,8 @@ const UserInbox = () => {
   }, [seller]);
 
   const onlineCheck = (chat) => {
-    const chatMembers = chat.members.find((member) => member !== seller?._id);
-    const online = onlineUsers.find((seller) => seller.userId === chatMembers);
+    const chatMembers = chat.members.find((member) => member !== user?._id);
+    const online = onlineUsers.find((user) => user.userId === chatMembers);
 
     return online ? true : false;
   };
@@ -112,7 +112,7 @@ const UserInbox = () => {
     );
 
     socketId.emit("sendMessage", {
-      senderId: seller?._id,
+      senderId: user?._id,
       receiverId,
       text: newMessage,
     });
@@ -176,7 +176,7 @@ const UserInbox = () => {
     formData.append("conversationId", currentChat._id);
 
     const receiverId = currentChat.members.find(
-      (member) => member !== seller._id
+      (member) => member !== user._id
     );
 
     socketId.emit("sendMessage", {
@@ -276,7 +276,7 @@ const MessageList = ({
   setActiveStatus,
 }) => {
   const [active, setActive] = useState(0);
-  const [seller, setUser] = useState([]);
+  const [user, setUser] = useState([]);
   const navigate = useNavigate();
   const handleClick = (id) => {
     navigate(`/dashboard-messages?${id}`);
@@ -285,10 +285,10 @@ const MessageList = ({
 
   useEffect(() => {
     setActiveStatus(online);
-    const userId = data.members.find((seller) => seller !== me);
+    const userId = data.members.find((user) => user !== me);
     const getUser = async () => {
       try {
-        const res = await axios.get(`${server}/shop/get-shop-info/${userId}`,{
+        const res = await axios.get(`${server}/user/user-info/${userId}`,{
           headers: {
             'Authorization': `${localStorage.getItem('seller_token')}`,
           },
@@ -310,7 +310,7 @@ const MessageList = ({
         setActive(index) ||
         handleClick(data._id) ||
         setCurrentChat(data) ||
-        setUserData(seller) ||
+        setUserData(user) ||
         setActiveStatus(online)
       }
     >
