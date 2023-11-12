@@ -1,6 +1,7 @@
 import React,{Component} from "react";
 import { Carousel } from "react-responsive-carousel";
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import '../../../App.css'
 
 const img1 =
   "https://img.freepik.com/free-psd/horizontal-banner-online-fashion-sale_23-2148585404.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699401600&semt=ais";
@@ -40,19 +41,18 @@ class Carousele extends Component {
         infiniteLoop={true}
         interval={3000}
         className="h-[250px] 800px:h-[400px]"
-        thumbClassName="hidden"
       >
         <div>
-          <img src={img1} className="hidden" alt="" />
+          <img src={img1} className="h-[240px] 800px:h-[40vh]" alt="" />
         </div>
         <div>
-          <img src={img2} className="hidden" alt="" />
+          <img src={img2} className="h-[240px] 800px:h-[40vh]" alt="" />
         </div>
         <div>
-          <img src={img3} className="hidden" alt="" />
+          <img src={img3} className="h-[240px] 800px:h-[40vh]" alt="" />
         </div>
         <div>
-          <img src={img4} className="hidden" alt="" />
+          <img src={img4} className="h-[240px] 800px:h-[40vh]" alt="" />
         </div>
       </Carousel>
   );

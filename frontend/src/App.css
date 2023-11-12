@@ -55,6 +55,9 @@ input::-webkit-inner-spin-button {
   transition-duration: 0 !important;
   will-change:auto !important;
 }
+.thumbs{
+  display: none;
+}
 @media only screen and(min-width:800px)  {
   .custom-hero-slider{
     height: 350px !important;
