@@ -38,20 +38,21 @@ class Carousele extends Component {
         onClickThumb={this.onClickThumb}
         autoPlay={true}
         infiniteLoop={true}
-        interval={2000}
+        interval={3000}
         className="h-[250px] 800px:h-[35vh]"
+        thumbClassName="hidden"
       >
         <div>
-          <img src={img1} alt="" />
+          <img src={img1} className="h-[250px] 800px:h-[35vh]" alt="" />
         </div>
         <div>
-          <img src={img2} alt="" />
+          <img src={img2} className="h-[250px] 800px:h-[35vh]" alt="" />
         </div>
         <div>
-          <img src={img3} alt="" />
+          <img src={img3} className="h-[250px] 800px:h-[35vh]" alt="" />
         </div>
         <div>
-          <img src={img4} alt="" />
+          <img src={img4} className="h-[250px] 800px:h-[35vh]" alt="" />
         </div>
       </Carousel>
   );
