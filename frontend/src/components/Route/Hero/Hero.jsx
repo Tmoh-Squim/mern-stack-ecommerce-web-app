@@ -2,8 +2,9 @@ import React from "react";
 //import { Link } from "react-router-dom";
 import styles from "../../../styles/styles";
 //import Typed from "react-typed"
-import BasicSlider from "../data/BasicSlider"
+//import BasicSlider from "../data/BasicSlider"
 import "../../../App.css"
+import Carousele from "./Carousel"
 //import { ImageData } from '../data/Slider';
 const Hero = () => {
   const hero="height-[20vh] bg-black"
@@ -17,7 +18,8 @@ const Hero = () => {
       }}
     >
       <div className="w-full">
-      <BasicSlider style={{hero}} />
+      
+      <Carousele />
       </div>
       
     </div>
