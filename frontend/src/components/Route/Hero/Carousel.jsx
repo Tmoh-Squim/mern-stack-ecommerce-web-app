@@ -40,7 +40,7 @@ class Carousele extends Component {
         autoPlay={true}
         infiniteLoop={true}
         interval={3000}
-        className="h-[250px] 800px:h-[400px]"
+        className="h-[250px] 800px:h-[400px] 800px:w-[50%]"
       >
         <div>
           <img src={img1} className="h-[240px] 800px:h-[390px] 800px:w-[50%]" alt="" />
