@@ -43,16 +43,16 @@ class Carousele extends Component {
         className="h-[250px] 800px:h-[400px]"
       >
         <div>
-          <img src={img1} className="h-[240px] 800px:h-[40vh]" alt="" />
+          <img src={img1} className="h-[240px] 800px:h-[390px] 800px:w-[50%]" alt="" />
         </div>
         <div>
-          <img src={img2} className="h-[240px] 800px:h-[40vh]" alt="" />
+          <img src={img2} className="h-[240px] 800px:h-[390px] 800px:w-[50%]" alt="" />
         </div>
         <div>
-          <img src={img3} className="h-[240px] 800px:h-[40vh]" alt="" />
+          <img src={img3} className="h-[240px] 800px:h-[390px] 800px:w-[50%]" alt="" />
         </div>
         <div>
-          <img src={img4} className="h-[240px] 800px:h-[40vh]" alt="" />
+          <img src={img4} className="h-[240px] 800px:h-[390px] 800px:w-[50%]" alt="" />
         </div>
       </Carousel>
   );
