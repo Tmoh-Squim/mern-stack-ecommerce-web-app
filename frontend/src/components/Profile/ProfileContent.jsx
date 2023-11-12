@@ -351,7 +351,7 @@ const AllRefundOrders = () => {
       row.push({
         id: item._id,
         itemsQty: item.cart.length,
-        total: "US$ " + item.totalPrice,
+        total: "Ksh" + item.totalPrice,
         status: item.status,
       });
     });
@@ -589,7 +589,7 @@ const Address = () => {
     <div className="w-full px-5">
       {open && (
         <div className="fixed w-full h-screen bg-[#0000004b] top-0 left-0 flex items-center justify-center ">
-          <div className="w-[35%] h-[80vh] bg-white rounded shadow relative overflow-y-scroll">
+          <div className="w-[100%] 800px:w-[35%] h-[80vh] bg-white rounded shadow relative overflow-y-scroll">
             <div className="w-full flex justify-end p-3">
               <RxCross1
                 size={30}
@@ -755,7 +755,7 @@ const Address = () => {
                 {user && user.phoneNumber}
               </h6>
             </div>
-            <div className="min-w-[10%] flex items-center justify-between pl-8">
+            <div className="min-w-[10%] flex items-center justify-between pl-2 800px:pl-8">
               <AiOutlineDelete
                 size={25}
                 className="cursor-pointer"

@@ -132,7 +132,7 @@ const ProfileSidebar = ({ setActive, active }) => {
           >
             <MdOutlineAdminPanelSettings
               size={20}
-              color={active === 7 ? "red" : ""}
+              color={active === 8 ? "red" : ""}
             />
             <span
               className={`pl-3 ${
