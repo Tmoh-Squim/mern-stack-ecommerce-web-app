@@ -15,9 +15,7 @@ body {
     background: #F6F6F5;
     scroll-behavior: smooth;
 }
-::-webkit-scrollbar{
-  display: none;
-}
+
 input,select{
   outline: none;
 }
