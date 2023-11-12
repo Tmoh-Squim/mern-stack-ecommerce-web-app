@@ -21,7 +21,7 @@ const ProfileSidebar = ({ setActive, active }) => {
       localStorage.removeItem('token')
     toast.success('Logout successful');
         window.location.reload(true);
-        navigate("/login");
+        navigate("/");
     } catch (error) {
       toast.error('Logout failed')
     }
