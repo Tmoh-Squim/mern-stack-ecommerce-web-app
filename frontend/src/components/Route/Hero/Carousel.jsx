@@ -37,7 +37,9 @@ class Carousele extends Component {
         onClickItem={this.onClickItem}
         onClickThumb={this.onClickThumb}
         autoPlay={true}
+        infiniteLoop={true}
         interval={2000}
+        className="h-[250px] 800px:h-[35vh]"
       >
         <div>
           <img src={img1} alt="" />
