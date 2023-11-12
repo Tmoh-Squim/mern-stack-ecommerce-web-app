@@ -85,7 +85,11 @@ const DashboardMessages = () => {
     const getMessage = async () => {
       try {
         const response = await axios.get(
-          `${server}/message/get-all-messages/${currentChat?._id}`
+          `${server}/message/get-all-messages/${currentChat?._id}`,{
+            headers:{
+              "Authorization":`${localStorage.getItem('seller_token')}`
+            }
+          }
         );
         setMessages(response.data.messages);
       } catch (error) {
@@ -118,7 +122,11 @@ const DashboardMessages = () => {
     try {
       if (newMessage !== "") {
         await axios
-          .post(`${server}/message/create-new-message`, message)
+          .post(`${server}/message/create-new-message`, message,{
+            headers:{
+              "Authorization":`${localStorage.getItem('seller_token')}`
+            }
+          })
           .then((res) => {
             setMessages([...messages, res.data.message]);
             updateLastMessage();
@@ -353,7 +361,7 @@ const SellerInbox = ({
       <div className="w-full flex p-3 items-center justify-between bg-slate-200">
         <div className="flex">
           <img
-            src={`${userData?.avatar?.url}`}
+            src={`${userData?.avatar}`}
             alt=""
             className="w-[60px] h-[60px] rounded-full"
           />
@@ -382,14 +390,14 @@ const SellerInbox = ({
               >
                 {item.sender !== sellerId && (
                   <img
-                    src={`${userData?.avatar?.url}`}
+                    src={`${userData?.avatar}`}
                     className="w-[40px] h-[40px] rounded-full mr-3"
                     alt=""
                   />
                 )}
                 {item.images && (
                   <img
-                    src={`${item.images?.url}`}
+                    src={`${item.images}`}
                     className="w-[300px] h-[300px] object-cover rounded-[10px] mr-2"
                   />
                 )}
