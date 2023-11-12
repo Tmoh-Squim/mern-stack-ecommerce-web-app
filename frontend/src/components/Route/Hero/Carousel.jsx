@@ -39,20 +39,20 @@ class Carousele extends Component {
         autoPlay={true}
         infiniteLoop={true}
         interval={3000}
-        className="h-[250px] 800px:h-[35vh]"
+        className="h-[250px] 800px:h-[400px]"
         thumbClassName="hidden"
       >
         <div>
-          <img src={img1} className="h-[250px] 800px:h-[35vh]" alt="" />
+          <img src={img1} className="hidden" alt="" />
         </div>
         <div>
-          <img src={img2} className="h-[250px] 800px:h-[35vh]" alt="" />
+          <img src={img2} className="hidden" alt="" />
         </div>
         <div>
-          <img src={img3} className="h-[250px] 800px:h-[35vh]" alt="" />
+          <img src={img3} className="hidden" alt="" />
         </div>
         <div>
-          <img src={img4} className="h-[250px] 800px:h-[35vh]" alt="" />
+          <img src={img4} className="hidden" alt="" />
         </div>
       </Carousel>
   );
