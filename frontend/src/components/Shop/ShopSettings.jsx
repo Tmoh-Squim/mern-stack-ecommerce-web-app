@@ -33,6 +33,9 @@ const ShopSettings = () => {
             "Content-Type": "multipart/form-data",
         },
         withCredentials: true,
+        headers: {
+          'Authorization': `${localStorage.getItem('seller_token')}`,
+        },
     }).then((res) => {
         dispatch(loadSeller());
         toast.success("Avatar updated successfully!")
@@ -51,7 +54,11 @@ const ShopSettings = () => {
         zipCode,
         phoneNumber,
         description,
-    }, {withCredentials: true}).then((res) => {
+    }, {withCredentials: true,
+      headers: {
+        'Authorization': `${localStorage.getItem('seller_token')}`,
+      },
+    }).then((res) => {
         toast.success("Shop info updated succesfully!");
         dispatch(loadSeller());
     }).catch((error)=> {

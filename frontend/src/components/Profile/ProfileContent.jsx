@@ -63,6 +63,9 @@ const ProfileContent = ({ active }) => {
           "Content-Type": "multipart/form-data",
         },
         withCredentials: true,
+        headers: {
+          'Authorization': `${localStorage.getItem('token')}`,
+        },
       })
       .then((response) => {
          dispatch(loadUser());
@@ -466,7 +469,11 @@ const ChangePassword = () => {
       .put(
         `${server}/user/update-user-password`,
         { oldPassword, newPassword, confirmPassword },
-        { withCredentials: true }
+        { withCredentials: true,
+        headers: {
+        'Authorization': `${localStorage.getItem('token')}`,
+      },
+       }
       )
       .then((res) => {
         toast.success(res.data.success);
@@ -755,7 +762,7 @@ const Address = () => {
                 {user && user.phoneNumber}
               </h6>
             </div>
-            <div className="min-w-[10%] flex items-center justify-between pl-2 800px:pl-8">
+            <div className="min-w-[10%] flex items-center justify-between pl-3 800px:pl-8">
               <AiOutlineDelete
                 size={25}
                 className="cursor-pointer"

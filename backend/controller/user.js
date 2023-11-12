@@ -287,7 +287,7 @@ router.put(
   isAuthenticated,
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const user = await User.findById(req.user.id);
+      const user = await User.findById(req.user._id);
 
       const sameTypeAddress = user.addresses.find(
         (address) => address.addressType === req.body.addressType
