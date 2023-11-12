@@ -73,7 +73,7 @@ const DahboardMessages = () => {
   }, [seller]);
 
   const onlineCheck = (chat) => {
-    const chatMembers = chat.members.find((member) => member !== user?._id);
+    const chatMembers = chat.members.find((member) => member !== seller?._id);
     const online = onlineUsers.find((user) => user.userId === chatMembers);
 
     return online ? true : false;
@@ -237,7 +237,7 @@ const DahboardMessages = () => {
                 index={index}
                 setOpen={setOpen}
                 setCurrentChat={setCurrentChat}
-                me={user?._id}
+                me={seller?._id}
                 setUserData={setUserData}
                 userData={userData}
                 online={onlineCheck(item)}
