@@ -9,7 +9,14 @@ const img3 =
   "https://cdn5.vectorstock.com/i/1000x1000/52/04/online-shopping-e-commerce-banner-concept-vector-25035204.jpg";
 const img4 =
   "https://img.freepik.com/free-psd/online-shopping-concept-banner-template_23-2148559464.jpg";
-const Carousele = () => {
+class Carousele extends Component {
+    constructor(props){
+        super(props);
+
+        this.onChange=this.onChange.bind(this);
+        this.onClickItem=this.onClickItem.bind(this);
+        this.onClickThumb=this.onClickThumb.bind(this);
+    }
     onChange=(index)=>{
         console.log(`slide changed to ${index}`)
     };
@@ -21,8 +28,8 @@ const Carousele = () => {
         console.log(`Thumb clicked:${index}`)
         
     }
+    render(){
   return (
-    <div>
       <Carousel
         showArrows={true}
         onChange={this.onChange}
@@ -44,8 +51,8 @@ const Carousele = () => {
           <img src={img4} alt="" />
         </div>
       </Carousel>
-    </div>
   );
 };
+}
 
 export default Carousele;
