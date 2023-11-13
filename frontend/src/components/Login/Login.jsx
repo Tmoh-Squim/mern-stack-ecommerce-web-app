@@ -32,7 +32,6 @@ const Login = () => {
   
       toast.success('Login Success!');
       navigate(location.state || '/');
-      window.location.reload(true);
     } catch (error) {
       toast.error(error.response?.data?.message || 'An error occurred during login');
     }
