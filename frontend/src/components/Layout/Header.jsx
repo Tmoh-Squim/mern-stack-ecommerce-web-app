@@ -29,6 +29,7 @@ const Header = ({ activeHeading }) => {
   const [searchData, setSearchData] = useState(null);
   const [active, setActive] = useState(false);
   const [dropDown, setDropDown] = useState(false);
+  const [click,setClick] = useState(1)
   const [openCart, setOpenCart] = useState(false);
   const [openWishlist, setOpenWishlist] = useState(false);
   const [open, setOpen] = useState(false);
@@ -209,7 +210,7 @@ const Header = ({ activeHeading }) => {
         <input
           type="search"
           placeholder="Search Product..."
-          className="h-[40px] w-[98%] m-2 px-2 border-[#e02d2d] border-[2px] rounded-md"
+          className="h-[40px] w-[96%] m-2 px-2 border-[#e02d2d] border-[2px] rounded-md"
           value={searchTerm}
           onChange={handleSearchChange}
         />
@@ -227,8 +228,8 @@ const Header = ({ activeHeading }) => {
             />
           </div>
           <div>
-            <Link to="/">
-              <AiOutlineHome size={30} />
+            <Link to="/" onClick={()=>setClick(1)}>
+              <AiOutlineHome size={30} color={click===1? 'red' :''} />
             </Link>
           </div>
           <div>
@@ -236,7 +237,7 @@ const Header = ({ activeHeading }) => {
               className="relative"
               onClick={() => setOpenWishlist(true) || setOpen(false)}
             >
-              <AiOutlineHeart size={30} />
+              <AiOutlineHeart size={30} onClick={()=>setClick(2)} color={click===2? 'red' :''}  />
               <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
                 {wishlist && wishlist.length}
               </span>
@@ -244,30 +245,30 @@ const Header = ({ activeHeading }) => {
           </div>
           <div>
             <div className="relative" onClick={() => setOpenCart(true)}>
-              <AiOutlineShoppingCart size={30} />
+              <AiOutlineShoppingCart onClick={()=>setClick(3)} size={30} color={click===3? 'red' :''}  />
               <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
                 {cart && cart.length}
               </span>
             </div>
           </div>
           {isSeller ? (
-            <div>
+            <div onClick={()=>setClick(4)}>
               <Link to={`/dashboard`}>
-                <RxDashboard size={30} />
+                <RxDashboard size={30} color={click===4? 'red' :''} />
               </Link>
             </div>
           ) : null}
           <div className="mr-4">
             {isAuthenticated ? (
-              <div>
+              <div onClick={()=>setClick(5)}>
                 <Link to="/profile">
-                  <BsPerson size={30} />
+                  <BsPerson size={30} color={click===5? 'red' :''}  />
                 </Link>
               </div>
             ) : (
               <>
                 <Link to="/login">
-                  <BsPerson size={30} />
+                  <BsPerson size={30} color={click===5? 'red' :''}  />
                 </Link>
               </>
             )}
