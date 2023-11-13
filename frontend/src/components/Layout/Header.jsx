@@ -6,9 +6,11 @@ import {
   AiOutlineHeart,
   AiOutlineSearch,
   AiOutlineShoppingCart,
+  AiOutlineHome
 } from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { BiMenuAltLeft } from "react-icons/bi";
+import {bsPerson} from "react-icons/bs"
 import { CgProfile } from "react-icons/cg";
 import DropDown from "./DropDown";
 import Navbar from "./Navbar";
@@ -216,11 +218,7 @@ const Header = ({ activeHeading }) => {
           </div>
           <div>
             <Link to="/">
-              <img
-                src='https://res.cloudinary.com/dvsmxvdtr/image/upload/v1699607379/logo2_ncrmd5.png'
-                alt=""
-                className="mt-0 h-[64px]  cursor-pointer"
-              />
+              <AiOutlineHome size={30} />
             </Link>
           </div>
           <div>
@@ -233,6 +231,9 @@ const Header = ({ activeHeading }) => {
                 {cart && cart.length}
               </span>
             </div>
+          </div>
+          <div>
+            <bsPerson size={30} />
           </div>
           {/* cart popup */}
           {openCart ? <Cart setOpenCart={setOpenCart} /> : null}
