@@ -40,8 +40,8 @@ const Login = () => {
       localStorage.setItem('token', token);
   
       toast.success('Login Success!');
-      window.location.reload()
       navigate(location.state || '/');
+      window.location.reload()
     } catch (error) {
       toast.error(error.response?.data?.message || 'An error occurred during login');
     }
