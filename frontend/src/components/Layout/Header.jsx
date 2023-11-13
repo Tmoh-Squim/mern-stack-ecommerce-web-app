@@ -242,13 +242,13 @@ const Header = ({ activeHeading }) => {
               </span>
             </div>
           </div>
-          <div>
           {isSeller ? (
+            <div>
                   <Link to={`/dashboard`}>
                      <RxDashboard size={30} />
                   </Link>
+                  </div>
               ) : null}
-          </div>
           <div className="mr-4">
           {isAuthenticated ? (
                   <div>
