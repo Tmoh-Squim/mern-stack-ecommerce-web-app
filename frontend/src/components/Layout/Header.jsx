@@ -6,18 +6,18 @@ import {
   AiOutlineHeart,
   AiOutlineSearch,
   AiOutlineShoppingCart,
-  AiOutlineHome
+  AiOutlineHome,
 } from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { BiMenuAltLeft } from "react-icons/bi";
-import {BsPerson} from "react-icons/bs"
+import { BsPerson } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import DropDown from "./DropDown";
 import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
 import Cart from "../cart/Cart";
 import Wishlist from "../Wishlist/Wishlist";
-import { RxCross1,RxDashboard } from "react-icons/rx";
+import { RxCross1, RxDashboard } from "react-icons/rx";
 
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -102,8 +102,7 @@ const Header = ({ activeHeading }) => {
             <div className={`${styles.button}`}>
               <Link to={`/dashboard`}>
                 <h1 className="text-[#fff] flex items-center">
-                   Go Dashboard {" "}
-                  <IoIosArrowForward className="ml-1" />
+                  Go Dashboard <IoIosArrowForward className="ml-1" />
                 </h1>
               </Link>
             </div>
@@ -205,6 +204,18 @@ const Header = ({ activeHeading }) => {
       {/* mobile header */}
       <div
         className={`
+      w-full h-[60px] fixed bg-slate-200 z-10 top-0 left-0 right-0 shadow-sm 800px:hidden`}
+      >
+        <input
+          type="search"
+          placeholder="Search Product..."
+          className="h-[40px] w-full px-2 border-[#e02d2d] border-[2px] rounded-md"
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+      </div>
+      <div
+        className={`
       w-full h-[50px] fixed bg-slate-200 z-10 bottom-0 left-0 right-0 shadow-sm 800px:hidden`}
       >
         <div className="w-full flex items-center justify-between">
@@ -221,21 +232,18 @@ const Header = ({ activeHeading }) => {
             </Link>
           </div>
           <div>
-                  <div
-                    className="relative"
-                    onClick={() => setOpenWishlist(true) || setOpen(false)}
-                  >
-                    <AiOutlineHeart size={30}/>
-                    <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
-                      {wishlist && wishlist.length}
-                    </span>
-                  </div>
-                </div>
-          <div>
             <div
               className="relative"
-              onClick={() => setOpenCart(true)}
+              onClick={() => setOpenWishlist(true) || setOpen(false)}
             >
+              <AiOutlineHeart size={30} />
+              <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
+                {wishlist && wishlist.length}
+              </span>
+            </div>
+          </div>
+          <div>
+            <div className="relative" onClick={() => setOpenCart(true)}>
               <AiOutlineShoppingCart size={30} />
               <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
                 {cart && cart.length}
@@ -244,29 +252,27 @@ const Header = ({ activeHeading }) => {
           </div>
           {isSeller ? (
             <div>
-                  <Link to={`/dashboard`}>
-                     <RxDashboard size={30} />
-                  </Link>
-                  </div>
-              ) : null}
+              <Link to={`/dashboard`}>
+                <RxDashboard size={30} />
+              </Link>
+            </div>
+          ) : null}
           <div className="mr-4">
-          {isAuthenticated ? (
-                  <div>
-                    <Link to="/profile">
-                    <BsPerson size={30} />
-                    </Link>
-                  </div>
-                ) : (
-                  <>
-                    <Link
-                      to="/login"
-                    >
-                      <BsPerson size={30} />
-                    </Link>
-                  </>
-                )}
+            {isAuthenticated ? (
+              <div>
+                <Link to="/profile">
+                  <BsPerson size={30} />
+                </Link>
+              </div>
+            ) : (
+              <>
+                <Link to="/login">
+                  <BsPerson size={30} />
+                </Link>
+              </>
+            )}
           </div>
-          
+
           {/* cart popup */}
           {openCart ? <Cart setOpenCart={setOpenCart} /> : null}
 
@@ -335,8 +341,7 @@ const Header = ({ activeHeading }) => {
                 <div className={`${styles.button} ml-4 !rounded-[4px]`}>
                   <Link to={`/dashboard`}>
                     <h1 className="text-[#fff] flex items-center">
-                       Go Dashboard {" "}
-                      <IoIosArrowForward className="ml-1" />
+                      Go Dashboard <IoIosArrowForward className="ml-1" />
                     </h1>
                   </Link>
                 </div>
