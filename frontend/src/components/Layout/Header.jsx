@@ -10,7 +10,7 @@ import {
 } from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { BiMenuAltLeft } from "react-icons/bi";
-import {bsPerson} from "react-icons/bs"
+import {BsPerson} from "react-icons/bs"
 import { CgProfile } from "react-icons/cg";
 import DropDown from "./DropDown";
 import Navbar from "./Navbar";
@@ -211,7 +211,6 @@ const Header = ({ activeHeading }) => {
           <div>
             <BiMenuAltLeft
               size={40}
-              color='white'
               className="ml-4"
               onClick={() => setOpen(true)}
             />
@@ -226,14 +225,14 @@ const Header = ({ activeHeading }) => {
               className="relative mr-[20px]"
               onClick={() => setOpenCart(true)}
             >
-              <AiOutlineShoppingCart color='white' size={30} />
+              <AiOutlineShoppingCart size={30} />
               <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
                 {cart && cart.length}
               </span>
             </div>
           </div>
           <div>
-            <bsPerson size={30} />
+            <BsPerson size={30} />
           </div>
           {/* cart popup */}
           {openCart ? <Cart setOpenCart={setOpenCart} /> : null}
