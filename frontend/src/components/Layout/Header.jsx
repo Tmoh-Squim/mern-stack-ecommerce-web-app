@@ -39,7 +39,7 @@ const Header = ({ activeHeading }) => {
     if(term !== ''){
       setSearchTerm(term);
     }else{
-      setSearchTerm('')
+      setSearchTerm(null)
     }
     
     const filteredProducts =
