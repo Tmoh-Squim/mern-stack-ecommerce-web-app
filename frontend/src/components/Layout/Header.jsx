@@ -219,7 +219,7 @@ const Header = ({ activeHeading }) => {
           onChange={handleSearchChange}
         />
         {searchData && (
-                  <div className="absolute bg-[#fff] z-10 shadow w-[100%] p-4">
+                  <div className="absolute bg-[#fff] overflow-y-scroll z-10 shadow w-[100%] p-4">
                     {searchData.map((i) => {
 
                       return (
