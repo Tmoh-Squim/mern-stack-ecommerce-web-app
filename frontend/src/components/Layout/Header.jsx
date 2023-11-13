@@ -207,6 +207,7 @@ const Header = ({ activeHeading }) => {
       </div>
 
       {/* mobile header */}
+      {/*
       <div
         className={`
       w-full h-[60px] fixed bg-slate-200 z-20 top-0 left-0 right-0 shadow-sm 800px:hidden`}
@@ -238,6 +239,7 @@ const Header = ({ activeHeading }) => {
                   </div>
                 )}
         </div>
+        */}
       <div
         className={`
       w-full h-[50px] fixed bg-slate-200 z-10 bottom-0 left-0 right-0 shadow-sm 800px:hidden`}
