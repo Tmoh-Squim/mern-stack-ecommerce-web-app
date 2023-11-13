@@ -38,8 +38,6 @@ const Header = ({ activeHeading }) => {
     const term = e.target.value;
     if(term !== ''){
       setSearchTerm(term);
-    }else{
-      null
     }
     
     const filteredProducts =
