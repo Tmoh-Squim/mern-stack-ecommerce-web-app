@@ -17,7 +17,7 @@ import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
 import Cart from "../cart/Cart";
 import Wishlist from "../Wishlist/Wishlist";
-import { RxCross1 } from "react-icons/rx";
+import { RxCross1,RxDashboard } from "react-icons/rx";
 
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -230,6 +230,20 @@ const Header = ({ activeHeading }) => {
                 {cart && cart.length}
               </span>
             </div>
+          </div>
+          <div>
+                  <div
+                    className="relative mr-[15px]"
+                    onClick={() => setOpenWishlist(true) || setOpen(false)}
+                  >
+                    <AiOutlineHeart size={30} className="mt-5 ml-3" />
+                    <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
+                      {wishlist && wishlist.length}
+                    </span>
+                  </div>
+                </div>
+          <div>
+            <RxDashboard size={30} />
           </div>
           <div>
             <BsPerson size={30} />
