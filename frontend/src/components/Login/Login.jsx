@@ -49,7 +49,7 @@ const Login = () => {
         </h2>
         </div>
         <div onClick={()=>setActive(2)}>
-        <h2 className={`mt-6 text-center ${active === 2 ?'text-[red]' : 'text-gray-900'} text-[18px] font-extrabold text-gray-900`}>
+        <h2 className={`mt-6 text-center ${active === 2 ?'text-[red]' : 'text-gray-900'} text-[18px] font-extrabold`}>
           Create account
         </h2>
         </div>
