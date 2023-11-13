@@ -209,7 +209,7 @@ const Header = ({ activeHeading }) => {
       {/* mobile header */}
       <div
         className={`
-      w-full h-[60px] fixed bg-slate-200 z-10 top-0 left-0 right-0 shadow-sm 800px:hidden`}
+      w-full h-[60px] fixed bg-slate-200 z-20 top-0 left-0 right-0 shadow-sm 800px:hidden`}
       >
         <input
           type="search"
