@@ -19,16 +19,16 @@ const HomePage = () => {
     const term = e.target.value;
     if(term !== ''){
       setSearchTerm(term);
-    }else{
-      setSearchTerm(null)
-    }
-    
-    const filteredProducts =
+      const filteredProducts =
       allProducts &&
       allProducts.filter((product) =>
         product.name.toLowerCase().includes(term.toLowerCase())
       );
     setSearchData(filteredProducts);
+    }else{
+      setSearchTerm(null)
+      setSearchData([]);
+    }
   };
   return (
     <div>
