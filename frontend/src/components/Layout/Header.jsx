@@ -209,7 +209,7 @@ const Header = ({ activeHeading }) => {
         <input
           type="search"
           placeholder="Search Product..."
-          className="h-[40px] w-full m-2 px-2 border-[#e02d2d] border-[2px] rounded-md"
+          className="h-[40px] w-[98%] m-2 px-2 border-[#e02d2d] border-[2px] rounded-md"
           value={searchTerm}
           onChange={handleSearchChange}
         />
