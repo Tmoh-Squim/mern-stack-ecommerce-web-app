@@ -36,8 +36,12 @@ const Header = ({ activeHeading }) => {
 
   const handleSearchChange = (e) => {
     const term = e.target.value;
-    setSearchTerm(term);
-
+    if(term !== ''){
+      setSearchTerm(term);
+    }else{
+      null
+    }
+    
     const filteredProducts =
       allProducts &&
       allProducts.filter((product) =>
@@ -215,11 +219,9 @@ const Header = ({ activeHeading }) => {
           onChange={handleSearchChange}
         />
         {searchData && (
-                  <div className="absolute bg-[#fff] z-10 shadow w-full  left-0 p-3">
+                  <div className="absolute bg-[#fff] z-10 shadow w-[95%]  m-3 p-3">
                     {searchData.map((i) => {
-                      const d = i.name;
 
-                      const Product_name = d.replace(/\s+/g, "-");
                       return (
                         <Link to={`/product/${i._id}`}>
                           <div className="flex items-center">
