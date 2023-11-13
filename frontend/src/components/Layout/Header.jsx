@@ -221,6 +221,17 @@ const Header = ({ activeHeading }) => {
             </Link>
           </div>
           <div>
+                  <div
+                    className="relative"
+                    onClick={() => setOpenWishlist(true) || setOpen(false)}
+                  >
+                    <AiOutlineHeart size={30} className=" ml-3" />
+                    <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
+                      {wishlist && wishlist.length}
+                    </span>
+                  </div>
+                </div>
+          <div>
             <div
               className="relative mr-[20px]"
               onClick={() => setOpenCart(true)}
@@ -232,22 +243,30 @@ const Header = ({ activeHeading }) => {
             </div>
           </div>
           <div>
-                  <div
-                    className="relative mr-[15px]"
-                    onClick={() => setOpenWishlist(true) || setOpen(false)}
-                  >
-                    <AiOutlineHeart size={30} className="mt-5 ml-3" />
-                    <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
-                      {wishlist && wishlist.length}
-                    </span>
+          {isSeller ? (
+                  <Link to={`/dashboard`}>
+                     <RxDashboard size={30} />
+                  </Link>
+              ) : null}
+          </div>
+          <div className="mr-4">
+          {isAuthenticated ? (
+                  <div>
+                    <Link to="/profile">
+                    <BsPerson size={30} />
+                    </Link>
                   </div>
-                </div>
-          <div>
-            <RxDashboard size={30} />
+                ) : (
+                  <>
+                    <Link
+                      to="/login"
+                    >
+                      <BsPerson size={30} />
+                    </Link>
+                  </>
+                )}
           </div>
-          <div>
-            <BsPerson size={30} />
-          </div>
+          
           {/* cart popup */}
           {openCart ? <Cart setOpenCart={setOpenCart} /> : null}
 
