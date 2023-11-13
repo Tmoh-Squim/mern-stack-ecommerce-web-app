@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <>
     <div
-      className={`relative w-full bg-no-repeat ${styles.noramlFlex}`}
+      className={`relative mt-[60px] 800px:mt-0 w-full bg-no-repeat ${styles.noramlFlex}`}
       style={{
         backgroundImage:
           "url(https://themes.rslahmed.dev/rafcart/assets/images/banner-2.jpg)",
