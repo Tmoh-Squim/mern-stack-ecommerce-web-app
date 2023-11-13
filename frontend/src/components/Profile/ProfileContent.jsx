@@ -439,7 +439,7 @@ const TrackOrder = () => {
       row.push({
         id: item._id,
         itemsQty: item.cart.length,
-        total: "US$ " + item.totalPrice,
+        total: "Ksh " + item.totalPrice,
         status: item.status,
       });
     });
