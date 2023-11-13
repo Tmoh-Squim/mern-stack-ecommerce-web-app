@@ -207,7 +207,6 @@ const Header = ({ activeHeading }) => {
         className={`
       w-full h-[60px] fixed bg-slate-200 z-10 top-0 left-0 right-0 shadow-sm 800px:hidden`}
       >
-        <div className="my-8 w-[92%] m-auto h-[40px relative]">
         <input
           type="search"
           placeholder="Search Product..."
@@ -222,7 +221,7 @@ const Header = ({ activeHeading }) => {
 
                       const Product_name = d.replace(/\s+/g, "-");
                       return (
-                        <Link to={`/product/${Product_name}`}>
+                        <Link to={`/product/${i._id}`}>
                           <div className="flex items-center">
                             <img
                               src={`${i.images[0]}`}
@@ -237,7 +236,6 @@ const Header = ({ activeHeading }) => {
                   </div>
                 )}
         </div>
-      </div>
       <div
         className={`
       w-full h-[50px] fixed bg-slate-200 z-10 bottom-0 left-0 right-0 shadow-sm 800px:hidden`}
