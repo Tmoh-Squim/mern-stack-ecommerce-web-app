@@ -1,4 +1,6 @@
-import React from 'react'
+import React,{useState} from 'react'
+import {useSelector} from "react-redux"
+import {Link} from "react-router-dom"
 import Header from "../components/Layout/Header";
 import Hero from "../components/Route/Hero/Hero";
 import Categories from "../components/Route/Categories/Categories";
