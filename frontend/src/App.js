@@ -323,10 +323,10 @@ const App = () => {
             </ProtectedAdminRoute>
           }
         />
-      </Routes>
+      </Routes>\
       <ToastContainer
-        position="bottom-center"
-        autoClose={5000}
+        position="top-center"
+        autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
