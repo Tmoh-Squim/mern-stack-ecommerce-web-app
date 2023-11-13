@@ -207,6 +207,7 @@ const Header = ({ activeHeading }) => {
         className={`
       w-full h-[60px] fixed bg-slate-200 z-10 top-0 left-0 right-0 shadow-sm 800px:hidden`}
       >
+        <div className="my-8 w-[92%] m-auto h-[40px relative]">
         <input
           type="search"
           placeholder="Search Product..."
@@ -214,6 +215,28 @@ const Header = ({ activeHeading }) => {
           value={searchTerm}
           onChange={handleSearchChange}
         />
+        {searchData && (
+                  <div className="absolute bg-[#fff] z-10 shadow w-full  left-0 p-3">
+                    {searchData.map((i) => {
+                      const d = i.name;
+
+                      const Product_name = d.replace(/\s+/g, "-");
+                      return (
+                        <Link to={`/product/${Product_name}`}>
+                          <div className="flex items-center">
+                            <img
+                              src={`${i.images[0]}`}
+                              alt=""
+                              className="w-[50px] mr-2"
+                            />
+                            <h5>{i.name}</h5>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                )}
+        </div>
       </div>
       <div
         className={`
@@ -315,7 +338,7 @@ const Header = ({ activeHeading }) => {
                   onChange={handleSearchChange}
                 />
                 {searchData && (
-                  <div className="absolute bg-[#fff] z-10 shadow w-ful l left-0 p-3">
+                  <div className="absolute bg-[#fff] z-10 shadow w-full  left-0 p-3">
                     {searchData.map((i) => {
                       const d = i.name;
 
