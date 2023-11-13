@@ -3,7 +3,6 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   LoginPage,
-  SignupPage,
   ActivationPage,
   HomePage,
   ProductsPage,
@@ -96,7 +95,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/sign-up" element={<SignupPage />} />
         <Route path="*" element={<PageNotFound />} />
         <Route
           path="/activation/:activation_token"

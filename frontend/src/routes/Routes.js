@@ -1,5 +1,4 @@
 import LoginPage from "../pages/Login";
-import SignupPage from "../pages/SignupPage";
 import ActivationPage from "../pages/ActivationPage";
 import HomePage from "../pages/HomePage";
 import ProductsPage from "../pages/ProductsPage";
@@ -20,7 +19,6 @@ import UserInbox from "../pages/UserInbox.jsx";
 import PageNotFound from "../pages/PageNotFound"
 export { 
     LoginPage,
-    SignupPage,
     ActivationPage,
     HomePage,
     ProductsPage,

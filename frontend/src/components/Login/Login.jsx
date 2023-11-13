@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "../../styles/styles";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { server } from "../../server";
 import { RxAvatar } from "react-icons/rx";
@@ -66,6 +66,7 @@ const Login = () => {
         setEmail("");
         setPassword("");
         setAvatar();
+        setActive(1)
       })
       .catch((error) => {
         toast.error(error.response.data.message);
@@ -173,12 +174,6 @@ const Login = () => {
               >
                 Submit
               </button>
-            </div>
-            <div className={`${styles.noramlFlex} w-full`}>
-              <h4>Not have any account?</h4>
-              <Link to="/sign-up" className="text-blue-600 pl-2">
-                Sign Up
-              </Link>
             </div>
           </form>
         ):null
@@ -300,12 +295,6 @@ const Login = () => {
             >
               Submit
             </button>
-          </div>
-          <div className={`${styles.noramlFlex} w-full`}>
-            <h4>Already have an account?</h4>
-            <Link to="/login" className="text-blue-600 pl-2">
-              Sign In
-            </Link>
           </div>
         </form>
         ):null
