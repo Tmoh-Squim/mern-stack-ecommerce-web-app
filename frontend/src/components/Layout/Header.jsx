@@ -219,7 +219,7 @@ const Header = ({ activeHeading }) => {
               onClick={() => setOpen(true)}
             />
           </div>
-          <div>
+          <div onClick={()=>setClick(1)}>
             <Link to="/" onClick={()=>setClick(1)}>
               <AiOutlineHome size={30} color={click===1? 'red' :''} />
             </Link>
@@ -227,17 +227,17 @@ const Header = ({ activeHeading }) => {
           <div>
             <div
               className="relative"
-              onClick={() => setOpenWishlist(true) || setOpen(false)}
+              onClick={() => setOpenWishlist(true) || setOpen(false) && setClick(2)}
             >
-              <AiOutlineHeart size={30} onClick={()=>setClick(2)} color={click===2? 'red' :''}  />
+              <AiOutlineHeart size={30} color={click===2? 'red' :''}  />
               <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
                 {wishlist && wishlist.length}
               </span>
             </div>
           </div>
           <div>
-            <div className="relative" onClick={() => setOpenCart(true)}>
-              <AiOutlineShoppingCart onClick={()=>setClick(3)} size={30} color={click===3? 'red' :''}  />
+            <div className="relative" onClick={() => setOpenCart(true) && setClick(3)}>
+              <AiOutlineShoppingCart size={30} color={click===3? 'red' :''}  />
               <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
                 {cart && cart.length}
               </span>
@@ -253,7 +253,7 @@ const Header = ({ activeHeading }) => {
           <div className="mr-4">
             {isAuthenticated ? (
               <div onClick={()=>setClick(5)}>
-                <Link to="/profile">
+                <Link to="/profile" onClick={()=>setClick(5)}>
                   <BsPerson size={30} color={click===5? 'red' :''}  />
                 </Link>
               </div>
