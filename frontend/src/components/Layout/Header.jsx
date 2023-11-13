@@ -209,7 +209,7 @@ const Header = ({ activeHeading }) => {
       {/* mobile header */}
       <div
         className={`
-      w-full h-[50px] fixed bg-slate-200 z-40 bottom-0 left-0 right-0 shadow-sm 800px:hidden`}
+      w-full h-[50px] fixed bg-slate-200 z-60 bottom-0 left-0 right-0 shadow-sm 800px:hidden`}
       >
         <div className="w-full flex items-center justify-between">
           <div>
