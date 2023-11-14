@@ -12,11 +12,7 @@ const Hero = () => {
     <>
     <div
       className={`relative mt-[60px] 800px:mt-0 w-full bg-white ${styles.noramlFlex}`}>
-      <div className="w-full">
-      
-      <Carousele />
-      </div>
-      
+      <Carousele />      
     </div>
     </>
   );
