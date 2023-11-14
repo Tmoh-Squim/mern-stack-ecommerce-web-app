@@ -234,7 +234,10 @@ const Payment = () => {
   
           if (confirmResponse.status === 200 && confirmResponse.data.ResultCode === "0") {
             // Payment confirmed, update order status and post the order
-            order.paymentInfo.status = "succeeded";
+            order.paymentInfo = {
+              type: "lipa na mpesa",
+              status: "succeeded", // Update status to pending
+            };
             await axios.post(`${server}/order/create-order`, order, config);
             setOpen(false);
             navigate("/order/success");
