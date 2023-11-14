@@ -55,10 +55,11 @@ class Carousele extends Component {
         <>
       {
         slideData && slideData.map((i)=>{
-          return(
+          return (
             <div key={i.id}>
-              <img src={i.image} className="h-[135px] w-[100%] rounded-[9px]  800px:h-[390px] 800px:w-[50%]" alt="" />
+            <img src={i.image} className="h-[135px] w-[100%] rounded-[9px]  800px:h-[390px] 800px:w-[50%]" alt="" />
             </div>
+          )
         })
       }
       </>
