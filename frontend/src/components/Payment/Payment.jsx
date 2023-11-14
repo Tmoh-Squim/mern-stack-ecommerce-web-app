@@ -265,14 +265,6 @@ const Payment = () => {
   };
 
   return (
-    <div>
-      {order.paymentInfo.status === "pending" && loading && (
-        <div className="w-full h-screen flex items-center justify-center bg-gray-200">
-          <p>Please wait as we process your payment...</p>
-        </div>
-      )}
-
-      {/* Your other components/rendering logic */}
     
     <div className="w-full flex flex-col items-center py-8">
       <div className="w-[90%] 1000px:w-[70%] block 800px:flex">
@@ -300,7 +292,6 @@ const Payment = () => {
         </div>
       </div>
     </div>
-    </div>
   );
 };
 
@@ -325,6 +316,11 @@ const PaymentInfo = ({
 
   return (
     <div className="w-full 800px:w-[95%] bg-[#fff] rounded-md p-5 pb-8">
+      {order.paymentInfo.status === "pending" && loading && (
+        <div className="w-full h-screen flex items-center justify-center bg-gray-200">
+          <p>Please wait as we process your payment...</p>
+        </div>
+      )}
       {/* select buttons */}
       <div>
         <div className="flex w-full pb-5 border-b mb-2">
