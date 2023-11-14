@@ -25,10 +25,10 @@ const Categories = () => {
       </div>
 
       <div
-        className={`${styles.section} p-3.5 800px:p-6 800px:bg-white rounded-lg mb-12`}
+        className={`${styles.section} p-4.2 800px:p-6 800px:bg-white rounded-lg mb-12`}
         id="categories"
       >
-        <div className=" flex justify-between h-[150px] overflow-y-scroll mt-2 800px:mt-0 flex-wrap 800px:grid grid-cols-1 gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-5 xl:gap-[30px]">
+        <div className=" flex justify-between mt-2 800px:mt-0 flex-wrap 800px:grid grid-cols-1 gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-5 xl:gap-[30px]">
           {categoriesData &&
             categoriesData.map((i) => {
               const handleSubmit = (i) => {
