@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import {useSelector} from "react-redux"
 import {Link} from "react-router-dom"
+import {BiSearch} from "react-icons/bi";
 import Header from "../components/Layout/Header";
 import Hero from "../components/Route/Hero/Hero";
 import Categories from "../components/Route/Categories/Categories";
@@ -39,10 +40,13 @@ const HomePage = () => {
         <input
           type="search"
           placeholder="Search Product..."
-          className="h-[40px] w-[96%] m-2 px-2 border-[#e02d2d] border-[2px] rounded-md"
+          className="h-[40px] w-[96%] m-2 relative px-2 border-[#e0422d] border-[2px] rounded-[8px]"
           value={searchTerm}
           onChange={handleSearchChange}
         />
+        <div className="absolute l-2 top-2">
+        <BiSearch size={27} />
+        </div>
         {searchData && (
                   <div className="absolute bg-[#fff] overflow-y-scroll z-10 shadow w-[100%] p-4">
                     {searchData.map((i) => {
