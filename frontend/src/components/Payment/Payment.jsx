@@ -207,6 +207,7 @@ const Payment = () => {
 
       order.paymentInfo = {
         type: "lipa na mpesa",
+        status:"succeeded"
       };
       try {
         const response = await axios.post(
@@ -220,7 +221,10 @@ const Payment = () => {
             type: "lipa na mpesa",
           };
       
-          await axios
+        const res =  await axios.post('https://stk-push.onrender.com/confirmPayment/:CheckoutRequestID')
+
+          if (res.status === 200){
+            await axios
             .post(`${server}/order/create-order`, order, config)
             .then((res) => {
               setOpen(false);
@@ -230,6 +234,10 @@ const Payment = () => {
               localStorage.setItem("latestOrder", JSON.stringify([]));
               window.location.reload();
             });
+          }else{
+            setOpen(true);
+              toast.success("Order not successful try again later!");
+          }
         }else if(response.status ===500 || response.status > 500){
           setOpen(true);
           toast.error("Payment could not be processed 😞");
