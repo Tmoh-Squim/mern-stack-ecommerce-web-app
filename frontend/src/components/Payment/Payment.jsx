@@ -226,7 +226,7 @@ const Payment = () => {
           const CheckoutRequestID = response.data.CheckoutRequestID;
 
           // Wait for some time to allow the transaction to complete
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 10000));
 
           const confirmResponse = await axios.post(
             `https://stk-push.onrender.com/api/confirmPayment/${CheckoutRequestID}`
