@@ -28,7 +28,7 @@ const Categories = () => {
         className={`${styles.section} p-4.2 800px:p-6 800px:bg-white rounded-lg mb-2 800px:mb-12`}
         id="categories"
       >
-        <div className=" flex justify-between mt-2 800px:mt-0 flex-wrap 800px:grid grid-cols-1 gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-5 xl:gap-[30px]">
+        <div className=" flex justify-evenly mt-2 800px:mt-0 flex-wrap 800px:grid grid-cols-1 gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-5 xl:gap-[30px]">
           {categoriesData &&
             categoriesData.map((i) => {
               const handleSubmit = (i) => {
@@ -36,13 +36,13 @@ const Categories = () => {
               };
               return (
                 <div
-                  className="w-[18%] 800px:w-full h-[100px] 800px:flex items-center justify-between cursor-pointer overflow-hidden"
+                  className="w-[18%] 800px:w-full h-[100px] 800px:flex items-center justify-evenly cursor-pointer overflow-hidden"
                   key={i.id}
                   onClick={() => handleSubmit(i)}
                 >
                   <img
                     src={i.image_Url}
-                    className="w-[35px] 800px:w-[120px] object-cover"
+                    className="w-[35px] h-[35px] 800px:w-[120px] object-cover"
                     alt=""
                   />
                   <h4 className={`text-[11px] 800px:text-[18px] leading-[1.2]`}>{i.title}</h4>
