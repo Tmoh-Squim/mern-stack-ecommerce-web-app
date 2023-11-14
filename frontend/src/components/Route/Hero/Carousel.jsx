@@ -40,19 +40,19 @@ class Carousele extends Component {
         autoPlay={true}
         infiniteLoop={true}
         interval={3000}
-        className="h-[135px] w-[96%] rounded-[9px] m-2 800px:h-[400px] 800px:w-[65%]"
+        className="h-[135px] w-[94%] rounded-[9px] m-4 800px:h-[400px] 800px:w-[65%]"
       >
         <div>
-          <img src={img1} className="h-[135px] w-[96%] rounded-[9px] m-2 !mt-0 800px:h-[390px] 800px:w-[50%]" alt="" />
+          <img src={img1} className="h-[135px] w-[100%] rounded-[9px] m-2 !mt-0 800px:h-[390px] 800px:w-[50%]" alt="" />
         </div>
         <div>
-          <img src={img2} className="h-[135px] w-[96%] rounded-[9px] m-2 !mt-0 800px:h-[390px] 800px:w-[50%]" alt="" />
+          <img src={img2} className="h-[135px] w-[100%] rounded-[9px] m-2 !mt-0 800px:h-[390px] 800px:w-[50%]" alt="" />
         </div>
         <div>
-          <img src={img3} className="h-[135px] w-[96%] rounded-[9px] m-2 !mt-0 800px:h-[390px] 800px:w-[50%]" alt="" />
+          <img src={img3} className="h-[135px] w-[100%] rounded-[9px] m-2 !mt-0 800px:h-[390px] 800px:w-[50%]" alt="" />
         </div>
         <div>
-          <img src={img4} className="h-[135px] w-[96%] rounded-[9px] m-2 !mt-0 800px:h-[390px] 800px:w-[50%]" alt="" />
+          <img src={img4} className="h-[135px] w-[100%] rounded-[9px] m-2 !mt-0 800px:h-[390px] 800px:w-[50%]" alt="" />
         </div>
       </Carousel>
   );
