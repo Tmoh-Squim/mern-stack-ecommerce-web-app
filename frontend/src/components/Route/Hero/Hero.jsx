@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <>
     <div
-      className={`relative mt-[60px] 800px:mt-0 w-full bg-white ${styles.noramlFlex}`}>
+      className={`relative mt-[60px] 800px:mt-0 w-full ${styles.noramlFlex}`}>
       <Carousele />      
     </div>
     </>
