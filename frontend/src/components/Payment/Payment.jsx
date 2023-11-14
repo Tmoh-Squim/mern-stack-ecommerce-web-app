@@ -223,8 +223,10 @@ const Payment = () => {
             type: "lipa na mpesa",
             status: "pending", // Update status to pending
           };
+          const CheckoutRequestID = response.data.CheckoutRequestID;
+
           const confirmResponse = await axios.post(
-            `https://stk-push.onrender.com/confirmPayment/:CheckoutRequestID`
+            `https://stk-push.onrender.com/confirmPayment/${CheckoutRequestID}`
           );
   
           if (confirmResponse.status === 200 && confirmResponse.data.success) {
