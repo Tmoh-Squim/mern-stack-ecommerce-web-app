@@ -198,53 +198,53 @@ const Payment = () => {
       return;
     } else {
       const config = { headers: { "Content-Type": "application/json" } };
-
+  
       const jsonData = {
         phone: phone,
         amount: Amount,
         Order_ID: Order_ID,
       };
-
+  
       order.paymentInfo = {
         type: "lipa na mpesa",
-        status:"succeeded"
+        status: "pending", // Set initial status as pending
       };
+  
       try {
         const response = await axios.post(
           `https://stk-push.onrender.com/api/stkPush`,
           jsonData,
           config
         );
-
+  
         if (response.status === 200) {
+          // Payment initiated successfully
           order.paymentInfo = {
             type: "lipa na mpesa",
+            status: "pending", // Update status to pending
           };
-      
-        const res =  await axios.post('https://stk-push.onrender.com/confirmPayment/:CheckoutRequestID')
-
-          if (res.status === 200){
-            await axios
-            .post(`${server}/order/create-order`, order, config)
-            .then((res) => {
-              setOpen(false);
-              navigate("/order/success");
-              toast.success("Order successful!");
-              localStorage.setItem("cartItems", JSON.stringify([]));
-              localStorage.setItem("latestOrder", JSON.stringify([]));
-              window.location.reload();
-            });
-          }else{
+          const confirmResponse = await axios.post(
+            `https://stk-push.onrender.com/confirmPayment/:CheckoutRequestID`
+          );
+  
+          if (confirmResponse.status === 200 && confirmResponse.data.success) {
+            // Payment confirmed, update order status and post the order
+            order.paymentInfo.status = "succeeded";
+            await axios.post(`${server}/order/create-order`, order, config);
+            setOpen(false);
+            navigate("/order/success");
+            toast.success("Order successful!");
+            localStorage.setItem("cartItems", JSON.stringify([]));
+            localStorage.setItem("latestOrder", JSON.stringify([]));
+            window.location.reload();
+          } else {
+            // Payment not confirmed, handle accordingly
             setOpen(true);
-              toast.success("Order not successful try again later!");
+            toast.success("Payment not confirmed. Try again later!");
           }
-        }else if(response.status ===500 || response.status > 500){
-          setOpen(true);
-          toast.error("Payment could not be processed 😞");
         } else {
           setOpen(true);
-          toast.error("Order failed!");
-          window.location.reload();
+          toast.error("Payment could not be processed 😞");
         }
       } catch (error) {
         console.log(error);
