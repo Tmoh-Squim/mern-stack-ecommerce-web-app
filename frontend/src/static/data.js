@@ -260,7 +260,7 @@ export const navItems = [
     },
     {
       id: 8,
-      title: "Phone",
+      title: "Phones",
       subTitle: "",
       image_Url:
         "https://st-troy.mncdn.com/mnresize/1500/1500/Content/media/ProductImg/original/mpwp3tua-apple-iphone-14-256gb-mavi-mpwp3tua-637986832343472449.jpg",
