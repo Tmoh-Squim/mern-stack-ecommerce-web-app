@@ -316,11 +316,6 @@ const PaymentInfo = ({
 
   return (
     <div className="w-full 800px:w-[95%] bg-[#fff] rounded-md p-5 pb-8">
-      {order.paymentInfo.status === "pending" && loading && (
-        <div className="w-full h-screen flex items-center justify-center bg-gray-200">
-          <p>Please wait as we process your payment...</p>
-        </div>
-      )}
       {/* select buttons */}
       <div>
         <div className="flex w-full pb-5 border-b mb-2">
