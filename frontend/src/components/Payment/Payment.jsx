@@ -232,7 +232,7 @@ const Payment = () => {
             `https://stk-push.onrender.com/api/confirmPayment/${CheckoutRequestID}`
           );
   
-          if (confirmResponse.status === 200 && confirmResponse.data.success) {
+          if (confirmResponse.status === 200 && confirmResponse.data.ResultCode === "0") {
             // Payment confirmed, update order status and post the order
             order.paymentInfo.status = "succeeded";
             await axios.post(`${server}/order/create-order`, order, config);
