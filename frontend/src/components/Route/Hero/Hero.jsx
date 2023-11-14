@@ -11,12 +11,7 @@ const Hero = () => {
   return (
     <>
     <div
-      className={`relative mt-[60px] 800px:mt-0 w-full bg-no-repeat ${styles.noramlFlex}`}
-      style={{
-        backgroundImage:
-          "url(https://themes.rslahmed.dev/rafcart/assets/images/banner-2.jpg)",
-      }}
-    >
+      className={`relative mt-[60px] 800px:mt-0 w-full bg-white ${styles.noramlFlex}`}>
       <div className="w-full">
       
       <Carousele />

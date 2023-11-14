@@ -44,7 +44,7 @@ const HomePage = () => {
           value={searchTerm}
           onChange={handleSearchChange}
         />
-        <div className="absolute r-3 top-3">
+        <div className="absolute right-3 top-4">
         <BiSearch size={27} />
         </div>
         {searchData && (
