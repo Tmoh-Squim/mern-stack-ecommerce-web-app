@@ -52,14 +52,16 @@ class Carousele extends Component {
         interval={3000}
         className="h-[135px] w-[94%] rounded-[9px] m-4 800px:h-[400px] 800px:w-[65%]"
       >
+        <>
       {
-        slideData? slideData.map((i,index)=>{
+        slideData && slideData.map((i)=>{
           return(
             <div key={i.id}>
-              <img src={image} className="h-[135px] w-[100%] rounded-[9px]  800px:h-[390px] 800px:w-[50%]" alt="" />
+              <img src={i.image} className="h-[135px] w-[100%] rounded-[9px]  800px:h-[390px] 800px:w-[50%]" alt="" />
             </div>
         })
       }
+      </>
       </Carousel>
   );
 };
