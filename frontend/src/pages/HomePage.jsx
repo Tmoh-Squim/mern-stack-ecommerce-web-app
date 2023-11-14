@@ -40,11 +40,11 @@ const HomePage = () => {
         <input
           type="search"
           placeholder="Search Product..."
-          className="h-[40px] w-[96%] m-2 relative px-2 border-[#e0422d] border-[2px] rounded-[8px]"
+          className="h-[40px] w-[96%] m-2 relative px-2 border-[#e0922d] border-[2px] rounded-[9px]"
           value={searchTerm}
           onChange={handleSearchChange}
         />
-        <div className="absolute l-2 top-2">
+        <div className="absolute r-3 top-3">
         <BiSearch size={27} />
         </div>
         {searchData && (
