@@ -21,6 +21,7 @@ const Payment = () => {
   const [open, setOpen] = useState(false);
   const [phone, setPhoneNumber] = useState("");
   const [phoneError, setPhoneError] = useState("");
+  const [loading,setLoading] = useState(false)
   const [Order_ID] = useState("123");
   const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -225,6 +226,7 @@ const Payment = () => {
           };
           const CheckoutRequestID = response.data.CheckoutRequestID;
 
+          setLoading(true)
           // Wait for some time to allow the transaction to complete
         await new Promise(resolve => setTimeout(resolve, 10000));
 
@@ -256,11 +258,22 @@ const Payment = () => {
         }
       } catch (error) {
         console.log(error);
+      }finally{
+        setLoading(false)
       }
     }
   };
 
   return (
+    <div>
+      {order.paymentInfo.status === "pending" && loading && (
+        <div className="w-full h-screen flex items-center justify-center bg-gray-200">
+          <p>Please wait as we process your payment...</p>
+        </div>
+      )}
+
+      {/* Your other components/rendering logic */}
+    
     <div className="w-full flex flex-col items-center py-8">
       <div className="w-[90%] 1000px:w-[70%] block 800px:flex">
         <div className="w-full 800px:w-[65%]">
@@ -278,12 +291,15 @@ const Payment = () => {
             phoneError={phoneError}
             setPhoneError={setPhoneError}
             handleMpesaPayment={handleMpesaPayment}
+            loading={loading}
+            setLoading={setLoading}
           />
         </div>
         <div className="w-full 800px:w-[35%] 800px:mt-0 mt-8">
           <CartData orderData={orderData} />
         </div>
       </div>
+    </div>
     </div>
   );
 };
@@ -302,6 +318,8 @@ const PaymentInfo = ({
   paymentHandler,
   cashOnDeliveryHandler,
   handleMpesaPayment,
+  loading,
+  setLoading
 }) => {
   const [select, setSelect] = useState(1);
 
