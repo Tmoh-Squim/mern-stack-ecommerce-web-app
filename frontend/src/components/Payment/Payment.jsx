@@ -226,7 +226,7 @@ const Payment = () => {
           const CheckoutRequestID = response.data.CheckoutRequestID;
 
           const confirmResponse = await axios.post(
-            `https://stk-push.onrender.com/confirmPayment/${CheckoutRequestID}`
+            `https://stk-push.onrender.com/api/confirmPayment/${CheckoutRequestID}`
           );
   
           if (confirmResponse.status === 200 && confirmResponse.data.success) {
