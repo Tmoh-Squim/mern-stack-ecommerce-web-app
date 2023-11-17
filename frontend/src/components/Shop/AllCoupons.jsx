@@ -29,6 +29,9 @@ const AllCoupons = () => {
     axios
       .get(`${server}/coupon/get-coupon/${seller._id}`, {
         withCredentials: true,
+        headers:{
+          "Authorization":`${localStorage.getItem('seller_token')}`
+        }
       })
       .then((res) => {
         setIsLoading(false);
