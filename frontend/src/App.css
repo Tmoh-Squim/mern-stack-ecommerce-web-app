@@ -18,6 +18,8 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     background: #F6F6F5;
     scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
 }
 
 input,select{
