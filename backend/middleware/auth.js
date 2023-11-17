@@ -15,6 +15,9 @@ exports.isAuthenticated = catchAsyncErrors(async (req, res, next) => {
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
+        console.log("decoded token",decoded)
+        console.log(decoded.exp)
+
         if (!decoded || !decoded._id) {
             return res.send({message:'Invalid token'});
         }
