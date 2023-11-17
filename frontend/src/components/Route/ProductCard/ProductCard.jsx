@@ -63,13 +63,13 @@ const ProductCard = ({ data,isEvent }) => {
 
   return (
     <>
-      <div className="w-[56%] h-[auto] mb-[0.16rem] 800px:mb-[2px] bg-white gap-x-[2px] 800px:rounded-[5px] p-[2.5px] shadow-sm 800px:p-3  relative cursor-pointer sm:w-full">
+      <div className="w-[50%] h-[auto] mb-[0.16rem] 800px:mb-[2px] bg-white gap-x-[2px] 800px:rounded-[5px] p-[2.5px] shadow-sm 800px:p-3  relative cursor-pointer sm:w-full">
         <div className="flex justify-end"></div>
         <Link to={`${isEvent === true ? `/product/${data._id}?isEvent=true` : `/product/${data._id}`}`}>
           <img
             src={`${data.images && data.images[0]}`}
             alt=""
-            className="w-full h-[52%] m-0 rounded-t-[4px] 800px:rounded-t-none object-cover 800px:object-contain"
+            className="w-full h-[55%] m-0 rounded-t-[4px] 800px:rounded-t-none object-cover 800px:object-contain"
           />
         </Link>
         <div className="px-[3px] 800px:px-0">
