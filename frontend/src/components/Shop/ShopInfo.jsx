@@ -52,7 +52,7 @@ const ShopInfo = ({ isOwner }) => {
       <Loader />
     ) : (
       <div>
-      <div className="w-full 800px:w-[100px] py-4 ">
+      <div className="w-full hidden 800px:block 800px:w-[100px] py-4 ">
         <div className="w-full flex item-center justify-center">
           <img
             src={`${data.avatar}`}
