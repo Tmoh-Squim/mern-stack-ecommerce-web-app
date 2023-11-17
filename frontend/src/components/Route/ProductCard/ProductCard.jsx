@@ -63,7 +63,7 @@ const ProductCard = ({ data,isEvent }) => {
 
   return (
     <>
-      <div className="w-[50%] h-[auto] mb-[0.16rem] 800px:mb-[2px] bg-white gap-x-[2px] 800px:rounded-[5px] p-[2.5px] shadow-sm 800px:p-3  relative cursor-pointer sm:w-full">
+      <div className="w-[50%] h-[auto] mb-[0.16rem] 800px:mb-[2px] bg-white gap-x-[3px] 800px:rounded-[5px] p-[2.5px] shadow-sm 800px:p-3  relative cursor-pointer sm:w-full">
         <div className="flex justify-end"></div>
         <Link to={`${isEvent === true ? `/product/${data._id}?isEvent=true` : `/product/${data._id}`}`}>
           <img
@@ -78,7 +78,7 @@ const ProductCard = ({ data,isEvent }) => {
         </Link>
         <Link to={`${isEvent === true ? `/product/${data._id}?isEvent=true` : `/product/${data._id}`}`}>
           <h4 className="pb-[1.5px] font-[500]">
-            {data.name.length > 15 ? data.name.slice(0, 15) + "..." : data.name}
+            {data.name.length > 20 ? data.name.slice(0, 20) + "..." : data.name}
           </h4>
           <div className="py-[1.5px] items-start">
             <div className="flex items-start">
