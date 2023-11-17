@@ -12,8 +12,13 @@ exports.isAuthenticated = catchAsyncErrors(async (req, res, next) => {
         if (!token) {
             return res.send({message:'Authorization token not provided'});
         }
+        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
-        const currentTimestamp = Math.floor(Date.now() / 1000);
+        if (!decoded || !decoded._id) {
+            return next(new ErrorHandler('Invalid token', 401));
+        }
+        
+         const currentTimestamp = Math.floor(Date.now() / 1000);
         if (decoded.exp && decoded.exp < currentTimestamp) {
             return next(new ErrorHandler('Token has expired', 401));
         }
