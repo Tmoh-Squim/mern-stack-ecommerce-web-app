@@ -3,7 +3,7 @@ const catchAsyncErrors = require("./catchAsyncErrors");
 const jwt = require("jsonwebtoken");
 const User = require("../model/user");
 const Shop = require("../model/shop");
-const { ObjectId } = require("mongoose").Types;
+const { Types } = require("mongoose");
 
 exports.isAuthenticated = catchAsyncErrors(async (req, res, next) => {
     try {
@@ -24,7 +24,12 @@ exports.isAuthenticated = catchAsyncErrors(async (req, res, next) => {
             return next(new ErrorHandler('Token has expired', 401));
         }
 
-        req.user = await User.findById(new ObjectId(decoded._id));
+        // Convert the ID to the appropriate type
+        const userId = Types.ObjectId.isValid(decoded._id)
+            ? Types.ObjectId(decoded._id)
+            : decoded._id;
+
+        req.user = await User.findById(userId);
 
         if (!req.user) {
             return next(new ErrorHandler('User not found for the given token', 404));
