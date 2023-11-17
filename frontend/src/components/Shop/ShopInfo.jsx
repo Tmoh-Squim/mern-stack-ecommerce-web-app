@@ -33,8 +33,8 @@ const ShopInfo = ({ isOwner }) => {
   const logoutHandler = async () => {
     localStorage.removeItem('seller_token');
     toast.success('Logged out successfully')
-    window.location.reload();
     navigate('/')
+    window.location.reload();
   };
 
   const totalReviewsLength =
