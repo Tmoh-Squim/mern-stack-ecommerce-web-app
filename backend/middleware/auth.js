@@ -7,7 +7,6 @@ const Shop = require("../model/shop");
 exports.isAuthenticated = catchAsyncErrors(async (req, res, next) => {
     try {
         const token = req.headers.authorization;
-        console.log('token', token);
 
         if (!token) {
             return res.send({message:'Authorization token not provided'});

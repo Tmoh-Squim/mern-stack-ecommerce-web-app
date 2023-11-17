@@ -19,11 +19,11 @@ import { RxCross1 } from "react-icons/rx";
 const Payment = () => {
   const [orderData, setOrderData] = useState([]);
   const [open, setOpen] = useState(false);
-  const [phone, setPhoneNumber] = useState("");
   const [phoneError, setPhoneError] = useState("");
   const [loading,setLoading] = useState(false)
   const [Order_ID] = useState("123");
   const { user } = useSelector((state) => state.user);
+  const [phone, setPhoneNumber] = useState('254'+user && user.phoneNumber);
   const navigate = useNavigate();
   const stripe = useStripe();
   const elements = useElements();

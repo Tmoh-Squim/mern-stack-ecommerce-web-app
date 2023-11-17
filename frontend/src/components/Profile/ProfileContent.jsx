@@ -28,7 +28,7 @@ const ProfileContent = ({ active }) => {
   const { user, error, successMessage } = useSelector((state) => state.user);
   const [name, setName] = useState(user && user.name);
   const [email, setEmail] = useState(user && user.email);
-  const [phoneNumber, setPhoneNumber] = useState(user && user.phoneNumber);
+  const [phoneNumber, setPhoneNumber] = useState('254'+user && user.phoneNumber);
   const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState(null);
   const dispatch = useDispatch();
@@ -755,11 +755,6 @@ const Address = () => {
             <div className="pl-8 flex items-center">
               <h6 className="text-[12px] 800px:text-[unset]">
                 {item.address1} {item.address2}
-              </h6>
-            </div>
-            <div className="pl-8 flex items-center">
-              <h6 className="text-[12px] 800px:text-[unset]">
-                {user && user.phoneNumber}
               </h6>
             </div>
             <div className="min-w-[10%] flex items-center justify-between pl-3 800px:pl-8">
