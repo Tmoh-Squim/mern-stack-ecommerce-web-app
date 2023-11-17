@@ -13,16 +13,18 @@ exports.isAuthenticated = catchAsyncErrors(async (req, res, next) => {
             return res.send({message:'Authorization token not provided'});
         }
 
-        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
-
-        console.log("decoded token",decoded)
-        console.log(decoded.exp)
-
-        if (!decoded || !decoded._id) {
-            return res.send({message:'Invalid token'});
+        const currentTimestamp = Math.floor(Date.now() / 1000);
+        if (decoded.exp && decoded.exp < currentTimestamp) {
+            return next(new ErrorHandler('Token has expired', 401));
         }
 
         req.user = await User.findById(decoded._id);
+
+        if (!req.user) {
+            return next(new ErrorHandler('User not found for the given token', 404));
+        }
+
+        console.log('Authenticated User:', req.user);
         next();
     } catch (error) {
         return next(new ErrorHandler('Invalid token', 401));
