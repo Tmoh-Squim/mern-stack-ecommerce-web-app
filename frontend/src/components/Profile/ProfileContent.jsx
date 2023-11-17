@@ -28,7 +28,7 @@ const ProfileContent = ({ active }) => {
   const { user, error, successMessage } = useSelector((state) => state.user);
   const [name, setName] = useState(user && user.name);
   const [email, setEmail] = useState(user && user.email);
-  const [phoneNumber, setPhoneNumber] = useState('254'+user && user.phoneNumber);
+  const [phoneNumber, setPhoneNumber] = useState(254+user && user.phoneNumber);
   const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState(null);
   const dispatch = useDispatch();
@@ -757,9 +757,9 @@ const Address = () => {
                 {item.address1} {item.address2}
               </h6>
             </div>
-            <div className="min-w-[10%] flex items-center justify-between pl-3 800px:pl-8">
+            <div className="min-w-[10%] flex items-center justify-between pl-6 800px:pl-8">
               <AiOutlineDelete
-                size={25}
+                size={30}
                 className="cursor-pointer"
                 onClick={() => handleDelete(item)}
               />

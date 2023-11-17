@@ -142,8 +142,13 @@ const ProductDetails = ({ data }) => {
                 {
                   ...props
                 }
-                className="mt-4 !w-[80%]"
-                />                
+                className="mt-4 !w-[80%] hidden 800px:block"
+                />  
+                <img
+                  src={`${data && data.images[select]}`}
+                  alt=""
+                  className="w-[80%] h-[300px] 800px:hidden"
+                />              
                 <div className="w-full flex">
                   {data &&
                     data.images.map((i, index) => (
