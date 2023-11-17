@@ -91,7 +91,7 @@ const ProductCard = ({ data,isEvent }) => {
                 Ksh{data.originalPrice ? data.originalPrice  : null}
               </h4>
             </div>
-            <div className="flex">
+            <div className="flex space-x-0">
           <Ratings rating={data?.ratings} />
           <span className="font-[400] text-[13px] mr--2 text-[#68d284] 800px:hidden">
               ({data?.sold_out})
