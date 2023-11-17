@@ -217,7 +217,7 @@ const ProductDetails = ({ data }) => {
                     )}
                   </div>
                 </div>
-                <div className='flex justify-evenly'>
+                <div className='flex space-x-2 justify-evenly'>
                 <div
                   className={`${styles.button} !mt-6 !rounded !h-11 flex items-center`}
                   onClick={() => buyNowHandler(data._id)}
