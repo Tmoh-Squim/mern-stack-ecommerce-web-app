@@ -42,7 +42,7 @@ const Categories = () => {
                 >
                   <img
                     src={i.image_Url}
-                    className="w-[35px] h-[35px] 800px:w-[120px] object-cover"
+                    className="w-[35px] h-[35px] 800px:h-auto 800px:w-[120px] object-cover"
                     alt=""
                   />
                   <h4 className={`text-[11px] 800px:text-[18px] leading-[1.2]`}>{i.title}</h4>
