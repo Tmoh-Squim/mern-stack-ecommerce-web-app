@@ -17,13 +17,13 @@ exports.isAuthenticated = catchAsyncErrors(async (req, res, next) => {
         if (!decoded || !decoded._id) {
             return next(new ErrorHandler('Invalid token', 401));
         }
-        
+
          const currentTimestamp = Math.floor(Date.now() / 1000);
         if (decoded.exp && decoded.exp < currentTimestamp) {
             return next(new ErrorHandler('Token has expired', 401));
         }
 
-        req.user = await User.findById(decoded._id);
+        req.user = await User.findById(new ObjectId(decoded._id));
 
         if (!req.user) {
             return next(new ErrorHandler('User not found for the given token', 404));
