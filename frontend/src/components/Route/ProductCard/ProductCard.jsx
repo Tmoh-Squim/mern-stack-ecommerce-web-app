@@ -62,14 +62,14 @@ const ProductCard = ({ data,isEvent }) => {
   };
 
   return (
-    <div className="w-full">
-      <div className="w-[47%] h-[auto] mb-[1px] 800px:mb-[2px] bg-white space-x-[1px] rounded-lg shadow-sm 800px:p-3 mx-0 relative cursor-pointer sm:w-full">
+    <>
+      <div className="w-[47%] h-[auto] mb-[1px] 800px:mb-[2px] bg-white gap-x-[2px] rounded-lg shadow-sm 800px:p-3  relative cursor-pointer sm:w-full">
         <div className="flex justify-end"></div>
         <Link to={`${isEvent === true ? `/product/${data._id}?isEvent=true` : `/product/${data._id}`}`}>
           <img
             src={`${data.images && data.images[0]}`}
             alt=""
-            className="w-full h-[148px] rounded-t-lg 800px:rounded-t-none object-cover 800px:object-contain"
+            className="w-full h-[148px] m-0 rounded-t-lg 800px:rounded-t-none object-cover 800px:object-contain"
           />
         </Link>
         <div className="px-3 800px:px-0">
@@ -140,7 +140,7 @@ const ProductCard = ({ data,isEvent }) => {
           {open ? <ProductDetailsCard setOpen={setOpen} data={data} /> : null}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
