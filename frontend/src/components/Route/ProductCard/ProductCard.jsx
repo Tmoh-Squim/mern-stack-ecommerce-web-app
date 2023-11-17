@@ -72,7 +72,7 @@ const ProductCard = ({ data,isEvent }) => {
             className="w-full h-[148px] m-0 rounded-t-lg 800px:rounded-t-none object-cover 800px:object-contain"
           />
         </Link>
-        <div className="px-3 800px:px-0">
+        <div className="px-[3px] 800px:px-0">
         <Link to={`/shop/preview/${data?.shop._id}`}>
           <h5 className={`${styles.shop_name}`}>{data.shop.name}</h5>
         </Link>
