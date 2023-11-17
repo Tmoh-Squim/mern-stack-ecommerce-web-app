@@ -3,7 +3,6 @@ const catchAsyncErrors = require("./catchAsyncErrors");
 const jwt = require("jsonwebtoken");
 const User = require("../model/user");
 const Shop = require("../model/shop");
-const { Types } = require("mongoose");
 
 exports.isAuthenticated = catchAsyncErrors(async (req, res, next) => {
     try {
@@ -13,29 +12,14 @@ exports.isAuthenticated = catchAsyncErrors(async (req, res, next) => {
         if (!token) {
             return res.send({message:'Authorization token not provided'});
         }
+
         const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
         if (!decoded || !decoded._id) {
-            return next(new ErrorHandler('Invalid token', 401));
+            return res.send({message:'Invalid token'});
         }
 
-         const currentTimestamp = Math.floor(Date.now() / 1000);
-        if (decoded.exp && decoded.exp < currentTimestamp) {
-            return next(new ErrorHandler('Token has expired', 401));
-        }
-
-        // Convert the ID to the appropriate type
-        const userId = Types.ObjectId.isValid(decoded._id)
-            ? Types.ObjectId(decoded._id)
-            : decoded._id;
-
-        req.user = await User.findById(userId);
-
-        if (!req.user) {
-            return next(new ErrorHandler('User not found for the given token', 404));
-        }
-
-        console.log('Authenticated User:', req.user);
+        req.user = await User.findById(decoded._id);
         next();
     } catch (error) {
         return next(new ErrorHandler('Invalid token', 401));

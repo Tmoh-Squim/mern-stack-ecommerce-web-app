@@ -71,7 +71,7 @@ export const updateUserInformation =
           withCredentials: true,
           headers: {
             "Access-Control-Allow-Credentials": true,
-            'Authorization': `${localStorage.getItem('seller_token')}`,
+            'Authorization': `${localStorage.getItem('token')}`,
           },
         }
       );
@@ -109,7 +109,7 @@ export const updatUserAddress =
         },
         { withCredentials: true,
           headers: {
-            'Authorization': `${localStorage.getItem('seller_token')}`,
+            'Authorization': `${localStorage.getItem('token')}`,
           },
          },
       );
