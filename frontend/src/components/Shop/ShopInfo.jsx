@@ -51,7 +51,7 @@ const ShopInfo = ({ isOwner }) => {
     isLoading  ? (
       <Loader />
     ) : (
-      <div className="hidden 800px:block">
+      <div>
       <div className="w-full  800px:w-[100px] py-4 ">
         <div className="w-full flex item-center justify-center">
           <img
