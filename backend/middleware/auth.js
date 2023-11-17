@@ -24,7 +24,7 @@ exports.isAuthenticated = catchAsyncErrors(async (req, res, next) => {
             return next(new ErrorHandler('Token has expired', 401));
         }
 
-        const user = await User.findById(new ObjectId(decoded._id));
+        req.user = await User.findById(new ObjectId(decoded._id));
 
         if (!req.user) {
             return next(new ErrorHandler('User not found for the given token', 404));
