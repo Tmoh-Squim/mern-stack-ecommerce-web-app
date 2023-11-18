@@ -28,7 +28,7 @@ const Payment = () => {
 if (userPhoneNumber && userPhoneNumber.toString().startsWith('0')) {
   userPhoneNumber = userPhoneNumber.toString().slice(1);
 }
-    const [phone, setPhoneNumber] = useState(254+(userPhoneNumber || '254'));
+    const [phone, setPhoneNumber] = useState(String(254)+(userPhoneNumber || '254'));
   const navigate = useNavigate();
   const stripe = useStripe();
   const elements = useElements();

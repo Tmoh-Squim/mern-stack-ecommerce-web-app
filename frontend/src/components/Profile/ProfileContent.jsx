@@ -34,7 +34,7 @@ const ProfileContent = ({ active }) => {
 if (userPhoneNumber && userPhoneNumber.toString().startsWith('0')) {
   userPhoneNumber = userPhoneNumber.toString().slice(1);
 }
-  const [phoneNumber, setPhoneNumber] = useState(254+(userPhoneNumber || '254'));
+  const [phoneNumber, setPhoneNumber] = useState(String(254)+(userPhoneNumber || '254'));
   const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState(null);
   const dispatch = useDispatch();
