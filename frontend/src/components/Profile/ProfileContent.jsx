@@ -28,7 +28,12 @@ const ProfileContent = ({ active }) => {
   const { user, error, successMessage } = useSelector((state) => state.user);
   const [name, setName] = useState(user && user.name);
   const [email, setEmail] = useState(user && user.email);
-  const [phoneNumber, setPhoneNumber] = useState(254+(user && user.phoneNumber));
+
+  let userPhoneNumber = user && user.phoneNumber;
+if (userPhoneNumber && userPhoneNumber.startsWith('0')) {
+  userPhoneNumber = userPhoneNumber.slice(1);
+}
+  const [phoneNumber, setPhoneNumber] = useState(254+(userPhoneNumber || ''));
   const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState(null);
   const dispatch = useDispatch();
