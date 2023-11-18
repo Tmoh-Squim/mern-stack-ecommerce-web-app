@@ -23,7 +23,7 @@ const Payment = () => {
   const [loading,setLoading] = useState(false)
   const [Order_ID] = useState("123");
   const { user } = useSelector((state) => state.user);
-  const [phone, setPhoneNumber] = useState(254+user && user.phoneNumber);
+  const [phone, setPhoneNumber] = useState(254 + (user && user.phoneNumber));
   const navigate = useNavigate();
   const stripe = useStripe();
   const elements = useElements();
