@@ -138,7 +138,7 @@ const ProductDetails = ({ data }) => {
               <img
                 src={`${i}`}
                 alt=""
-                className="h-[110px] w-[110px] overflow-hidden mr-3 mt-3"
+                className="h-[110px] w-[110px] overflow-hidden border-none mr-3 mt-3"
                 onMouseOver={() => setSelect(index)}
               />
             </div>
@@ -200,15 +200,15 @@ const ProductDetails = ({ data }) => {
                   showArrows={false}
                   onChange={setSelect}
                   autoPlay={true}
-                  interval={4000}
+                  interval={3500}
                   infiniteLoop={true}
                   selectedItem={select}
-                  className="w-[90%] h-[300px] overflow-hidden mx-auto"
+                  className="w-[90%] h-[300px] border-none overflow-hidden mx-auto"
                 >
                   {data &&
                     data.images.map((img, index) => (
                       <div key={index}>
-                        <img src={img} alt="" className="w-[100%]" />
+                        <img src={img} alt="" className="w-[100%] border-none" />
                       </div>
                     ))}
                 </Carousel>
