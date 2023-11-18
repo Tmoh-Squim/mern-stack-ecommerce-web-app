@@ -765,7 +765,7 @@ const Address = () => {
             </div>
             <div className="min-w-[10%] flex items-center justify-between pl-6 800px:pl-8">
               <AiOutlineDelete
-                size={25}
+                size={30}
                 className="cursor-pointer"
                 onClick={() => handleDelete(item)}
               />
