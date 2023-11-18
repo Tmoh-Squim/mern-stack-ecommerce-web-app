@@ -64,6 +64,59 @@ router.get(
     }
   })
 );
+// Update product
+router.put(
+  "/update-product/:id",
+  isSeller,
+  upload.array("images"),
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const productId = req.params.productId;
+      const product = await Product.findById(productId);
+
+      if (!product) {
+        return next(new ErrorHandler("Product not found", 404));
+      }
+
+      // Delete existing images from Cloudinary
+      for (const imageUrl of product.images) {
+        const publicId = imageUrl.split("/").pop().split(".")[0];
+        await cloudinary.uploader.destroy(publicId);
+      }
+
+      // Upload new images to Cloudinary
+      const files = req.files;
+      const imageUrls = [];
+      for (const file of files) {
+        const result = await cloudinary.uploader.upload(file.path);
+        const url = result.secure_url;
+        imageUrls.push(url);
+      }
+
+      // Update other product details
+      product.name = req.body.name || product.name;
+      product.originalPrice = req.body.originalPrice || product.originalPrice;
+      product.discountPrice = req.body.discountPrice || product.discountPrice;
+      product.tags = req.body.tags || product.tags;
+      product.description = req.body.description || product.description;
+      product.category = req.body.category || product.category;
+      product.stock = req.body.stock || product.stock;
+      // Add other fields as needed
+
+      // Update product in the database with new details
+      product.images = imageUrls;
+      const updatedProduct = await product.save();
+
+      res.status(200).json({
+        success: true,
+        imageUrls,
+        updatedProduct,
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error, 400));
+    }
+  })
+);
 
 // delete product of a shop
 router.delete(

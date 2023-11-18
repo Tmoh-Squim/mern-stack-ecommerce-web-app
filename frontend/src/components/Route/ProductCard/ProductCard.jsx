@@ -35,7 +35,7 @@ const ProductCard = ({ data,isEvent,isOwner }) => {
       setClick(false);
     }
   }, [wishlist]);
-
+console.log('isOwner',isOwner)
   const removeFromWishlistHandler = (data) => {
     setClick(!click);
     dispatch(removeFromWishlist(data));
