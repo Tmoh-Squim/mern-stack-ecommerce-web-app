@@ -763,9 +763,9 @@ const Address = () => {
                 {item.address1} {item.address2}
               </h6>
             </div>
-            <div className="min-w-[10%] flex items-center justify-between pl-4 800px:pl-8">
+            <div className="min-w-[10%] flex items-center justify-between pl-6 800px:pl-8">
               <AiOutlineDelete
-                size={30}
+                size={35}
                 className="cursor-pointer"
                 onClick={() => handleDelete(item)}
               />
@@ -775,7 +775,7 @@ const Address = () => {
 
       {user && user.addresses.length === 0 && (
         <h5 className="text-center pt-8 text-[18px]">
-          You not have any saved address!
+          You do not have any saved address!
         </h5>
       )}
     </div>
