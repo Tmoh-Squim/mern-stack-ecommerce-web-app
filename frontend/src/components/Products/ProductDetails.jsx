@@ -19,7 +19,8 @@ import { toast } from "react-toastify";
 import Ratings from "./Ratings";
 import axios from "axios";
 import ReactImageZoom from "react-image-zoom"
-import { IoIosArrowBackward } from "react-icons/io";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const ProductDetails = ({ data }) => {
   const { wishlist } = useSelector((state) => state.wishlist);
@@ -123,6 +124,28 @@ const ProductDetails = ({ data }) => {
       toast.error("Please login to create a conversation");
     }
   };
+  const renderThumbnails = () => {
+    return (
+      <div className="w-full flex">
+        {data &&
+          data.images.map((i, index) => (
+            <div
+              key={index}
+              className={`${
+                select === index ? "border" : "null"
+              } cursor-pointer`}
+            >
+              <img
+                src={`${i}`}
+                alt=""
+                className="h-[110px] w-[110px] overflow-hidden mr-3 mt-3"
+                onMouseOver={() => setSelect(index)}
+              />
+            </div>
+          ))}
+      </div>
+    );
+  };
 
   const props={
                  width:400,
@@ -172,34 +195,21 @@ const ProductDetails = ({ data }) => {
                   ></div>
                 </div>
               </div>
-              <div className="w-full 800px:hidden"> 
-                <img
-                  src={`${data && data.images[select]}`}
-                  alt=""
-                  className="w-[90%] h-[300px] mx-auto 800px:hidden"
-                />              
-                <div className="w-full flex">
+              <div className="w-full 800px:hidden">
+                <Carousel
+                  showArrows={true}
+                  onChange={setSelect}
+                  selectedItem={select}
+                  className="w-[90%] h-[300px] mx-auto"
+                >
                   {data &&
-                    data.images.map((i, index) => (
-                      <div
-                        className={`${
-                          select === 0 ? "border" : "null"
-                        } cursor-pointer`}
-                      >
-                        <img
-                          src={`${i}`}
-                          alt=""
-                          className="h-[110px] w-[110px] overflow-hidden mr-3 mt-3"
-                          onMouseOver={() => setSelect(index)}
-                        />
+                    data.images.map((img, index) => (
+                      <div key={index}>
+                        <img src={img} alt="" className="w-[100%]" />
                       </div>
                     ))}
-                  <div
-                    className={`${
-                      select === 1 ? "border" : "null"
-                    } cursor-pointer`}
-                  ></div>
-                </div>
+                </Carousel>
+                {renderThumbnails()}
               </div>
               <div className="w-full 800px:w-[50%] pt-5">
                 <h1 className={`${styles.productTitle}`}>{data.name}</h1>
