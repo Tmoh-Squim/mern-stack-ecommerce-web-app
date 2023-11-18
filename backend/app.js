@@ -10,7 +10,9 @@ const lipaNaMpesaRoutes = require("./routes/LipaNaMpesa")
 //good
 
 app.use(cors({
- // origin: 'https://squimstech.vercel.app',
+  origin:[ 'https://squimstech.vercel.app',
+  "https://spark-tech.vercel.app"
+],
   credentials: true
 }));
 app.use('/api/v1',lipaNaMpesaRoutes)
