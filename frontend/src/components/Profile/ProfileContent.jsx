@@ -30,7 +30,7 @@ const ProfileContent = ({ active }) => {
   const [email, setEmail] = useState(user && user.email);
 
   let userPhoneNumber = user && user.phoneNumber;
-if (userPhoneNumber && userPhoneNumber.startsWith('0')) {
+if (userPhoneNumber && userPhoneNumber.startsWith(0)) {
   userPhoneNumber = userPhoneNumber.slice(1);
 }
   const [phoneNumber, setPhoneNumber] = useState(254+(userPhoneNumber || '254'));
