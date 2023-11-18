@@ -199,6 +199,9 @@ const ProductDetails = ({ data }) => {
                 <Carousel
                   showArrows={true}
                   onChange={setSelect}
+                  autoPlay={true}
+                  interval={3000}
+                  infiniteLoop={true}
                   selectedItem={select}
                   className="w-[90%] h-[300px] mx-auto"
                 >
