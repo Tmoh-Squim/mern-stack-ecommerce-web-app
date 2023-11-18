@@ -24,9 +24,10 @@ const Payment = () => {
   const [Order_ID] = useState("123");
   const { user } = useSelector((state) => state.user);
   let userPhoneNumber = user && user.phoneNumber;
-  if (userPhoneNumber && userPhoneNumber.startsWith(0)) {
-    userPhoneNumber = userPhoneNumber.slice(1);
-  }
+  // Convert to string and remove leading '0' if present
+if (userPhoneNumber && userPhoneNumber.toString().startsWith('0')) {
+  userPhoneNumber = userPhoneNumber.toString().slice(1);
+}
     const [phone, setPhoneNumber] = useState(254+(userPhoneNumber || '254'));
   const navigate = useNavigate();
   const stripe = useStripe();

@@ -30,8 +30,9 @@ const ProfileContent = ({ active }) => {
   const [email, setEmail] = useState(user && user.email);
 
   let userPhoneNumber = user && user.phoneNumber;
-if (userPhoneNumber && userPhoneNumber.startsWith(0)) {
-  userPhoneNumber = userPhoneNumber.slice(1);
+// Convert to string and remove leading '0' if present
+if (userPhoneNumber && userPhoneNumber.toString().startsWith('0')) {
+  userPhoneNumber = userPhoneNumber.toString().slice(1);
 }
   const [phoneNumber, setPhoneNumber] = useState(254+(userPhoneNumber || '254'));
   const [password, setPassword] = useState("");
