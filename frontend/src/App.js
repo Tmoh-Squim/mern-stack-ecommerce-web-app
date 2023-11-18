@@ -36,6 +36,7 @@ import {
   ShopSettingsPage,
   ShopWithDrawMoneyPage,
   ShopInboxPage,
+  UpdateProduct
 } from "./routes/ShopRoutes";
 import {
   AdminDashboardPage,
@@ -158,6 +159,14 @@ const App = () => {
           element={
             <SellerProtectedRoute>
               <ShopHomePage />
+            </SellerProtectedRoute>
+          }
+        />
+        <Route
+          path="/update-product/:id"
+          element={
+            <SellerProtectedRoute>
+              <UpdateProduct />
             </SellerProtectedRoute>
           }
         />

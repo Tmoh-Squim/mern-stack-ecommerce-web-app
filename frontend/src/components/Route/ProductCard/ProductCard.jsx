@@ -21,7 +21,7 @@ import { addTocart } from "../../../redux/actions/cart";
 import { toast } from "react-toastify";
 import Ratings from "../../Products/Ratings";
 
-const ProductCard = ({ data,isEvent }) => {
+const ProductCard = ({ data,isEvent,isOwner }) => {
   const { wishlist } = useSelector((state) => state.wishlist);
   const { cart } = useSelector((state) => state.cart);
   const [click, setClick] = useState(false);
@@ -65,7 +65,7 @@ const ProductCard = ({ data,isEvent }) => {
     <>
       <div className="w-[50%] h-[auto] mb-[0.16rem] 800px:mb-[2px] bg-white gap-x-[3px] 800px:rounded-[5px] p-[2.5px] pb-1 800px:p-0 shadow-sm  relative cursor-pointer sm:w-full">
         <div className="flex justify-end"></div>
-        <Link to={`${isEvent === true ? `/product/${data._id}?isEvent=true` : `/product/${data._id}`}`}>
+        <Link to={`${isEvent === true ? `/product/${data._id}?isEvent=true` :(isOwner ? `/update-product/${data._id}` : `/product/${data._id}`)}`}>
           <img
             src={`${data.images && data.images[0]}`}
             alt=""
