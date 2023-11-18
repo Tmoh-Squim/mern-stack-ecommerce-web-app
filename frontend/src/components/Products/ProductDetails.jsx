@@ -197,13 +197,13 @@ const ProductDetails = ({ data }) => {
               </div>
               <div className="w-full 800px:hidden">
                 <Carousel
-                  showArrows={true}
+                  showArrows={false}
                   onChange={setSelect}
                   autoPlay={true}
-                  interval={3000}
+                  interval={4000}
                   infiniteLoop={true}
                   selectedItem={select}
-                  className="w-[90%] h-[300px] mx-auto"
+                  className="w-[90%] h-[300px] overflow-hidden mx-auto"
                 >
                   {data &&
                     data.images.map((img, index) => (
