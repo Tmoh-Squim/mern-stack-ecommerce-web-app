@@ -137,17 +137,46 @@ const ProductDetails = ({ data }) => {
         <div className={`${styles.section} w-[90%] 800px:w-[80%]`}>
           <div className="w-full py-5">
             <div className="block w-full 800px:flex">
-              <div className="w-full 800px:w-[50%]">
+              <div className="w-full hidden 800px:block 800px:w-[50%]">
                 <ReactImageZoom
                 {
                   ...props
                 }
-                className="mt-4 !w-[80%] hidden 800px:block"
+                className="mt-4 !w-[80%]"
                 />  
                 <img
                   src={`${data && data.images[select]}`}
                   alt=""
                   className="w-[80%] h-[300px] 800px:hidden"
+                />              
+                <div className="w-full flex">
+                  {data &&
+                    data.images.map((i, index) => (
+                      <div
+                        className={`${
+                          select === 0 ? "border" : "null"
+                        } cursor-pointer`}
+                      >
+                        <img
+                          src={`${i}`}
+                          alt=""
+                          className="h-[110px] w-[110px] overflow-hidden mr-3 mt-3"
+                          onMouseOver={() => setSelect(index)}
+                        />
+                      </div>
+                    ))}
+                  <div
+                    className={`${
+                      select === 1 ? "border" : "null"
+                    } cursor-pointer`}
+                  ></div>
+                </div>
+              </div>
+              <div className="w-full 800px:hidden"> 
+                <img
+                  src={`${data && data.images[select]}`}
+                  alt=""
+                  className="w-[80%] h-[300px] mx-auto 800px:hidden"
                 />              
                 <div className="w-full flex">
                   {data &&
