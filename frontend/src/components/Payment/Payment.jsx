@@ -23,7 +23,11 @@ const Payment = () => {
   const [loading,setLoading] = useState(false)
   const [Order_ID] = useState("123");
   const { user } = useSelector((state) => state.user);
-  const [phone, setPhoneNumber] = useState(254 + (user && user.phoneNumber));
+  let userPhoneNumber = user && user.phoneNumber;
+  if (userPhoneNumber && userPhoneNumber.startsWith('0')) {
+    userPhoneNumber = userPhoneNumber.slice(1);
+  }
+    const [phone, setPhoneNumber] = useState(254+(userPhoneNumber || '254'));
   const navigate = useNavigate();
   const stripe = useStripe();
   const elements = useElements();

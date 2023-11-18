@@ -33,7 +33,7 @@ const ProfileContent = ({ active }) => {
 if (userPhoneNumber && userPhoneNumber.startsWith('0')) {
   userPhoneNumber = userPhoneNumber.slice(1);
 }
-  const [phoneNumber, setPhoneNumber] = useState(254+(userPhoneNumber || ''));
+  const [phoneNumber, setPhoneNumber] = useState(254+(userPhoneNumber || '254'));
   const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState(null);
   const dispatch = useDispatch();
