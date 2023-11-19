@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 const UpdatedProduct = () => {
   const { seller } = useSelector((state) => state.seller);
-  const { product } = useSelector((state) => state.product);
+  const { product } = useSelector((state) => state.products);
   const { success, error } = useSelector((state) => state.products);
   const navigate = useNavigate();
   const dispatch = useDispatch();
