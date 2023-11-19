@@ -15,7 +15,6 @@ const ShopInfo = ({ isOwner }) => {
   const [isLoading,setIsLoading] = useState(false);
   const {id} = useParams();
   const dispatch = useDispatch();
-  console.log(isOwner)
   
   const navigate = useNavigate()
 
