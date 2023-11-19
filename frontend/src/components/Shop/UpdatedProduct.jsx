@@ -12,6 +12,7 @@ const UpdatedProduct = (data) => {
   const { success, error } = useSelector((state) => state.products);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  console.log(data)
 
   const [images, setImages] = useState([]);
   const [name, setName] = useState(data && data.name);
