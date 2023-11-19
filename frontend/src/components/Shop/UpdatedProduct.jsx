@@ -6,7 +6,7 @@ import { createProduct } from "../../redux/actions/product";
 import { categoriesData } from "../../static/data";
 import { toast } from "react-toastify";
 
-const UpdatedProduct = (data) => {
+const UpdatedProduct = ({data}) => {
   const { seller } = useSelector((state) => state.seller);
   const { product } = useSelector((state) => state.products);
   const { success, error } = useSelector((state) => state.products);
