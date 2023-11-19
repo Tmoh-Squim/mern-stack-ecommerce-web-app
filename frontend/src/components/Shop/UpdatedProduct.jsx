@@ -6,7 +6,7 @@ import { createProduct } from "../../redux/actions/product";
 import { categoriesData } from "../../static/data";
 import { toast } from "react-toastify";
 
-const UpdatedProduct = () => {
+const UpdatedProduct = (data) => {
   const { seller } = useSelector((state) => state.seller);
   const { product } = useSelector((state) => state.products);
   const { success, error } = useSelector((state) => state.products);
@@ -14,13 +14,13 @@ const UpdatedProduct = () => {
   const dispatch = useDispatch();
 
   const [images, setImages] = useState([]);
-  const [name, setName] = useState(product && product.name);
-  const [description, setDescription] = useState(product && product.description);
-  const [category, setCategory] = useState(product && product.category);
-  const [tags, setTags] = useState(product && product.tags);
-  const [originalPrice, setOriginalPrice] = useState(product && product.originalPrice);
-  const [discountPrice, setDiscountPrice] = useState(product && product.discountPrice);
-  const [stock, setStock] = useState(product && product.stock);
+  const [name, setName] = useState(data && data.name);
+  const [description, setDescription] = useState(data && data.description);
+  const [category, setCategory] = useState(data && data.category);
+  const [tags, setTags] = useState(data && data.tags);
+  const [originalPrice, setOriginalPrice] = useState(data && data.originalPrice);
+  const [discountPrice, setDiscountPrice] = useState(data && data.discountPrice);
+  const [stock, setStock] = useState(data && data.stock);
 
   useEffect(() => {
     if (error) {
@@ -64,7 +64,7 @@ const UpdatedProduct = () => {
   return (
     <div className="w-[90%] 800px:w-[50%] bg-white  shadow h-[80vh] rounded-[4px] p-3 overflow-y-scroll">
       <h5 className="text-[30px] font-Poppins text-center">Create Product</h5>
-      {/* create product form */}
+      {/* create data form */}
       <form onSubmit={handleSubmit}>
         <br />
         <div>
