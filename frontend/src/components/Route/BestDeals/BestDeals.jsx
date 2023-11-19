@@ -20,7 +20,7 @@ const BestDeals = () => {
         <div className={`${styles.heading}`}>
           <h1>Hot Deals</h1>
         </div>
-        <div className="flex flex-wrap w-full overflow-y-hidden overflow-x-scroll scroll-smooth 800px:grid grid-cols-1 gap-x-[0px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-4 lg:gap-[25px] xl:grid-cols-5 xl:gap-[30px] mb-12 border-0">
+        <div className="flex  overflow-x-scroll overflow-y-hidden scroll-smooth 800px:grid grid-cols-1 gap-[12px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-4 lg:gap-[25px] xl:grid-cols-5 xl:gap-[30px] mb-12">
            {
             data && data.length !== 0 &&(
               <>
