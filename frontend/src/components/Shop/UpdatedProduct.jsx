@@ -13,7 +13,7 @@ const UpdatedProduct = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [images, setImages] = useState([product && product.images]);
+  const [images, setImages] = useState([]);
   const [name, setName] = useState(product && product.name);
   const [description, setDescription] = useState(product && product.description);
   const [category, setCategory] = useState(product && product.category);
