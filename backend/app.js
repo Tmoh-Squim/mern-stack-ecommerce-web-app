@@ -9,12 +9,7 @@ const path = require("path")
 const lipaNaMpesaRoutes = require("./routes/LipaNaMpesa")
 //good
 
-app.use(cors({
-  origin:[ 'https://squimstech.vercel.app',
-  "https://spark-tech.vercel.app"
-],
-  credentials: true
-}));
+app.use();
 app.use('/api/v1',lipaNaMpesaRoutes)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
