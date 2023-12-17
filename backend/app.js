@@ -18,8 +18,9 @@ app.use("/test", (req, res) => {
   res.send("Hello world!");
 });
 app.use(cors({
-  origin:'https://squimstech.vercel.app'
-}))
+  origin:'https://squimstech.vercel.app',
+  
+}))withCredential:true
 app.get('/img/:filename', (req, res) => {
   const { filename } = req.params;
   const imagePath = path.join(__dirname, 'uploads', filename);
