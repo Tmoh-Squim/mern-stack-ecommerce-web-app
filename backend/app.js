@@ -17,10 +17,7 @@ app.use("/", express.static(path.join(__dirname,"uploads")));
 app.use("/test", (req, res) => {
   res.send("Hello world!");
 });
-app.use(cors({
-  origin:'https://squimstech.vercel.app',
-  credentials:true
-}))
+app.use(cors())
 app.get('/img/:filename', (req, res) => {
   const { filename } = req.params;
   const imagePath = path.join(__dirname, 'uploads', filename);
