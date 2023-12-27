@@ -18,8 +18,8 @@ app.use("/test", (req, res) => {
   res.send("Hello world!");
 });
 app.use(cors({
-  origin:"https//squimstech.vercel.app",
-  credential:true
+  origin:"https://squimstech.vercel.app",
+  credentials:true
 }))
 app.get('/img/:filename', (req, res) => {
   const { filename } = req.params;
