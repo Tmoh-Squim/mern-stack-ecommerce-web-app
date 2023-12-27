@@ -7,7 +7,7 @@ const fs = require("fs").promises;
 const cors = require("cors");
 const path = require("path")
 const lipaNaMpesaRoutes = require("./routes/LipaNaMpesa")
-//good
+//goodb
 
 app.use('/api/v1',lipaNaMpesaRoutes)
 app.use(express.json());
