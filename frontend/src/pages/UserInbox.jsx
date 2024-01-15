@@ -128,6 +128,8 @@ const UserInbox = () => {
           .catch((error) => {
             console.log(error);
           });
+      }else{
+        null
       }
     } catch (error) {
       console.log(error);

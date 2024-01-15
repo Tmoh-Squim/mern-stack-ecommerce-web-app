@@ -7,6 +7,7 @@ const fs = require("fs").promises;
 const cors = require("cors");
 const path = require("path")
 const lipaNaMpesaRoutes = require("./routes/LipaNaMpesa")
+const compression = require('compression')
 //good
 
 app.use(cors({
@@ -23,6 +24,10 @@ app.use("/", express.static(path.join(__dirname,"uploads")));
 app.use("/test", (req, res) => {
   res.send("Hello world!");
 });
+app.use(compression({
+  level:6,
+  threshold:0
+}))
 app.get('/img/:filename', (req, res) => {
   const { filename } = req.params;
   const imagePath = path.join(__dirname, 'uploads', filename);
