@@ -57,7 +57,7 @@ if (userPhoneNumber && userPhoneNumber.toString().startsWith('0')) {
           {
             description: "Sunflower",
             amount: {
-              currency_code: "USD",
+              currency_code: "KES",
               value: orderData?.totalPrice,
             },
           },
