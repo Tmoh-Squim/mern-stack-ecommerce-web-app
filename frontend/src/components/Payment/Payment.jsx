@@ -222,6 +222,8 @@ if (userPhoneNumber && userPhoneNumber.toString().startsWith('0')) {
           jsonData,
           config
         );
+        console.log(response);
+        
   
         if (response.status === 200) {
           // Payment initiated successfully
@@ -238,6 +240,8 @@ if (userPhoneNumber && userPhoneNumber.toString().startsWith('0')) {
           const confirmResponse = await axios.post(
             `https://stk-push.onrender.com/api/confirmPayment/${CheckoutRequestID}`
           );
+          console.log(confirmResponse);
+          
   
           if (confirmResponse.status === 200 && confirmResponse.data.ResultCode === "0") {
             // Payment confirmed, update order status and post the order
