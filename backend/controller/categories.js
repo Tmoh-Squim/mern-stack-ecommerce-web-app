@@ -5,6 +5,7 @@ const cloudinary = require("../utils/cloudinary")
 const router = express.Router()
 const {upload} = require("../multer")
 
+//creating the category...
 router.post("/create-category",upload.single("image"),async(req,res,next)=>{
     try {
         const {name} = req.body;
@@ -42,5 +43,61 @@ router.post("/create-category",upload.single("image"),async(req,res,next)=>{
 }
 )
 
+//updating the category....
+router.put("/update-category", async(req,res,next)=>{
+    try {
+        const {name,id} = req.body;
+
+        const check = await categoryModel.findById(id);
+
+        if(!check){
+            return next(new ErrorHandler("Category does not exist", 400));
+        }
+
+        if(req.file){
+            await cloudinary.api.delete_derived([check.image.id]);
+            await cloudinary.api.delete_by_tags(check.image.public_id);
+            const result = await cloudinary.uploader.upload(req.file.path);
+            const imageUrl=result.secure_url;
+          const category =  await check.updateOne({image:imageUrl,name})
+
+            res.send({
+                success:true,
+                message:"Category updated successfully",
+                category
+            })
+        }
+
+        const category = await categoryModel.findByIdAndUpdate(id,{name:name})
+
+        res.send({
+            success:true,
+            message:"Category updated successfully",
+            category
+        })
+
+    } catch (error) {
+        return next(new ErrorHandler(error.message, 400));
+    }
+})
+
+router.delete("delete-category", async(req,res,next)=>{
+    try {
+        const {id} = req.body;
+
+        const check = await categoryModel.findById(id)
+        if(!check){
+            return next(new ErrorHandler("Category does not exist", 400));
+        }
+        await cloudinary.api.delete_derived([check.image.id])
+        await check.remove()
+        
+        res.status(200).send({
+            message:"Category deleted Successfully"
+        });
+    } catch (error) {
+        return next(new ErrorHandler(error.message, 400));
+    }
+})
 
 module.exports = router
