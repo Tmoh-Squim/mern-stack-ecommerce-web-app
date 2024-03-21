@@ -33,7 +33,10 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
     
     const { name, email, password } = req.body;
     const userEmail = await User.findOne({ email });
-
+    if(userEmail){
+      return next(new ErrorHandler("User already exists", 400));
+    }
+/*
     if (userEmail && req.file) {
       const filename = req.file.filename;
       const filePath = `uploads/${filename}`;
@@ -66,18 +69,19 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
         file,
         message:"Email registerd successfully! continue to login 😇",
       })
-    }
+    } */
+      const user = {
+        name: name,
+        email: email,
+        password: password,
+      };
+       await User.create(user);
+      res.send({
+        success:true,
+        message:"Email registerd successfully! continue to login 😇",
+        user
+      })
    
-    const user = {
-      name: name,
-      email: email,
-      password: password,
-    };
-     await User.create(user);
-    res.send({
-      success:true,
-      message:"Email registerd successfully! continue to login 😇",
-    })
     
     //const activationToken = createActivationToken(user);
 
