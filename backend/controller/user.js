@@ -26,11 +26,9 @@ router.post("/upload",upload.single("image"),function(req,res){
   })
  } 
 })
-router.post("/create-user", upload.single("file"), async (req, res, next) => {
-  console.log("File uploaded:", req.file);
+router.post("/create-user", async (req, res, next) => {
   try {
-    console.log(req.body);
-    
+    //upload.single("file"),    
     const { name, email, password } = req.body;
     const userEmail = await User.findOne({ email });
     if(userEmail){
