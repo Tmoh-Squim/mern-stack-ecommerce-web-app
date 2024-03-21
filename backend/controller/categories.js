@@ -58,9 +58,10 @@ router.get("/categories",async(req,res,next)=>{
     }
 })
 //updating the category....
-router.put("/update-category", async(req,res,next)=>{
+router.put("/update-category/:id", async(req,res,next)=>{
     try {
-        const {name,id} = req.body;
+        const {name} = req.body;
+        const id = req.params;
 
         const check = await categoryModel.findById(id);
 
