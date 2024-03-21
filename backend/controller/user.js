@@ -28,11 +28,15 @@ router.post("/upload",upload.single("image"),function(req,res){
 })
 router.post("/create-user", async (req, res, next) => {
   try {
-    //upload.single("file"),    
+    //upload.single("file"),
+    
     const { name, email, password } = req.body;
     const userEmail = await User.findOne({ email });
     if(userEmail){
-      return next(new ErrorHandler("User already exists", 400));
+      return next(new ErrorHandler(res.send({
+        success:false,
+       message: "Email already registered"
+      })));
     }
 /*
     if (userEmail && req.file) {
