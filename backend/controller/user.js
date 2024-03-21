@@ -29,10 +29,12 @@ router.post("/upload",upload.single("image"),function(req,res){
 router.post("/create-user", upload.single("file"), async (req, res, next) => {
   console.log("File uploaded:", req.file);
   try {
+    console.log(req.body);
+    
     const { name, email, password } = req.body;
     const userEmail = await User.findOne({ email });
 
-    if (userEmail) {
+    if (userEmail && req.file) {
       const filename = req.file.filename;
       const filePath = `uploads/${filename}`;
       fs.unlink(filePath, (err) => {
