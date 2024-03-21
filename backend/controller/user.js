@@ -13,6 +13,7 @@ const { isAuthenticated, isAdmin } = require("../middleware/auth");
 const cloudinary = require("../utils/cloudinary")
 require('dotenv').config()
 router.post("/upload",upload.single("image"),function(req,res){
+ if(req.file){
   cloudinary.uploader.upload(req.files.path,function(err,result){
     if(err){
       console.log(err)
@@ -23,6 +24,7 @@ router.post("/upload",upload.single("image"),function(req,res){
       message:"image upploaded",
     })
   })
+ } 
 })
 router.post("/create-user", upload.single("file"), async (req, res, next) => {
   console.log("File uploaded:", req.file);
@@ -41,24 +43,37 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
       });
       return next(new ErrorHandler("User already exists", 400));
     }
-    
-    const file = req.file;
-    const filepath =file.path
-    //const commitUrl = await commitToGitHub(fileUrl,filepath);
-    const result = await cloudinary.uploader.upload(filepath)
-    const fileUrl =result.secure_url;
+    if(req.file){
+      const file = req.file;
+      const filepath =file.path
+      //const commitUrl = await commitToGitHub(fileUrl,filepath);
+      const result = await cloudinary.uploader.upload(filepath)
+      const fileUrl =result.secure_url;
+
+      const user = {
+        name: name,
+        email: email,
+        password: password,
+        avatar: fileUrl,
+      };
+       await User.create(user);
+      res.send({
+        success:true,
+        filepath,
+        fileUrl,
+        file,
+        message:"Email registerd successfully! continue to login 😇",
+      })
+    }
+   
     const user = {
       name: name,
       email: email,
       password: password,
-      avatar: fileUrl,
     };
      await User.create(user);
     res.send({
       success:true,
-      filepath,
-      fileUrl,
-      file,
       message:"Email registerd successfully! continue to login 😇",
     })
     
