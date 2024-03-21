@@ -43,6 +43,20 @@ router.post("/create-category",upload.single("image"),async(req,res,next)=>{
 }
 )
 
+//fetching categories...
+router.get("/categories",async(req,res,next)=>{
+    try {
+        const categories = await categoryModel.find({})
+
+        res.status(200).json({
+            success: true,
+            count: categories.length,
+            categories
+        });
+    } catch (error) {
+        return next(new ErrorHandler(error.message, 400));
+    }
+})
 //updating the category....
 router.put("/update-category", async(req,res,next)=>{
     try {
