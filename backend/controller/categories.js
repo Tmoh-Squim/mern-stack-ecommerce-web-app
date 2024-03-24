@@ -23,11 +23,14 @@ router.post("/create-category",upload.single("image"),async(req,res,next)=>{
             return next(new ErrorHandler("Please upload category image", 400));
         }
         const result = await cloudinary.uploader.upload(file.path);
+        
         const fileUrl = result.secure_url;
+        const public_id = result.public_id;
 
         const newCategory = {
             name:name,
-            image:fileUrl
+            image:fileUrl,
+            public_id:public_id
         }
         const category = await categoryModel.create(newCategory)
 
@@ -58,23 +61,25 @@ router.get("/categories",async(req,res,next)=>{
     }
 })
 //updating the category....
-router.put("/update-category/:id", async(req,res,next)=>{
-    try {
+router.put("/update-category/:id",upload.single("image"), async(req,res,next)=>{
+    try {        
         const {name} = req.body;
-        const id = req.params;
-
+        const {id} = req.params;
         const check = await categoryModel.findById(id);
 
         if(!check){
             return next(new ErrorHandler("Category does not exist", 400));
         }
 
-        if(req.file){
-            await cloudinary.api.delete_derived([check.image.id]);
-            await cloudinary.api.delete_by_tags(check.image.public_id);
-            const result = await cloudinary.uploader.upload(req.file.path);
+        if(req.file && req.body){
+            const file = req.file;
+
+             await cloudinary.uploader.destroy(check?.public_id);
+            const result = await cloudinary.uploader.upload(file.path);
+            
             const imageUrl=result.secure_url;
-          const category =  await check.updateOne({image:imageUrl,name})
+            const public_id = result.public_id;
+          const category =  await categoryModel.findByIdAndUpdate(id,{image:imageUrl,name:name,public_id:public_id},{new:true});
 
             res.send({
                 success:true,
@@ -82,31 +87,51 @@ router.put("/update-category/:id", async(req,res,next)=>{
                 category
             })
         }
+        else if(!req.body && req.file){
+            const file = req.file;
 
-        const category = await categoryModel.findByIdAndUpdate(id,{name:name})
+             await cloudinary.uploader.destroy(check?.public_id);
+            const result = await cloudinary.uploader.upload(file.path);
+            
+            const imageUrl=result.secure_url;
+            const public_id = result.public_id;
+          const category =  await categoryModel.findByIdAndUpdate(id,{image:imageUrl,public_id:public_id},{new:true});
 
-        res.send({
-            success:true,
-            message:"Category updated successfully",
-            category
-        })
+            res.send({
+                success:true,
+                message:"Category updated successfully",
+                category
+            })
+        }
+        //else
+        else if(req.body && !req.file){
+            const category = await categoryModel.findByIdAndUpdate(id,{name:name},{new:true})
 
+            res.send({
+                success:true,
+                message:"Category updated successfully",
+                category
+            })
+    
+        }
     } catch (error) {
         return next(new ErrorHandler(error.message, 400));
     }
 })
 
-router.delete("delete-category", async(req,res,next)=>{
+router.delete("/delete-category/:id", async(req,res,next)=>{
     try {
-        const {id} = req.body;
+        const {id} = req.params;
 
         const check = await categoryModel.findById(id)
         if(!check){
             return next(new ErrorHandler("Category does not exist", 400));
-        }
-        await cloudinary.api.delete_derived([check.image.id])
-        await check.remove()
-        
+        }   
+
+       // Delete the image from Cloudinary using the extracted ID
+       await cloudinary.uploader.destroy(check?.public_id);
+
+        await categoryModel.findByIdAndDelete(id)
         res.status(200).send({
             message:"Category deleted Successfully"
         });
