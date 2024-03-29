@@ -112,7 +112,7 @@ if (userPhoneNumber && userPhoneNumber.toString().startsWith('0')) {
         toast.success("Order successful!");
         localStorage.setItem("cartItems", JSON.stringify([]));
         localStorage.setItem("latestOrder", JSON.stringify([]));
-        window.location.reload();
+        //window.location.reload();
       });
   };
 
@@ -164,7 +164,7 @@ if (userPhoneNumber && userPhoneNumber.toString().startsWith('0')) {
               toast.success("Order successful!");
               localStorage.setItem("cartItems", JSON.stringify([]));
               localStorage.setItem("latestOrder", JSON.stringify([]));
-              window.location.reload();
+              //window.location.reload();
             });
         }
       }
@@ -194,7 +194,7 @@ if (userPhoneNumber && userPhoneNumber.toString().startsWith('0')) {
         toast.success("Order successful!");
         localStorage.setItem("cartItems", JSON.stringify([]));
         localStorage.setItem("latestOrder", JSON.stringify([]));
-        window.location.reload();
+       // window.location.reload();
       });
   };
 
@@ -255,7 +255,7 @@ if (userPhoneNumber && userPhoneNumber.toString().startsWith('0')) {
             toast.success("Order successful!");
             localStorage.setItem("cartItems", JSON.stringify([]));
             localStorage.setItem("latestOrder", JSON.stringify([]));
-            window.location.reload();
+           // window.location.reload();
           } else {
             // Payment not confirmed, handle accordingly
             setOpen(true);
