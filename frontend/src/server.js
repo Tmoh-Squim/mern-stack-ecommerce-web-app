@@ -1,4 +1,4 @@
-export const server = "https://agriculture-server.onrender.com/api/v2";
+export const server = "https://mern-web-yn5l.onrender.com/api/v2";
 
-export const backend_url = "https://agriculture-server.onrender.com/";
-//mern-web-yn5l
+export const backend_url = "https://mern-web-yn5l.onrender.com/";
+//agriculture-server
