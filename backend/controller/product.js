@@ -162,12 +162,10 @@ router.get(
     try {
       const products = await Product.find().sort({ createdAt: -1 });
 
-      res.status(201).json(
-        products
-        /*{
+      res.status(201).json({
         success: true,
         products,
-      }*/);
+      });
     } catch (error) {
       return next(new ErrorHandler(error, 400));
     }
